@@ -1,0 +1,54 @@
+---
+layout: page
+title: Search
+permalink: /search/
+---
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+    <ul id="results-container"></ul>
+</div>
+
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+<script>
+    SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+    })
+</script>
+
+<style>
+    #search-container {
+        max-width: 100%;
+        padding: 20px;
+    }
+    #search-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    #results-container {
+        margin-top: 20px;
+        list-style-type: none;
+        padding: 0;
+    }
+    #results-container li {
+        margin-bottom: 10px;
+    }
+    #results-container li a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    #results-container li a:hover {
+        text-decoration: underline;
+    }
+</style>

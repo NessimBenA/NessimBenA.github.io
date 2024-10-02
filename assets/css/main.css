@@ -1,0 +1,211 @@
+/* One Piece Inspired Theme */
+
+:root {
+  --straw-hat-red: #D42A2A;
+  --ocean-blue: #1E90FF;
+  --sunny-yellow: #FFD700;
+  --log-pose-gray: #708090;
+  --den-den-mushi-green: #228B22;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  background-color: var(--straw-hat-red);
+  padding: 1rem 0;
+}
+
+.site-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site-nav {
+  float: right;
+}
+
+.site-nav .page-link {
+  color: white;
+  margin-left: 20px;
+}
+
+/* Main content */
+main {
+  background-color: white;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  color: var(--ocean-blue);
+}
+
+a {
+  color: var(--den-den-mushi-green);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Blog post preview */
+.post-preview {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post-meta {
+  color: var(--log-pose-gray);
+  font-size: 0.9rem;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--sunny-yellow);
+  color: #333;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #FFC700;
+  text-decoration: none;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--log-pose-gray);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.footer-heading {
+  color: var(--sunny-yellow);
+}
+
+.contact-list,
+.social-media-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+  .site-nav {
+    float: none;
+    margin-top: 1rem;
+  }
+
+  .site-nav .page-link {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+/* Syntax highlighting */
+pre,
+code {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  padding: 2px 4px;
+}
+
+/* Search form */
+.search-form {
+  margin-bottom: 2rem;
+}
+
+.search-form input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pagination a,
+.pagination span,
+.pagination em {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.pagination em {
+  background-color: var(--ocean-blue);
+  color: white;
+}
+
+/* Tags */
+.post-tags {
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--sunny-yellow);
+  color: #333;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+/* Share buttons */
+.share-buttons {
+  margin-top: 2rem;
+}
+
+.share-buttons a {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--ocean-blue);
+  color: white;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.share-buttons a:hover {
+  background-color: #1A7AE8;
+  text-decoration: none;
+}
