@@ -3,45 +3,91 @@ layout: default
 title: Blog
 ---
 
-<h1>Latest Posts</h1>
+<h1 class="page-heading">Encrypted Transmissions</h1>
 
-{% for post in paginator.posts %}
-<article class="post-preview">
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+<div class="post-list">
+  {% for post in paginator.posts %}
+  <article class="post-preview">
+    <h2>
+      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    </h2>
     <p class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">
-            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-            {{ post.date | date: date_format }}
-        </time>
+      <time datetime="{{ post.date | date_to_xmlschema }}">
+        {%- assign date_format = site.hacker_theme.date_format | default: "%Y.%m.%d" -%}
+        {{ post.date | date: date_format }}
+      </time>
     </p>
     <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
-    <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
-</article>
-{% endfor %}
+    <a href="{{ post.url | relative_url }}" class="read-more">Decrypt Full Message</a>
+  </article>
+  {% endfor %}
+</div>
 
 <!-- Pagination links -->
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
-    {% else %}
-    <span>&laquo; Prev</span>
-    {% endif %}
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+  {% else %}
+    <span>&laquo; Previous</span>
+  {% endif %}
 
-    {% for page in (1..paginator.total_pages) %}
+  {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
-    <em>{{ page }}</em>
+      <em>{{ page }}</em>
     {% elsif page == 1 %}
-    <a href="{{ '/blog' | relative_url }}">{{ page }}</a>
+      <a href="{{ '/blog' | relative_url }}">{{ page }}</a>
     {% else %}
-    <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
     {% endif %}
-    {% endfor %}
+  {% endfor %}
 
-    {% if paginator.next_page %}
+  {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
-    {% else %}
+  {% else %}
     <span>Next &raquo;</span>
-    {% endif %}
+  {% endif %}
 </div>
 {% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  const pageHeading = document.querySelector('.page-heading');
+  if (pageHeading) {
+    pageHeading.style.animation = 'flicker 2s linear infinite';
+  }
+  
+  const postLinks = document.querySelectorAll('.post-link');
+  postLinks.forEach(link => {
+    link.addEventListener('mouseover', () => {
+      link.style.textShadow = '0 0 5px #00ff00, 0 0 10px #00ff00';
+    });
+    link.addEventListener('mouseout', () => {
+      link.style.textShadow = 'none';
+    });
+  });
+  
+  const readMoreLinks = document.querySelectorAll('.read-more');
+  readMoreLinks.forEach(link => {
+    link.addEventListener('mouseover', () => {
+      link.style.backgroundColor = '#00FFFF';
+      link.style.color = '#0C0C0C';
+    });
+    link.addEventListener('mouseout', () => {
+      link.style.backgroundColor = '';
+      link.style.color = '';
+    });
+  });
+});
+</script>
+
+<style>
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: .99;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+</style>

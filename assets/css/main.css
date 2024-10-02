@@ -1,18 +1,20 @@
-/* One Piece Inspired Theme */
+/* 90s Hacker Theme */
 
 :root {
-  --straw-hat-red: #D42A2A;
-  --ocean-blue: #1E90FF;
-  --sunny-yellow: #FFD700;
-  --log-pose-gray: #708090;
-  --den-den-mushi-green: #228B22;
+  --matrix-green: #00FF00;
+  --dark-terminal: #0C0C0C;
+  --neon-blue: #00FFFF;
+  --retro-purple: #800080;
+  --warning-red: #FF0000;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'VT323', 'Courier New', Courier, monospace;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  color: var(--matrix-green);
+  background-color: var(--dark-terminal);
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper {
@@ -23,15 +25,39 @@ body {
 
 /* Header */
 .site-header {
-  background-color: var(--straw-hat-red);
+  background-color: var(--dark-terminal);
+  border-bottom: 2px solid var(--matrix-green);
   padding: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--matrix-green), var(--neon-blue), var(--retro-purple));
+  animation: glitch 2s linear infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .site-title {
-  color: white;
+  color: var(--neon-blue);
   font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
+  text-shadow: 0 0 5px var(--neon-blue);
 }
 
 .site-nav {
@@ -39,41 +65,50 @@ body {
 }
 
 .site-nav .page-link {
-  color: white;
+  color: var(--matrix-green);
   margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.site-nav .page-link:hover {
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
 }
 
 /* Main content */
 main {
-  background-color: white;
+  background-color: var(--dark-terminal);
   padding: 2rem;
   margin-top: 2rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--matrix-green);
+  box-shadow: 0 0 10px var(--matrix-green);
 }
 
 h1, h2, h3 {
-  color: var(--ocean-blue);
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
 }
 
 a {
-  color: var(--den-den-mushi-green);
+  color: var(--retro-purple);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
 }
 
 /* Blog post preview */
 .post-preview {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--matrix-green);
 }
 
 .post-meta {
-  color: var(--log-pose-gray);
+  color: var(--retro-purple);
   font-size: 0.9rem;
 }
 
@@ -81,27 +116,30 @@ a:hover {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: var(--sunny-yellow);
-  color: #333;
+  background-color: var(--matrix-green);
+  color: var(--dark-terminal);
   border-radius: 3px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .read-more:hover {
-  background-color: #FFC700;
-  text-decoration: none;
+  background-color: var(--neon-blue);
+  color: var(--dark-terminal);
+  text-shadow: none;
 }
 
 /* Footer */
 .site-footer {
-  background-color: var(--log-pose-gray);
-  color: white;
+  background-color: var(--dark-terminal);
+  color: var(--matrix-green);
   padding: 2rem 0;
   margin-top: 2rem;
+  border-top: 2px solid var(--matrix-green);
 }
 
 .footer-heading {
-  color: var(--sunny-yellow);
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
 }
 
 .contact-list,
@@ -126,10 +164,10 @@ a:hover {
 /* Syntax highlighting */
 pre,
 code {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
+  background-color: #1A1A1A;
+  border: 1px solid var(--matrix-green);
   border-radius: 3px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'VT323', 'Courier New', Courier, monospace;
 }
 
 pre {
@@ -139,6 +177,7 @@ pre {
 
 code {
   padding: 2px 4px;
+  color: var(--neon-blue);
 }
 
 /* Search form */
@@ -150,7 +189,9 @@ code {
   width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  background-color: var(--dark-terminal);
+  border: 1px solid var(--matrix-green);
+  color: var(--matrix-green);
   border-radius: 3px;
 }
 
@@ -166,13 +207,13 @@ code {
 .pagination em {
   padding: 0.5rem 1rem;
   margin: 0 0.25rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--matrix-green);
   border-radius: 3px;
 }
 
 .pagination em {
-  background-color: var(--ocean-blue);
-  color: white;
+  background-color: var(--matrix-green);
+  color: var(--dark-terminal);
 }
 
 /* Tags */
@@ -182,8 +223,8 @@ code {
 
 .tag {
   display: inline-block;
-  background-color: var(--sunny-yellow);
-  color: #333;
+  background-color: var(--retro-purple);
+  color: var(--dark-terminal);
   padding: 0.25rem 0.5rem;
   margin-right: 0.5rem;
   border-radius: 3px;
@@ -199,13 +240,55 @@ code {
   display: inline-block;
   margin-right: 1rem;
   padding: 0.5rem 1rem;
-  background-color: var(--ocean-blue);
-  color: white;
+  background-color: var(--matrix-green);
+  color: var(--dark-terminal);
   border-radius: 3px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .share-buttons a:hover {
-  background-color: #1A7AE8;
-  text-decoration: none;
+  background-color: var(--neon-blue);
+  color: var(--dark-terminal);
+  text-shadow: none;
+}
+
+/* Custom animations */
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: .99;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+
+.flicker {
+  animation: flicker 2s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--matrix-green);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--matrix-green), 0 0 30px var(--neon-blue);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--matrix-green);
+  }
+}
+
+.glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Matrix rain effect */
+#matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 }

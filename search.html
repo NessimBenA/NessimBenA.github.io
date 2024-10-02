@@ -5,7 +5,7 @@ permalink: /search/
 ---
 
 <div id="search-container">
-    <input type="text" id="search-input" placeholder="Search...">
+    <input type="text" id="search-input" placeholder="Initiate search sequence...">
     <ul id="results-container"></ul>
 </div>
 
@@ -16,7 +16,7 @@ permalink: /search/
     resultsContainer: document.getElementById('results-container'),
     json: '/search.json',
     searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: 'No results found',
+    noResultsText: 'No data found in the system',
     limit: 10,
     fuzzy: false,
     exclude: ['Welcome']
@@ -27,13 +27,18 @@ permalink: /search/
     #search-container {
         max-width: 100%;
         padding: 20px;
+        background-color: #0C0C0C;
+        border: 1px solid #00FF00;
+        box-shadow: 0 0 10px #00FF00;
     }
     #search-input {
         width: 100%;
         padding: 10px;
         font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+        background-color: #1A1A1A;
+        border: 1px solid #00FF00;
+        color: #00FF00;
+        font-family: 'VT323', 'Courier New', Courier, monospace;
     }
     #results-container {
         margin-top: 20px;
@@ -44,11 +49,21 @@ permalink: /search/
         margin-bottom: 10px;
     }
     #results-container li a {
-        color: #1a1a1a;
+        color: #00FFFF;
         text-decoration: none;
         font-size: 18px;
+        font-family: 'VT323', 'Courier New', Courier, monospace;
     }
     #results-container li a:hover {
         text-decoration: underline;
+        color: #FF00FF;
+        text-shadow: 0 0 5px #FF00FF;
     }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const searchInput = document.getElementById('search-input');
+    searchInput.classList.add('glow');
+});
+</script>

@@ -1,10 +1,10 @@
-# One Piece Inspired Personal Blog
+# The Hacker's Hideout
 
-This is a Jekyll-based personal blog website with a subtle One Piece theme. It's designed to showcase blog posts, projects, and personal information.
+Welcome to The Hacker's Hideout, a Jekyll-based personal blog website with a 90s hacker theme. This digital sanctuary is designed to showcase blog posts, projects, and personal information with a cyberpunk aesthetic.
 
 ## Features
 
-- Responsive design
+- Responsive design with a retro hacker feel
 - Blog post listing with pagination
 - Projects showcase
 - About page
@@ -14,6 +14,7 @@ This is a Jekyll-based personal blog website with a subtle One Piece theme. It's
 - Google Analytics integration
 - Disqus comments
 - Social media sharing buttons
+- Matrix-style background animation
 
 ## Getting Started
 
@@ -25,15 +26,15 @@ This is a Jekyll-based personal blog website with a subtle One Piece theme. It's
 
 ### Installation
 
-1. Install Jekyll and Bundler:
-   ```
-   gem install jekyll bundler
-   ```
-
-2. Clone this repository:
+1. Clone this repository:
    ```
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
+   ```
+
+2. Install Jekyll and Bundler:
+   ```
+   gem install jekyll bundler
    ```
 
 3. Install dependencies:
@@ -46,14 +47,14 @@ This is a Jekyll-based personal blog website with a subtle One Piece theme. It's
    bundle exec jekyll serve
    ```
 
-5. Open your browser and visit: `http://localhost:4000`
+5. Access the site at `http://localhost:4000`
 
-## Usage
+## Customization
 
 ### Adding a New Blog Post
 
-1. Create a new file in the `_posts` directory with the format: `YYYY-MM-DD-title.md`
-2. Add the following front matter to the top of the file:
+1. Create a new file in the `_posts` directory: `YYYY-MM-DD-title.md`
+2. Add front matter:
    ```yaml
    ---
    layout: post
@@ -63,12 +64,12 @@ This is a Jekyll-based personal blog website with a subtle One Piece theme. It's
    tags: [tag1, tag2]
    ---
    ```
-3. Write your blog post content in Markdown format below the front matter.
+3. Write your post content in Markdown below the front matter.
 
 ### Adding a New Project
 
-1. Create a new file in the `_projects` directory with the format: `project-name.md`
-2. Add the following front matter to the top of the file:
+1. Create a new file in the `_projects` directory: `project-name.md`
+2. Add front matter:
    ```yaml
    ---
    layout: project
@@ -79,25 +80,25 @@ This is a Jekyll-based personal blog website with a subtle One Piece theme. It's
    live_demo: "https://your-project-demo.com"
    ---
    ```
-3. Write your project description and details in Markdown format below the front matter.
+3. Describe your project in Markdown below the front matter.
 
-### Customizing the Theme
+### Theme Customization
 
-- To modify the color scheme, edit the CSS variables in `assets/css/main.css`
-- To change the layout, edit the HTML files in the `_layouts` and `_includes` directories
-- To update the navigation menu, edit `_data/navigation.yml`
+- Modify color scheme: Edit CSS variables in `assets/css/main.css`
+- Adjust layouts: Edit HTML files in `_layouts` and `_includes` directories
+- Update navigation: Edit `_data/navigation.yml`
 
 ## Deployment
 
-To deploy your website to GitHub Pages:
+To deploy to GitHub Pages:
 
-1. Update the `url` in `_config.yml` to match your GitHub Pages URL
-2. Push your changes to the `main` branch of your GitHub repository
+1. Update `url` in `_config.yml` to match your GitHub Pages URL
+2. Push changes to the `main` branch of your GitHub repository
 3. GitHub Actions will automatically build and deploy your site
 
 ## Contributing
 
-If you'd like to contribute to this project, please fork the repository and create a pull request, or open an issue for discussion.
+Contributions are welcome! Please fork the repository and create a pull request with your features or fixes.
 
 ## License
 
@@ -105,8 +106,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
-- Jekyll team for the amazing static site generator
-- One Piece creators for the inspiration
-- All the contributors and users of this theme
+- Jekyll team for the static site generator
+- The cyberpunk and hacker culture for inspiration
+- All contributors and users of this theme
 
-Happy blogging, and may your journey be as exciting as the search for the One Piece!
+Happy hacking, and may your code always compile on the first try!

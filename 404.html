@@ -8,26 +8,79 @@ layout: default
     margin: 10px auto;
     max-width: 600px;
     text-align: center;
+    font-family: 'VT323', monospace;
   }
   h1 {
     margin: 30px 0;
     font-size: 4em;
     line-height: 1;
     letter-spacing: -1px;
+    color: #00FFFF;
+    animation: glitch 1s linear infinite;
+  }
+  p {
+    color: #00FF00;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  ul li {
+    margin: 10px 0;
+  }
+  ul li a {
+    color: #FF00FF;
+    text-decoration: none;
+  }
+  ul li a:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 5px #FF00FF;
+  }
+  @keyframes glitch {
+    2%,64%{
+      transform: translate(2px,0) skew(0deg);
+    }
+    4%,60%{
+      transform: translate(-2px,0) skew(0deg);
+    }
+    62%{
+      transform: translate(0,0) skew(5deg); 
+    }
   }
 </style>
 
 <div class="container">
   <h1>404</h1>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>Looks like you've sailed off course! The requested page could not be found.</p>
-  <p>Don't worry, even the best pirates sometimes lose their way. Let's get you back on track:</p>
-  <ul style="list-style-type: none; padding: 0;">
-    <li><a href="/">Home</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/projects">Projects</a></li>
-    <li><a href="/about">About</a></li>
+  <p><strong>Access Denied :(</strong></p>
+  <p>The requested file has been moved, deleted, or never existed in this dimension.</p>
+  <p>Possible causes:</p>
+  <ul>
+    <li>Firewall interference</li>
+    <li>Temporal anomaly</li>
+    <li>Interdimensional shift</li>
+    <li>User error (least likely)</li>
   </ul>
-  <p>If you think this is a mistake, please <a href="mailto:{{ site.email }}">contact us</a>.</p>
+  <p>Initiate return sequence to known coordinates:</p>
+  <ul>
+    <li><a href="/">Home Base</a></li>
+    <li><a href="/blog">Logs</a></li>
+    <li><a href="/projects">Operations</a></li>
+    <li><a href="/about">Dossier</a></li>
+  </ul>
+  <p>If you believe this is a glitch in the Matrix, please <a href="mailto:{{ site.email }}">alert the Architect</a>.</p>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  const container = document.querySelector('.container');
+  container.style.animation = 'fadeIn 1s ease-out';
+});
+</script>
+
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>

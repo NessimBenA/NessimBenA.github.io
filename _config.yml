@@ -1,13 +1,13 @@
 # Site settings
-title: My One Piece Inspired Blog
+title: The Hacker's Hideout
 email: your-email@example.com
 description: >-
-  A personal blog sharing learning experiences and projects, 
-  with a subtle One Piece inspired theme.
+  A 90s-style hacker blog exploring the digital frontier, 
+  sharing coding adventures and cybersecurity insights.
 baseurl: ""
 url: "https://your-username.github.io"
 github_username: your-github-username
-author: Your Name
+author: Your Hacker Alias
 
 # Build settings
 markdown: kramdown
@@ -56,7 +56,7 @@ twitter:
   card: summary_large_image
 
 social:
-  name: Your Name
+  name: Your Hacker Alias
   links:
     - https://twitter.com/your-twitter-username
     - https://www.facebook.com/your-facebook-username
@@ -76,3 +76,8 @@ exclude:
 # Search settings
 search_enabled: true
 search_tokenizer_separator: /[\s/]+/
+
+# Theme settings
+hacker_theme:
+  date_format: "%Y.%m.%d"
+  time_format: "%H:%M:%S"

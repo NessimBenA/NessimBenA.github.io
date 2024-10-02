@@ -34,8 +34,30 @@
 
   <div class="footer-bottom">
     <div class="wrapper">
-      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}. All rights reserved. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and inspired by <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki">One Piece</a>.</p>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}. All rights reserved. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and fueled by caffeine and curiosity.</p>
     </div>
   </div>
 
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  const footer = document.querySelector('.site-footer');
+  if (footer) {
+    footer.style.borderTop = '1px solid #00FF00';
+    footer.style.boxShadow = '0 -5px 15px rgba(0, 255, 0, 0.1)';
+  }
+  
+  const links = document.querySelectorAll('.site-footer a');
+  links.forEach(link => {
+    link.addEventListener('mouseover', () => {
+      link.style.color = '#00FFFF';
+      link.style.textShadow = '0 0 5px #00FFFF';
+    });
+    link.addEventListener('mouseout', () => {
+      link.style.color = '';
+      link.style.textShadow = '';
+    });
+  });
+});
+</script>

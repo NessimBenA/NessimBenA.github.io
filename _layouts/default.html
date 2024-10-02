@@ -3,17 +3,16 @@
 
   {%- include head.html -%}
 
-  <body>
+  <body class="hacker-theme">
+    <div class="page-content">
+      {%- include header.html -%}
 
-    {%- include header.html -%}
-
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+      <main class="wrapper">
         {{ content }}
-      </div>
-    </main>
+      </main>
 
-    {%- include footer.html -%}
+      {%- include footer.html -%}
+    </div>
 
     {% if site.search_enabled %}
     <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
@@ -23,7 +22,7 @@
         resultsContainer: document.getElementById('results-container'),
         json: '/search.json',
         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-        noResultsText: 'No results found',
+        noResultsText: 'No data found in the system',
         limit: 10,
         fuzzy: false,
         exclude: ['Welcome']
@@ -31,6 +30,7 @@
     </script>
     {% endif %}
 
+    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
   </body>
 
 </html>
