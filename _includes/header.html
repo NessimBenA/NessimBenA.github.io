@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const navLinks = document.querySelectorAll('.page-link');
   navLinks.forEach(link => {
     link.addEventListener('mouseover', () => {
-      link.style.textShadow = '0 0 5px #00ff00, 0 0 10px #00ff00';
+      link.style.textShadow = '0 0 5px var(--text-primary), 0 0 10px var(--text-primary)';
     });
     link.addEventListener('mouseout', () => {
       link.style.textShadow = 'none';

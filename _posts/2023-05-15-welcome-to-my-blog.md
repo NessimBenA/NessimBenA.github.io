@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <style>
 @keyframes glow {
   from {
-    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+    box-shadow: 0 0 5px var(--text-primary), 0 0 10px var(--text-primary), 0 0 15px var(--text-primary), 0 0 20px var(--text-primary);
   }
   to {
-    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    box-shadow: 0 0 10px var(--text-primary), 0 0 20px var(--text-primary), 0 0 30px var(--text-primary), 0 0 40px var(--text-primary);
   }
 }
 @keyframes glitchIn {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   10% {
     opacity: 0.5;
     transform: translateX(20px);
-    text-shadow: -2px 0 #00ffff, 2px 0 #ff00ff;
+    text-shadow: -2px 0 var(--text-secondary), 2px 0 var(--accent-primary);
   }
   100% {
     opacity: 1;

@@ -42,7 +42,7 @@ layout: default
 document.addEventListener('DOMContentLoaded', (event) => {
   const postTitle = document.querySelector('.post-title');
   if (postTitle) {
-    postTitle.style.textShadow = '0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00';
+    postTitle.style.textShadow = '0 0 5px var(--text-secondary), 0 0 10px var(--text-secondary), 0 0 15px var(--text-secondary), 0 0 20px var(--text-secondary)';
   }
   
   const tags = document.querySelectorAll('.tag');
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const shareButtons = document.querySelectorAll('.share-buttons a');
   shareButtons.forEach(button => {
     button.addEventListener('mouseover', () => {
-      button.style.backgroundColor = '#00FFFF';
-      button.style.color = '#0C0C0C';
+      button.style.backgroundColor = 'var(--text-secondary)';
+      button.style.color = 'var(--background-primary)';
     });
     button.addEventListener('mouseout', () => {
       button.style.backgroundColor = '';
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <style>
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+    box-shadow: 0 0 0 0 var(--accent-primary);
   }
   70% {
     box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);

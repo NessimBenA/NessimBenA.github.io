@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   10% {
     opacity: 0.5;
     transform: translateX(20px);
-    text-shadow: -2px 0 #00ffff, 2px 0 #ff00ff;
+    text-shadow: -2px 0 var(--text-secondary), 2px 0 var(--accent-primary);
   }
   100% {
     opacity: 1;

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const postLinks = document.querySelectorAll('.post-link');
   postLinks.forEach(link => {
     link.addEventListener('mouseover', () => {
-      link.style.textShadow = '0 0 5px #00ff00, 0 0 10px #00ff00';
+      link.style.textShadow = '0 0 5px var(--text-primary), 0 0 10px var(--text-primary)';
     });
     link.addEventListener('mouseout', () => {
       link.style.textShadow = 'none';
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const readMoreLinks = document.querySelectorAll('.read-more');
   readMoreLinks.forEach(link => {
     link.addEventListener('mouseover', () => {
-      link.style.backgroundColor = '#00FFFF';
-      link.style.color = '#0C0C0C';
+      link.style.backgroundColor = 'var(--text-secondary)';
+      link.style.color = 'var(--background-primary)';
     });
     link.addEventListener('mouseout', () => {
       link.style.backgroundColor = '';

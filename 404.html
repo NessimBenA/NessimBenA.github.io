@@ -15,11 +15,11 @@ layout: default
     font-size: 4em;
     line-height: 1;
     letter-spacing: -1px;
-    color: #00FFFF;
+    color: var(--text-secondary);
     animation: glitch 1s linear infinite;
   }
   p {
-    color: #00FF00;
+    color: var(--text-primary);
   }
   ul {
     list-style-type: none;
@@ -29,12 +29,12 @@ layout: default
     margin: 10px 0;
   }
   ul li a {
-    color: #FF00FF;
+    color: var(--accent-primary);
     text-decoration: none;
   }
   ul li a:hover {
     text-decoration: underline;
-    text-shadow: 0 0 5px #FF00FF;
+    text-shadow: 0 0 5px var(--accent-primary);
   }
   @keyframes glitch {
     2%,64%{

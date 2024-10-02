@@ -44,15 +44,15 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   const footer = document.querySelector('.site-footer');
   if (footer) {
-    footer.style.borderTop = '1px solid #00FF00';
+    footer.style.borderTop = '1px solid var(--text-primary)';
     footer.style.boxShadow = '0 -5px 15px rgba(0, 255, 0, 0.1)';
   }
   
   const links = document.querySelectorAll('.site-footer a');
   links.forEach(link => {
     link.addEventListener('mouseover', () => {
-      link.style.color = '#00FFFF';
-      link.style.textShadow = '0 0 5px #00FFFF';
+      link.style.color = 'var(--text-secondary)';
+      link.style.textShadow = '0 0 5px var(--text-secondary)';
     });
     link.addEventListener('mouseout', () => {
       link.style.color = '';
