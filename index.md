@@ -7,16 +7,14 @@ title: Home
 
 ## About Me
 
-Greetings, fellow cybernaut! I'm [Your Hacker Alias], a digital explorer navigating the vast realms of cyberspace. This terminal is my connection to the world, where I share my exploits in coding, security, and the digital underground.
+Hello Everyone, Welcome to my personal website where i share my thoughts, projects, and everything that i work on and find interesting.
 
 ## My Arsenal
 
-- Network Infiltration
-- Code Manipulation
-- Data Encryption
-- System Architecture
-- AI and Machine Learning
-- Cybersecurity
+- Artificial Intelligence 
+- Data Manipulation
+- Computational fluid dynamics
+- (In development) Web Development
 
 ## Recent Transmissions
 

@@ -4,44 +4,39 @@ title: About
 permalink: /about/
 ---
 
-# Dossier: The Digital Phantom
+# Dossier: Nessim Hideout
 
-Greetings, netizen. You've stumbled upon the digital lair of [Your Hacker Alias], a ghost in the machine, navigating the neon-lit corridors of cyberspace.
+Hello Everyone, Welcome to my personl website where i share my thoughts, projects and everything that i find intersting and worth sharing.
 
 ## The Mission
 
-In a world of bits and bytes, I'm on a relentless quest to unravel the mysteries of the digital realm. My mission: to explore the frontiers of technology, expose vulnerabilities, and push the boundaries of what's possible in the virtual world.
+I am interested in everything complicated and abstract frankly, the higher the abstraction the better, and the more beautiful the project is the better. I am trying to improve my math and computer science skills and see how far i can go. 
 
 ## Arsenal of Skills
 
-- **Code Manipulation**: C++, Python, Assembly (My digital lockpicks)
-- **Network Infiltration**: TCP/IP, Wireshark, Nmap (My radar in the digital ocean)
-- **System Architecture**: Linux, Windows, macOS (I speak the language of machines)
-- **Web Exploitation**: SQL injection, XSS, CSRF (The web is my playground)
-- **Reverse Engineering**: IDA Pro, Ghidra (Unraveling digital mysteries)
-- **Cryptography**: RSA, AES, Quantum Cryptography (Keeper of secrets)
+- **Deep Learning**: NLP, Computer Vision, On-device Models 
+- **Learning Theory**: From Spiking neural networks to reservoir computing.  
+- **Computational Fluid Dynamics**: From heat diffusion to much more complicated stuff
+- **Large data Manipultion**: Working and interested on data that is too large
+- **Web development and deployment**: Learning the basics for now, HTML, CSS and Javascript
 
-## The Hacker Ethos
+## The Theme
 
-I believe in the power of knowledge and the freedom of information. Like the cyberpunks of old, I strive to use my skills for the greater good, exposing flaws in the system and advocating for digital rights and privacy.
+I always found Gabby from NCIS with her hacker scenes amazing when i was a kid (i know, i know) so that's the theme i am going for in this website.
 
 ## Achievements and Exploits
-
-- Discovered and responsibly disclosed vulnerabilities in major corporate networks
-- Contributed to open-source security tools used by white-hat hackers worldwide
-- Competed in international CTF (Capture The Flag) competitions, consistently ranking in the top percentile
-- Presented at underground hacker conventions on advanced exploitation techniques
+**Disclaimer**: I don't think i really have done any achievements or exploits, but here is a few fun things that i've worked on. 
+- Discovered that interpolating the last layer in segmentation neural network gives you the ability to adjust the segmentation area.
+- Worked on Medical Diagnosis algorithms for Giant-cell arteritis
+- Found out a method to effectively generalize neural networks to cross domain in-device wifi sensing. 
 
 ## Connect on the Dark Channels
 
-- IRC: #phantom_node on FreeNode
-- Encrypted Email: [Your PGP-encrypted email]
-- GitHub: [Your GitHub Profile]
-- Twitter: @[Your Twitter Handle]
+- Email: bbesnessim at gmail dot com. add an a at the beginning 
+- GitHub: [GitHub Profile\]](https://github.com/NessimBenA)
+- Twitter: @[DavHilbert]
 
-Remember, in this digital age, we're all living in a cyberpunk novel. The only question is: are you writing the story, or are you just a character in someone else's code?
-
-"The keyboard is mightier than the sword." - [Your Hacker Alias]
+Remember, Having fun when learning is the only goal.
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
