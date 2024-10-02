@@ -33,7 +33,7 @@ I always found Gabby from NCIS with her hacker scenes amazing when i was a kid (
 ## Connect on the Dark Channels
 
 - Email: bbesnessim at gmail dot com. add an a at the beginning 
-- GitHub: [GitHub Profile\]](https://github.com/NessimBenA)
+- GitHub: [GitHub Profile](https://github.com/NessimBenA)
 - Twitter: @[DavHilbert]
 
 Remember, Having fun when learning is the only goal.
