@@ -1,0 +1,71 @@
+---
+layout: default
+---
+<article class="project">
+  <header class="project-header">
+    <h1 class="project-title">{{ page.title }}</h1>
+    <p class="project-meta">
+      {% if page.tech_stack %}
+        <span class="tech-stack">Tech Stack: {{ page.tech_stack | join: ", " }}</span>
+      {% endif %}
+      {% if page.github_repo %}
+        <span class="github-repo">
+          <a href="{{ page.github_repo }}" target="_blank">GitHub Repository</a>
+        </span>
+      {% endif %}
+      {% if page.status %}
+        <span class="project-status">Status: {{ page.status }}</span>
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="project-content">
+    {{ content }}
+  </div>
+
+  <footer class="project-footer">
+    <a href="{{ site.baseurl }}/projects">&larr; Back to Projects</a>
+  </footer>
+</article>
+
+<style>
+  .project {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+  }
+  .project-header {
+    border-bottom: 1px solid #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  .project-title {
+    color: #00ff00;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .project-meta {
+    font-size: 0.9em;
+    color: #888;
+  }
+  .project-meta span {
+    margin-right: 15px;
+  }
+  .project-content {
+    line-height: 1.6;
+  }
+  .project-footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .project-footer a {
+    color: #00ff00;
+    text-decoration: none;
+  }
+  .project-footer a:hover {
+    text-decoration: underline;
+  }
+</style>

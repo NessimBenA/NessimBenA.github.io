@@ -8,45 +8,16 @@ permalink: /projects/
 
 Welcome to the project vault, a repository of digital experiments and cyber operations. Each project is a foray into the unknown, pushing the boundaries of what's possible in the digital frontier.
 
-## Operation: Neural Nexus
+{% for project in site.projects %}
+## [{{ project.title }}]({{ site.baseurl }}{{ project.url }})
 
-An AI-powered intrusion detection system that learns and adapts to new threats in real-time.
+{{ project.description }}
 
-- **Tech Stack**: Python, TensorFlow, Keras
-- **GitHub Repository**: [Link to repo]
-- **Status**: Active Development
+- **Tech Stack**: {{ project.tech_stack | join: ", " }}
+- **GitHub Repository**: [Link to repo]({{ project.github_repo }})
+- **Status**: {{ project.status }}
 
-## Project: Quantum Cipher
-
-A post-quantum cryptography implementation, designed to withstand the decryption attempts of future quantum computers.
-
-- **Tech Stack**: Rust, CRYSTALS-Kyber
-- **GitHub Repository**: [Link to repo]
-- **Whitepaper**: [Link to detailed project explanation]
-
-## Codename: Ghost Protocol
-
-A suite of privacy-enhancing tools for secure communication and anonymous browsing.
-
-- **Tech Stack**: C++, Tor, Signal Protocol
-- **GitHub Repository**: [Link to repo]
-- **Download**: [Link to latest release]
-
-## Operation: Time Warp
-
-A retro computing emulator that allows you to experience and interact with classic systems from the 80s and 90s.
-
-- **Tech Stack**: C, Assembly, SDL2
-- **GitHub Repository**: [Link to repo]
-- **Live Demo**: [Link to web-based demo]
-
-## Project: Matrix Unloaded
-
-A cyberpunk-themed text adventure game with procedurally generated storylines and hacking mini-games.
-
-- **Tech Stack**: Rust, WebAssembly
-- **GitHub Repository**: [Link to repo]
-- **Play Now**: [Link to game]
+{% endfor %}
 
 ---
 

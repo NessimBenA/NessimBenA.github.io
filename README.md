@@ -1,113 +1,90 @@
-# The Hacker's Hideout
+# NessimBenA.github.io
 
-Welcome to The Hacker's Hideout, a Jekyll-based personal blog website with a 90s hacker theme. This digital sanctuary is designed to showcase blog posts, projects, and personal information with a cyberpunk aesthetic.
+Welcome to my personal website, hosted on GitHub Pages. This site serves as a platform to showcase my blog posts, projects, and personal information.
 
 ## Features
 
-- Responsive design with a retro hacker feel
-- Blog post listing with pagination
-- Projects showcase
+- Responsive design
+- Blog post listing
+- Dynamic projects showcase
 - About page
 - Search functionality
-- Syntax highlighting for code snippets
 - SEO optimization
-- Google Analytics integration
-- Disqus comments
-- Social media sharing buttons
-- Matrix-style background animation
 
-## Getting Started
+## Website Structure
 
-### Prerequisites
+- `index.md`: The home page of the website
+- `about.md`: Information about me
+- `projects.md`: Dynamic showcase of my projects
+- `blog.html`: Listing of blog posts
+- `_posts/`: Directory containing blog post files
+- `_projects/`: Directory containing individual project files
+- `assets/`: Directory containing CSS and JavaScript files
+- `_includes/`: Directory containing reusable HTML components
+- `_layouts/`: Directory containing page layout templates
 
-- Ruby (version 2.5.0 or higher)
-- RubyGems
-- GCC and Make
+## Adding Content
 
-### Installation
+### New Blog Post
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
-   ```
+To add a new blog post, create a new file in the `_posts` directory with the naming convention `YYYY-MM-DD-title.md`. Include the necessary front matter at the top of the file:
 
-2. Install Jekyll and Bundler:
-   ```
-   gem install jekyll bundler
-   ```
+```yaml
+---
+layout: post
+title: "Your Post Title"
+date: YYYY-MM-DD HH:MM:SS -0000
+categories: [category1, category2]
+---
+```
 
-3. Install dependencies:
-   ```
-   bundle install
-   ```
+Then, write your post content in Markdown below the front matter.
 
-4. Run the website locally:
-   ```
-   bundle exec jekyll serve
-   ```
+### New Project
 
-5. Access the site at `http://localhost:4000`
+To add a new project:
+
+1. Create a new Markdown file in the `_projects` directory (e.g., `new-project-name.md`).
+2. Use the following front matter template at the top of the file:
+
+```yaml
+---
+layout: project
+title: Your Project Title
+description: A brief description of your project.
+tech_stack: 
+  - Technology 1
+  - Technology 2
+  - Technology 3
+github_repo: https://github.com/yourusername/project-repo
+status: Active Development
+---
+```
+
+3. Below the front matter, add the detailed content of your project using Markdown.
+
+The `projects.md` file will automatically list all projects from the `_projects` directory, displaying their title, description, tech stack, GitHub repository link, and status.
 
 ## Customization
 
-### Adding a New Blog Post
-
-1. Create a new file in the `_posts` directory: `YYYY-MM-DD-title.md`
-2. Add front matter:
-   ```yaml
-   ---
-   layout: post
-   title: "Your Post Title"
-   date: YYYY-MM-DD HH:MM:SS -0000
-   categories: [category1, category2]
-   tags: [tag1, tag2]
-   ---
-   ```
-3. Write your post content in Markdown below the front matter.
-
-### Adding a New Project
-
-1. Create a new file in the `_projects` directory: `project-name.md`
-2. Add front matter:
-   ```yaml
-   ---
-   layout: project
-   title: "Your Project Title"
-   description: "Short project description"
-   tech_stack: [tech1, tech2]
-   github_link: "https://github.com/your-username/project-repo"
-   live_demo: "https://your-project-demo.com"
-   ---
-   ```
-3. Describe your project in Markdown below the front matter.
-
-### Theme Customization
-
-- Modify color scheme: Edit CSS variables in `assets/css/main.css`
-- Adjust layouts: Edit HTML files in `_layouts` and `_includes` directories
-- Update navigation: Edit `_data/navigation.yml`
+- To modify the appearance of the projects list, edit the `projects.md` file.
+- To change the layout of individual project pages, edit the `_layouts/project.html` file.
 
 ## Deployment
 
-To deploy to GitHub Pages:
+This website is automatically deployed to GitHub Pages when changes are pushed to the main branch of the repository.
 
-1. Update `url` in `_config.yml` to match your GitHub Pages URL
-2. Push changes to the `main` branch of your GitHub repository
-3. GitHub Actions will automatically build and deploy your site
+## Local Development
 
-## Contributing
+To run the website locally:
 
-Contributions are welcome! Please fork the repository and create a pull request with your features or fixes.
+1. Make sure you have Ruby and Bundler installed.
+2. Run `bundle install` to install the necessary gems.
+3. Run `bundle exec jekyll serve` to start the local server.
+4. Visit `http://localhost:4000` in your web browser to view the site.
 
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Acknowledgments
-
-- Jekyll team for the static site generator
-- The cyberpunk and hacker culture for inspiration
-- All contributors and users of this theme
-
-Happy hacking, and may your code always compile on the first try!
+For any questions or concerns, please open an issue on this repository.
