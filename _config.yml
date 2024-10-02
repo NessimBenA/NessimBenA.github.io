@@ -1,13 +1,13 @@
 # Site settings
-title: The Hacker's Hideout
-email: your-email@example.com
+title: Nessim's Hideout
+email: bbesnessim at gmail dot com with an a in the beginning
 description: >-
-  A 90s-style hacker blog exploring the digital frontier, 
-  sharing coding adventures and cybersecurity insights.
+  A junior mathematician and computer scientist trying
+  to learn cool stuff.
 baseurl: ""
-url: "https://your-username.github.io"
-github_username: your-github-username
-author: Your Hacker Alias
+url: "https://nessimbena.github.io/"
+github_username: NessimBenA
+author: Nessim 
 
 # Build settings
 markdown: kramdown
@@ -56,12 +56,11 @@ twitter:
   card: summary_large_image
 
 social:
-  name: Your Hacker Alias
+  name: Nessim
   links:
-    - https://twitter.com/your-twitter-username
-    - https://www.facebook.com/your-facebook-username
-    - https://www.linkedin.com/in/your-linkedin-username
-    - https://github.com/your-github-username
+    - https://x.com/DavHilbert
+    - https://nessimbena.github.io/
+    - https://www.linkedin.com/in/nessim-ben-abbes-768a98217/
 
 # Exclude from processing
 exclude:
