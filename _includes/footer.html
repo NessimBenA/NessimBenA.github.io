@@ -1,63 +1,48 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
-
+<footer class="site-footer">
   <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
-    </div>
-
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}. All rights reserved.</p>
+    <p>
+      <span class="blink">&gt;</span> 
+      <span id="typed-text"></span>
+      <span class="blink">_</span>
+    </p>
   </div>
-
-  <div class="footer-bottom">
-    <div class="wrapper">
-      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}. All rights reserved. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and fueled by caffeine and curiosity.</p>
-    </div>
-  </div>
-
 </footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-  const footer = document.querySelector('.site-footer');
-  if (footer) {
-    footer.style.borderTop = '1px solid var(--text-primary)';
-    footer.style.boxShadow = '0 -5px 15px rgba(0, 255, 0, 0.1)';
+  const phrases = [
+    "Happy hacking!",
+    "Stay curious.",
+    "Keep exploring.",
+    "Code never sleeps.",
+    "Hack the planet!"
+  ];
+  let currentPhrase = 0;
+  let i = 0;
+  const typedTextSpan = document.getElementById("typed-text");
+
+  function typeWriter() {
+    if (i < phrases[currentPhrase].length) {
+      typedTextSpan.innerHTML += phrases[currentPhrase].charAt(i);
+      i++;
+      setTimeout(typeWriter, 50);
+    } else {
+      setTimeout(eraseText, 2000);
+    }
   }
-  
-  const links = document.querySelectorAll('.site-footer a');
-  links.forEach(link => {
-    link.addEventListener('mouseover', () => {
-      link.style.color = 'var(--text-secondary)';
-      link.style.textShadow = '0 0 5px var(--text-secondary)';
-    });
-    link.addEventListener('mouseout', () => {
-      link.style.color = '';
-      link.style.textShadow = '';
-    });
-  });
+
+  function eraseText() {
+    if (i > 0) {
+      typedTextSpan.innerHTML = phrases[currentPhrase].substring(0, i-1);
+      i--;
+      setTimeout(eraseText, 20);
+    } else {
+      currentPhrase = (currentPhrase + 1) % phrases.length;
+      setTimeout(typeWriter, 500);
+    }
+  }
+
+  typeWriter();
 });
 </script>

@@ -3,33 +3,14 @@
 
   {%- include head.html -%}
 
-  <body class="hacker-theme">
-    <canvas id="matrix-rain"></canvas>
-    <div class="page-content">
-      {%- include header.html -%}
+  <body>
+    {%- include header.html -%}
 
-      <main class="wrapper">
-        {{ content }}
-      </main>
+    <main class="wrapper">
+      {{ content }}
+    </main>
 
-      {%- include footer.html -%}
-    </div>
-
-    {% if site.search_enabled %}
-    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-    <script>
-      SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-        noResultsText: 'No data found in the system',
-        limit: 10,
-        fuzzy: false,
-        exclude: ['Welcome']
-      })
-    </script>
-    {% endif %}
+    {%- include footer.html -%}
 
     <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
   </body>
