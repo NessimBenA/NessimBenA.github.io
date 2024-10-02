@@ -6,7 +6,7 @@ permalink: /projects/
 
 # Classified Operations
 
-Welcome to the project vault, a repository of digital experiments and cyber operations. Each project is a foray into the unknown, pushing the boundaries of what's possible in the digital frontier.
+Welcome to the project vault, a repository of digital experiments on learning theory and applications, dynamical systems (and who knows what else).
 
 {% for project in site.projects %}
 ## [{{ project.title }}]({{ site.baseurl }}{{ project.url }})
@@ -21,11 +21,7 @@ Welcome to the project vault, a repository of digital experiments and cyber oper
 
 ---
 
-These projects represent just a fraction of the operations conducted in the shadows of cyberspace. Each one is a step towards understanding the complex tapestry of the digital world we inhabit.
-
-Remember: In the realm of code, imagination is the only limit. Keep pushing the boundaries, and never stop questioning the system.
-
-"Innovation is the outcome of a habit, not a random act." - [Your Hacker Alias]
+These projects represent some work that i do on my free time or with some friends when we find an interesting topic. if you have any question or comment, feel free to contact me on twitter.
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {

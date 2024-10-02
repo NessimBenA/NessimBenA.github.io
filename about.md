@@ -10,25 +10,25 @@ Hello Everyone, Welcome to my personl website where i share my thoughts, project
 
 ## The Mission
 
-I am interested in everything complicated and abstract frankly, the higher the abstraction the better, and the more beautiful the project is the better. I am trying to improve my math and computer science skills and see how far i can go. 
+I am interested in everything complicated and abstract frankly, the higher the abstraction the better, and the more beautiful the project the better. I am trying to improve my math and computer science skills and see how far i can go. 
 
 ## Arsenal of Skills
 
 - **Deep Learning**: NLP, Computer Vision, On-device Models 
 - **Learning Theory**: From Spiking neural networks to reservoir computing.  
-- **Computational Fluid Dynamics**: From heat diffusion to much more complicated stuff
-- **Large data Manipultion**: Working and interested on data that is too large
-- **Web development and deployment**: Learning the basics for now, HTML, CSS and Javascript
-
+- **Computational Fluid Dynamics**: From heat diffusion to much more complicated stuff.
+- **Algorithms**: I've been developing a taste for algorithms that can solve tricky complex problems with low computational ressources.
+- **Large data Manipultion**: Working and interested on data that is too large to handle with classical methods.
+- **Web development and deployment**: Learning the basics for now, HTML, CSS and Javascript.
 ## The Theme
 
-I always found Gabby from NCIS with her hacker scenes amazing when i was a kid (i know, i know) so that's the theme i am going for in this website.
+I always found Gabby from NCIS with her hacker scenes amazing when i was a kid, (i know, i know), so that's the theme i am going for in this website.
 
-## Achievements and Exploits
-**Disclaimer**: I don't think i really have done any achievements or exploits, but here is a few fun things that i've worked on. 
+## Achievements and Great Work
+**Disclaimer**: I don't think i really have done any achievements or Great Work, but here is a few fun things that i've worked on. 
 - Discovered that interpolating the last layer in segmentation neural network gives you the ability to adjust the segmentation area.
-- Worked on Medical Diagnosis algorithms for Giant-cell arteritis
-- Found out a method to effectively generalize neural networks to cross domain in-device wifi sensing. 
+- Worked on Medical Diagnosis algorithms for Giant-cell arteritis and delivered sota at the time
+- Found out a method to effectively generalize neural networks to cross domain in-device for wifi sensing applications. 
 
 ## Connect on the Dark Channels
 
