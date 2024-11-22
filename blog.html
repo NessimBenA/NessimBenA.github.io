@@ -13,21 +13,45 @@
         <h1 class="title">Blog Posts</h1>
         <span class="subtitle">Thoughts and Updates</span>
       </td>
-      <th>Version</th>
-      <td class="width-min">1.0</td>
+      <th>Number of Posts</th>
+      <td class="width-min">3</td>
     </tr>
     <tr>
-      <th>Updated</th>
+      <th>Last Update</th>
       <td class="width-min"><time style="white-space: pre;">2023-10-01</time></td>
     </tr>
     <tr>
-      <th class="width-min">Author</th>
-      <td class="width-auto"><a href="https://github.com/yourusername"><cite>Your Name</cite></a></td>
-      <th class="width-min">License</th>
-      <td>MIT</td>
+      <th class="width-min"><a href="https://github.com/yourusername">Author</a></th>
+      <td class="width-auto">
+        <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> /
+        <a href="https://twitter.com/yourprofile">Twitter</a> /
+        <a href="cv.pdf">CV</a>
+      </td>
+      <th class="width-min"><a href="projects.html">Projects</a></th>
+      <td><a href="blog.html">Blog Posts</a></td>
     </tr>
   </table>
   <p>Welcome to my blog! Here you'll find my latest thoughts and updates.</p>
+  <ul>
+    <!-- Dynamically list blog posts -->
+    <script>
+      fetch('blogposts')
+        .then(response => response.text())
+        .then(text => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(text, 'text/html');
+          const links = doc.querySelectorAll('a');
+          const list = document.querySelector('ul');
+          links.forEach(link => {
+            if (link.href.endsWith('.html')) {
+              const listItem = document.createElement('li');
+              listItem.innerHTML = `<a href="blogposts/${link.textContent}">${link.textContent}</a>`;
+              list.appendChild(listItem);
+            }
+          });
+        });
+    </script>
+  </ul>
   <div class="debug-grid"></div>
   <script src="index.js"></script>
 </body>
