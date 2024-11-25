@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <object type="text/html" data="header.html" class="header"></object>
+  <div id="header"></div>
   <p>Welcome to my blog! Here you'll find my latest thoughts and updates.</p>
   <ul>
     <!-- Dynamically list blog posts -->
@@ -30,6 +30,13 @@
     </script>
   </ul>
   <div class="debug-grid"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
   <script src="index.js"></script>
 </body>
 </html>

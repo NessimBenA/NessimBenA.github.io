@@ -7,9 +7,16 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <object type="text/html" data="header.html" class="header"></object>
+  <div id="header"></div>
   <p>Hello Everyone, Welcome to my personal website where I share my thoughts, projects, and everything that I find interesting and worth sharing.</p>
   <div class="debug-grid"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
   <script src="index.js"></script>
 </body>
 </html>
