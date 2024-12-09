@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Future of Software Engineering in the Age of AI</title>
+    <link rel="stylesheet" href="../index.css" />
 </head>
 <body>
+    <div id="header"></div>
     <article>
         <p>GPT-4, GPT-4o, Claude Sonnet 3.5, o1, o1-pro, Gemini... the list goes on. At the time of writing (December 2024), every week feels like a new model with better performance is here, promising better performance on different benchmarks, better reasoning, code capabilities, and math capabilities.</p>
 
@@ -57,9 +59,20 @@
         <p>To put it simply, software will simply expand; the world will not stop wanting more and better software and more technology that simplifies their daily lives (see luddite fallacy for more details)<sup><a href="#ref2">[2]</a></sup>.</p>
 
         <p>To conclude, software engineers will not disappear. Software will get bigger and more in demand, and future SWEs will not spend most of their time finding a missing semicolon but rather on what algorithm will best fit their use case. Knowledge, more than ever, will continue to be valued.</p>
-
+        
         <footer>
             <p id="ref1">[1] : <a href="https://thechipletter.substack.com/p/a-history-of-c-compilers-part-1-performance">https://thechipletter.substack.com/p/a-history-of-c-compilers-part-1-performance</a></p>
             <p id="ref2">[2] : <a href="https://www.economicshelp.org/blog/6717/economics/the-luddite-fallacy/">https://www.economicshelp.org/blog/6717/economics/the-luddite-fallacy/</a></p>
         </footer>
-    </
+    </article>
+    <div class="debug-grid"></div>
+    <script>
+        fetch('../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+    <script src="../index.js"></script>
+</body>
+</html>
