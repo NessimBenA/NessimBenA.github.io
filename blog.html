@@ -10,26 +10,8 @@
   <div id="header"></div>
   <p>Welcome to my blog! Here you'll find my latest thoughts and updates.</p>
   <ul>
-    <!-- Dynamically list blog posts -->
-    <script>
-      fetch('blogposts')
-        .then(response => response.text())
-        .then(text => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(text, 'text/html');
-          const links = doc.querySelectorAll('a');
-          const list = document.querySelector('ul');
-          links.forEach(link => {
-            if (link.href.endsWith('.html')) {
-              const listItem = document.createElement('li');
-              listItem.innerHTML = `<a href="blogposts/${link.textContent}">${link.textContent}</a>`;
-              list.appendChild(listItem);
-            }
-          });
-        });
-    </script>
-    <!-- Static link for testing -->
     <li><a href="blogposts/aisoftwareengineers.html">AI, LLMS and software engineers</a></li>
+    <!-- Add more blog posts here as needed -->
   </ul>
   <div class="debug-grid"></div>
   <script>

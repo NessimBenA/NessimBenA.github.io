@@ -10,24 +10,8 @@
   <div id="header"></div>
   <p>Welcome to my projects page! Here you'll find a showcase of my work and contributions.</p>
   <ul>
-    <!-- Dynamically list projects -->
-    <script>
-      fetch('projects')
-        .then(response => response.text())
-        .then(text => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(text, 'text/html');
-          const links = doc.querySelectorAll('a');
-          const list = document.querySelector('ul');
-          links.forEach(link => {
-            if (link.href.endsWith('.html')) {
-              const listItem = document.createElement('li');
-              listItem.innerHTML = `<a href="projects/${link.textContent}">${link.textContent}</a>`;
-              list.appendChild(listItem);
-            }
-          });
-        });
-    </script>
+    <li><a href="projects/project1.html">Project One</a></li>
+    <!-- Add more projects here as needed -->
   </ul>
   <div class="debug-grid"></div>
   <script>
