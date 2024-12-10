@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Blog Posts</title>
-  <link rel="stylesheet" href="index.css" />
+  <title>Project One</title>
+  <link rel="stylesheet" href="../index.css" />
 </head>
 <body>
   <div id="header"></div>
-  <p>Welcome to my blog! Here you'll find my latest thoughts and updates.</p>
-  <ul>
-    <li><a href="blogposts/aisoftwareengineers.html">AI, LLMS and software engineers</a></li>
-    <!-- Add more blog posts here as needed -->
-  </ul>
+  <h1>Project One</h1>
+  <p>This is a showcase of Project One.</p>
   <div class="debug-grid"></div>
   <script>
-    fetch('header.html')
+    fetch('../header.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('header').innerHTML = data;
       });
   </script>
-  <script src="index.js"></script>
+  <script src="../index.js"></script>
 </body>
 </html>
