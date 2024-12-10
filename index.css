@@ -1,7 +1,7 @@
-@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 :root {
-  --font-family: "JetBrains Mono", monospace;
+  --font-family: "Playfair Display", serif;
   --line-height: 1.20rem;
   --border-thickness: 2px;
   --text-color: #000;
@@ -33,7 +33,6 @@
 * {
   box-sizing: border-box;
 }
-
 
 * + * {
   margin-top: var(--line-height);
@@ -156,7 +155,6 @@ th, td {
 table tbody tr:first-child > * {
   padding-top: calc((var(--line-height) / 2) - var(--border-thickness));
 }
-
 
 th {
   font-weight: 700;
@@ -455,3 +453,5 @@ label input {
 .debug-toggle-label {
   text-align: right;
 }
+
+/* Removed Blog Specific Styles */
