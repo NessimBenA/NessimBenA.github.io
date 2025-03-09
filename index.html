@@ -3,13 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Nessim Ben Abbes Website</title>
+  <title>Nessim Ben Abbes | Personal Website</title>
   <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="book-theme.css" />
 </head>
 <body>
-  <div id="header"></div>
-  <p>Hello Everyone, Welcome to my personal website where I share my thoughts, projects, and everything that I find interesting and worth sharing.</p>
-  <div class="debug-grid"></div>
+  <div class="book-container">
+    <div id="header"></div>
+    
+    <article>
+      <h1>Welcome</h1>
+      <p>Hello and welcome to my personal website where I share my thoughts, projects, and everything that I find interesting and worth sharing. Here you'll find a collection of writings on topics ranging from technology and software engineering to personal reflections and observations.</p>
+      
+      <p>Feel free to explore the different sections of this digital book. The <a href="/projects.html">Projects</a> section showcases my work, while the <a href="/blog.html">Blog</a> contains my written pieces on various subjects.</p>
+      
+      <div class="chapter-decoration">❦</div>
+      
+      <h2>About Me</h2>
+      <p>I'm a software engineer with a passion for technology, writing, and continuous learning. My interests span across multiple domains, and I enjoy exploring the intersections between technology and other fields.</p>
+      
+      <p>Through this website, I hope to share my journey, insights, and the knowledge I've gathered along the way. Whether you're here out of curiosity or in search of specific information, I hope you find something of value.</p>
+      
+      <div class="chapter-decoration">❧</div>
+    </article>
+    
+    <footer class="book-footer">
+      <p>&copy; 2024 Nessim Ben Abbes · All rights reserved</p>
+    </footer>
+  </div>
+
   <script>
     fetch('header.html')
       .then(response => response.text())
