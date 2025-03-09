@@ -3,70 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Future of Software Engineering in the Age of AI</title>
+    <title>The Future of Software Engineering in the Age of AI | Nessim Ben Abbes</title>
     <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="../book-theme.css" />
 </head>
 <body>
-    <div id="header"></div>
-    <article>
-        <h1>AI, LLMS and software engineers</h1>
-        <p>GPT-4, GPT-4o, Claude Sonnet 3.5, o1, o1-pro, Gemini... the list goes on. As I write this in December 2024, it feels like there's a new, better model dropping every week, promising better performance on different benchmarks, better reasoning, code capabilities, and math capabilities.</p>
-
-        <p>The question of AI replacing software engineers is everywhere now in social media posts, where it feels like everyone is certain that their version of the future is the correct one.</p>
-
-        <p>These visions are generally divided mainly into two perspectives: those who think that this whole AI fad is just a trend and that no AI system will ever be useful to a good software engineer and it would never replace anyone; and on the other side, there are people who believe that the job of a software engineer as we know it will completely disappear and everyone who can write in English will be able to create software that would take today's teams six months to build with only one sentence vaguely describing what they want. In this blog post (with a lot of arrogance), I will show that both these visions are wrong. I will attempt to build a vision of what's coming in the software engineering field and what we will be witnessing in the upcoming years and decades. If it works out, I will have proof that I said something right once in my life, and if it doesn't, it will be a funny blog post to look back at and see how dumb my take was.</p>
-
-        <p>To explain my reasoning about the role that Large Language Models (LLMs) will serve in the future, we first need to look at the concerns that many people have about LLMs becoming part of every programmer's toolkit:</p>
-
-        <p><strong>Quality of code:</strong> Most experienced programmers today will tell you that the average code output by a GPT or a Claude lacks many features that would make it production quality. No amount of telling it that it is a senior software engineer or menacing its mother (looking at you, ThePrimeagen) will make it output code of that quality.</p>
-
-        <p><strong>Resources:</strong> The amount of resources and compute needed to run an LLM today is so insane that we are literally thinking of putting multiple nuclear power plants to power GPU clusters. Thus, the widespread adoption of this technology is highly doubted since, for now, it cannot be run locally if you want good performance, and those with any real potential need massive GPU clusters.</p>
-
-        <p><strong>Consistency:</strong> Another issue that is not talked about enough nowadays is that LLMs, no matter how smart they are, no matter how performant they are, are not deterministic. Even if you set all the hyperparameters correctly, there is no guarantee that the same input will give you the same output; thus, building anything useful on top of these models is not possible since you don't know what the output will be.</p>
-
-        <p>I hope that by now we have established the point of view of LLM deniers, and they are nodding with a smile, reading how bad these LLMs are and how they will never actually be useful. Now, let's explain why they are wrong.</p>
-
-        <p>The first two points (quality of code and resources) have been a subject of controversy before in coding but in another context. In fact, Look at compiler history - hardcore assembly coders back in the day were saying the exact same things about compilers that people are saying about LLMs today</p>
-
-        <p>For a long time, when performance quality dominated, compilers were dismissed<sup><a href="#ref1">[1]</a></sup>, and only the success of C truly popularized their use. And that's the thing with resource limitations: <strong>Computational resources will continue to grow and models will get more efficient and better</strong>.</p>
-
-        <p>A lot of people think of 2024 as the year when LLMs' performance saturated; it isn't. Most labs weren't just trying to outperform GPT-4 by making bigger models - they were focusing on making them commercially viable, and that's how we got 70B (LLama 3.1) parameter models competing with 1.6 trillion parameter model (GPT-4-03-14).</p>
-
-        <p>One thing to take into account is that, (compared to creative writing, for example) coding is a closed loop (like math). You can write, execute, and evaluate automatically; therefore, making AI systems that can write correct code that aligns Kolmogorov complexity principles is simply a question of time.</p>
-
-        <p>The other thing that is limiting the LLMs for now is consistency. I truly think that deterministic outputs from LLMs are only an engineering problem, and the solution may actually be very trivial, and it is only a question of time before it is solved (We started seeing this emerge with structured outputs).</p>
-
-        <p>Okay, so the LLM doomers aren't right. "The AI will replace all software engineers," cheered all the AI-will-replace-SWE crowd. Well, no.</p>
-
-        <p>First things first, the models will need a prompt. This prompt—or input to the model—in a future where LLMs are an interface between English and a programming language (which can directly be the bare metal) will still need technical specifications and precise execution schemes that will need expertise—an expertise that great software engineers (SWEs) have.</p>
-
-        <p>This interface will likely evolve into a new kind of structured programming language, one that's less rigid than today's languages but still requires specific properties and constraints to be met for correct execution. Think of it as a middle ground between natural language and traditional programming languages, where developers will probably need to:</p>
-
-        <ol>
-            <li>Specify architectural patterns and design principles</li>
-            <li>Establish security and reliability methods</li>
-            <li>Define compatibility and integration methods with external data or software</li>
-            <li>Specify 'low-level details' like which algorithm to use in specific cases or type of internal data to deal with</li>
-            <li>Specify testing and validation criteria before delivery</li>
-            <li>Other important stuff that I probably missed</li>
-        </ol>
-
-        <p>I suspect that there won't be one paradigm based on this, like modern programming languages. We will have different natural language programming languages (yes, we will need a better name).</p>
-
-        <p>In this world, technical expertise will still be needed, and creating software will still be done by software engineers.</p>
-
-        <p>"But I can create a website with a phrase," cried the LLM believers. Well, yes, but that's a website in 2024(and it probably isn't good enough to push it to production), and if you remember how most websites were in the 2000s, you'll realize they have nothing in common with todays websites.</p>
-
-        <p>To put it simply, software will simply expand; the world will not stop wanting more and better software and more technology that simplifies their daily lives (see luddite fallacy for more details)<sup><a href="#ref2">[2]</a></sup>.</p>
-
-        <p>To conclude, software engineers will not disappear. Software will get bigger and more in demand, and future SWEs will not spend most of their time finding a missing semicolon but rather on what algorithm will best fit their use case. Knowledge, more than ever, will continue to be valued.</p>
+    <div class="book-container">
+        <div id="header"></div>
         
-        <footer>
-            <p id="ref1">[1] : <a href="https://thechipletter.substack.com/p/a-history-of-c-compilers-part-1-performance">https://thechipletter.substack.com/p/a-history-of-c-compilers-part-1-performance</a></p>
-            <p id="ref2">[2] : <a href="https://www.economicshelp.org/blog/6717/economics/the-luddite-fallacy/">https://www.economicshelp.org/blog/6717/economics/the-luddite-fallacy/</a></p>
+        <article>
+            <h1>AI, LLMs and Software Engineers</h1>
+            <p class="post-date">December 2024</p>
+            
+            <p>GPT-4, GPT-4o, Claude Sonnet 3.5, o1, o1-pro, Gemini... the list goes on. As I write this in December 2024, it feels like there's a new, better model dropping every week, promising better performance on different benchmarks, better reasoning, code capabilities, and math capabilities.</p>
+
+            <p>The question of AI replacing software engineers is everywhere now in social media posts, where it feels like everyone is certain that their version of the future is the correct one.</p>
+
+            <div class="chapter-decoration">❦</div>
+
+            <p>These visions are generally divided mainly into two perspectives: those who think that this whole AI fad is just a trend and that no AI system will ever be useful to a good software engineer and it would never replace anyone; and on the other side, there are people who believe that the job of a software engineer as we know it will completely disappear and everyone who can write in English will be able to create software that would take today's teams six months to build with only one sentence vaguely describing what they want. In this blog post (with a lot of arrogance), I will show that both these visions are wrong. I will attempt to build a vision of what's coming in the software engineering field and what we will be witnessing in the upcoming years and decades. If it works out, I will have proof that I said something right once in my life, and if it doesn't, it will be a funny blog post to look back at and see how dumb my take was.</p>
+
+            <h2>The Current Limitations of LLMs</h2>
+
+            <p>To explain my reasoning about the role that Large Language Models (LLMs) will serve in the future, we first need to look at the concerns that many people have about LLMs becoming part of every programmer's toolkit:</p>
+
+            <blockquote>
+                <p>Most experienced programmers today will tell you that the average code output by a GPT or a Claude lacks many features that would make it production quality. No amount of telling it that it is a senior software engineer or menacing its mother (looking at you, ThePrimeagen) will make it output code of that quality.</p>
+            </blockquote>
+
+            <p><strong>Quality of code:</strong> Most experienced programmers today will tell you that the average code output by a GPT or a Claude lacks many features that would make it production quality. No amount of telling it that it is a senior software engineer or menacing its mother (looking at you, ThePrimeagen) will make it output code of that quality.</p>
+
+            <p><strong>Resources:</strong> The amount of resources and compute needed to run an LLM today is so insane that we are literally thinking of putting multiple nuclear power plants to power GPU clusters. Thus, the widespread adoption of this technology is highly doubted since, for now, it cannot be run locally if you want good performance, and those with any real potential need massive GPU clusters.</p>
+
+            <p><strong>Consistency:</strong> Another issue that is not talked about enough nowadays is that LLMs, no matter how smart they are, no matter how performant they are, are not deterministic. Even if you set all the hyperparameters correctly, there is no guarantee that the same input will give you the same output; thus, building anything useful on top of these models is not possible since you don't know what the output will be.</p>
+
+            <div class="chapter-decoration">❧</div>
+
+            <h2>Historical Parallels: The Compiler Argument</h2>
+
+            <p>I hope that by now we have established the point of view of LLM deniers, and they are nodding with a smile, reading how bad these LLMs are and how they will never actually be useful. Now, let's explain why they are wrong.</p>
+
+            <p>The first two points (quality of code and resources) have been a subject of controversy before in coding but in another context. In fact, Look at compiler history - hardcore assembly coders back in the day were saying the exact same things about compilers that people are saying about LLMs today</p>
+
+            <p>For a long time, when performance quality dominated, compilers were dismissed<sup><a href="#ref1">[1]</a></sup>, and only the success of C truly popularized their use. And that's the thing with resource limitations: <strong>Computational resources will continue to grow and models will get more efficient and better</strong>.</p>
+
+            <p>A lot of people think of 2024 as the year when LLMs' performance saturated; it isn't. Most labs weren't just trying to outperform GPT-4 by making bigger models - they were focusing on making them commercially viable, and that's how we got 70B (LLama 3.1) parameter models competing with 1.6 trillion parameter model (GPT-4-03-14).</p>
+
+            <p>One thing to take into account is that, (compared to creative writing, for example) coding is a closed loop (like math). You can write, execute, and evaluate automatically; therefore, making AI systems that can write correct code that aligns Kolmogorov complexity principles is simply a question of time.</p>
+
+            <p>The other thing that is limiting the LLMs for now is consistency. I truly think that deterministic outputs from LLMs are only an engineering problem, and the solution may actually be very trivial, and it is only a question of time before it is solved (We started seeing this emerge with structured outputs).</p>
+
+            <div class="chapter-decoration">❦</div>
+
+            <h2>A Middle Path: The Future of Software Engineering</h2>
+
+            <p>Okay, so the LLM doomers aren't right. "The AI will replace all software engineers," cheered all the AI-will-replace-SWE crowd. Well, no.</p>
+
+            <p>First things first, the models will need a prompt. This prompt—or input to the model—in a future where LLMs are an interface between English and a programming language (which can directly be the bare metal) will still need technical specifications and precise execution schemes that will need expertise—an expertise that great software engineers (SWEs) have.</p>
+
+            <p>This interface will likely evolve into a new kind of structured programming language, one that's less rigid than today's languages but still requires specific properties and constraints to be met for correct execution. Think of it as a middle ground between natural language and traditional programming languages, where developers will probably need to:</p>
+
+            <ol>
+                <li>Specify architectural patterns and design principles</li>
+                <li>Establish security and reliability methods</li>
+                <li>Define compatibility and integration methods with external data or software</li>
+                <li>Specify 'low-level details' like which algorithm to use in specific cases or type of internal data to deal with</li>
+                <li>Specify testing and validation criteria before delivery</li>
+                <li>Other important stuff that I probably missed</li>
+            </ol>
+
+            <p>I suspect that there won't be one paradigm based on this, like modern programming languages. We will have different natural language programming languages (yes, we will need a better name).</p>
+
+            <p>In this world, technical expertise will still be needed, and creating software will still be done by software engineers.</p>
+
+            <blockquote>
+                <p>"But I can create a website with a phrase," cried the LLM believers. Well, yes, but that's a website in 2024(and it probably isn't good enough to push it to production), and if you remember how most websites were in the 2000s, you'll realize they have nothing in common with todays websites.</p>
+            </blockquote>
+
+            <p>To put it simply, software will simply expand; the world will not stop wanting more and better software and more technology that simplifies their daily lives (see luddite fallacy for more details)<sup><a href="#ref2">[2]</a></sup>.</p>
+
+            <div class="chapter-decoration">❧</div>
+
+            <h2>Conclusion</h2>
+
+            <p>To conclude, software engineers will not disappear. Software will get bigger and more in demand, and future SWEs will not spend most of their time finding a missing semicolon but rather on what algorithm will best fit their use case. Knowledge, more than ever, will continue to be valued.</p>
+            
+            <div class="chapter-decoration">❦</div>
+            
+            <footer>
+                <p id="ref1"><strong>[1]</strong> <a href="https://thechipletter.substack.com/p/a-history-of-c-compilers-part-1-performance">A History of C Compilers Part 1: Performance</a></p>
+                <p id="ref2"><strong>[2]</strong> <a href="https://www.economicshelp.org/blog/6717/economics/the-luddite-fallacy/">The Luddite Fallacy</a></p>
+            </footer>
+            
+            <div class="page-number">2</div>
+        </article>
+        
+        <footer class="book-footer">
+            <p>&copy; 2024 Nessim Ben Abbes · All rights reserved</p>
         </footer>
-    </article>
-    <div class="debug-grid"></div>
+    </div>
     <script>
         fetch('../header.html')
             .then(response => response.text())
