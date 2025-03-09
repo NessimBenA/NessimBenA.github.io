@@ -3,17 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Blog Posts</title>
+  <title>Blog | Nessim Ben Abbes</title>
   <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="book-theme.css" />
 </head>
 <body>
-  <div id="header"></div>
-  <p>Welcome to my blog! Here you'll find my latest thoughts and updates.</p>
-  <ul>
-    <li><a href="blogposts/aisoftwareengineers.html">AI, LLMS and software engineers</a></li>
-    <!-- Add more blog posts here as needed -->
-  </ul>
-  <div class="debug-grid"></div>
+  <div class="book-container">
+    <div id="header"></div>
+    
+    <article>
+      <h1>Journal Entries</h1>
+      <p>Welcome to my collection of thoughts, insights, and reflections. Here you'll find articles on various topics that I've found interesting enough to write about over the years.</p>
+      
+      <div class="chapter-decoration">❦</div>
+      
+      <ul class="post-list">
+        <li>
+          <h3><a href="blogposts/aisoftwareengineers.html">AI, LLMs and Software Engineers</a></h3>
+          <p class="post-date">December 2024</p>
+          <p>An exploration of how AI and Large Language Models are reshaping the landscape of software engineering, and what this means for the future of the profession.</p>
+          <a href="blogposts/aisoftwareengineers.html" class="read-more">Continue reading →</a>
+        </li>
+        <!-- Add more blog posts here as needed -->
+      </ul>
+      
+      <div class="page-number">1</div>
+    </article>
+    
+    <footer class="book-footer">
+      <p>&copy; 2024 Nessim Ben Abbes · All rights reserved</p>
+    </footer>
+  </div>
+
   <script>
     fetch('header.html')
       .then(response => response.text())
