@@ -3,14 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Project One</title>
+  <title>Project One | Nessim Ben Abbes</title>
   <link rel="stylesheet" href="../index.css" />
 </head>
 <body>
-  <div id="header"></div>
-  <h1>Project One</h1>
-  <p>This is a showcase of Project One.</p>
-  <div class="debug-grid"></div>
+  <div class="book-container">
+    <div id="header"></div>
+    
+    <article>
+      <h1>Project One</h1>
+      <p>This is a showcase of Project One.</p>
+      
+      <div class="page-number">1</div>
+    </article>
+    
+    <footer class="book-footer">
+      <p>&copy; 2024 Nessim Ben Abbes · All rights reserved</p>
+    </footer>
+  </div>
+
   <script>
     fetch('../header.html')
       .then(response => response.text())
