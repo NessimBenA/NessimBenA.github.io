@@ -113,8 +113,55 @@ function checkOffsets() {
 }
 
 const debugToggle = document.querySelector(".debug-toggle");
-function onDebugToggle() {
-  document.body.classList.toggle("debug", debugToggle.checked);
+if (debugToggle) {
+  function onDebugToggle() {
+    document.body.classList.toggle("debug", debugToggle.checked);
+  }
+  debugToggle.addEventListener("change", onDebugToggle);
+  onDebugToggle();
 }
-debugToggle.addEventListener("change", onDebugToggle);
-onDebugToggle();
+
+// Page transition animation
+document.addEventListener('DOMContentLoaded', function() {
+  // Add page transition class to body
+  document.body.classList.add('page-ready');
+  
+  // Get all links that point to other pages in the site
+  const internalLinks = Array.from(document.querySelectorAll('a'))
+    .filter(link => {
+      // Only internal links (same origin or relative)
+      if (link.href.startsWith('http') && !link.href.startsWith(window.location.origin)) return false;
+      // Exclude anchor links on the same page
+      if (link.href.includes('#') && link.href.split('#')[0] === window.location.href.split('#')[0]) return false;
+      // Exclude the current page
+      if (link.href === window.location.href) return false;
+      return true;
+    });
+  
+  // Add click handler to internal links
+  internalLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetUrl = this.href;
+      
+      // Start page exit animation
+      document.body.classList.add('page-exit');
+      
+      // Wait for animation to complete, then navigate
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 500); // Match this to the animation duration
+    });
+  });
+});
+
+// On page load, show entrance animation
+window.addEventListener('pageshow', function(event) {
+  // Check if it's a back-forward navigation
+  if (event.persisted) {
+    document.body.classList.remove('page-exit');
+    setTimeout(() => {
+      document.body.classList.add('page-ready');
+    }, 10);
+  }
+});
