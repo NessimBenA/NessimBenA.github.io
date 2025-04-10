@@ -5,16 +5,16 @@
   /* Color palette - refined, muted tones */
   --page-bg-color: #e9e5de;
   --page-color: #f6f4f0;
-  --text-color: #3c3630;
+  --text-color: #2d2a25; /* Darker text for better contrast */
   --link-color: #7d6d5c;
   --link-hover-color: #5e5245;
   --accent-color: #8a7e6f;
   --border-color: #d5cec4;
   --shadow-color: rgba(0, 0, 0, 0.15);
   
-  /* Typography - elevated choices */
-  --body-font: 'Newsreader', 'Times New Roman', serif;
-  --header-font: 'Cormorant', Georgia, serif;
+  /* Typography - elevated choices with system fallbacks */
+  --body-font: 'Newsreader', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Liberation Sans", Arial, serif;
+  --header-font: 'Cormorant', Georgia, "Times New Roman", Times, serif;
   --line-height: 1.68;
   --paragraph-spacing: 1.2rem;
   
@@ -48,6 +48,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #2d2a25; /* Slightly darker text for better contrast */
 }
 
 /* Container styles */
@@ -137,14 +138,15 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--header-font);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-color);
   line-height: 1.3;
   margin-top: var(--large-spacing);
   margin-bottom: var(--medium-spacing);
   letter-spacing: 0.01em;
-  /* Refined text shadow for headings */
-  text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  /* Enhanced shadow and stroke for better visibility */
+  text-shadow: 0 1px 1px rgba(0,0,0,0.08);
+  -webkit-text-stroke: 0.15px rgba(0,0,0,0.2);
   position: relative;
   z-index: 1;
   -webkit-font-smoothing: antialiased;
@@ -185,14 +187,15 @@ p {
   margin-bottom: var(--paragraph-spacing);
   text-align: justify;
   hyphens: auto;
-  /* Refined text shadow for subtle depth */
-  text-shadow: 0 0 1px rgba(0,0,0,0.02);
+  /* Enhanced text rendering for better thickness */
+  text-shadow: 0 0 1px rgba(0,0,0,0.05);
   position: relative;
   z-index: 1;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke: 0.1px; /* Creates a subtle stroke to thicken text */
 }
 
 /* First paragraph special styling - drop cap */
