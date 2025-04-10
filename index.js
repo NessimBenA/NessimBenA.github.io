@@ -121,39 +121,67 @@ if (debugToggle) {
   onDebugToggle();
 }
 
-// Page transition animation
-document.addEventListener('DOMContentLoaded', function() {
+// Page transition animation setup
+function setupPageTransitions() {
   // Add page transition class to body
   document.body.classList.add('page-ready');
   
-  // Get all links that point to other pages in the site
-  const internalLinks = Array.from(document.querySelectorAll('a'))
-    .filter(link => {
-      // Only internal links (same origin or relative)
-      if (link.href.startsWith('http') && !link.href.startsWith(window.location.origin)) return false;
-      // Exclude anchor links on the same page
-      if (link.href.includes('#') && link.href.split('#')[0] === window.location.href.split('#')[0]) return false;
-      // Exclude the current page
-      if (link.href === window.location.href) return false;
-      return true;
+  // Function to add transitions to links
+  function addTransitionsToLinks() {
+    // Get all links that point to other pages in the site
+    const internalLinks = Array.from(document.querySelectorAll('a'))
+      .filter(link => {
+        // Only internal links (same origin or relative)
+        if (link.href.startsWith('http') && !link.href.startsWith(window.location.origin)) return false;
+        // Exclude anchor links on the same page
+        if (link.href.includes('#') && link.href.split('#')[0] === window.location.href.split('#')[0]) return false;
+        // Exclude the current page
+        if (link.href === window.location.href) return false;
+        // Skip links that already have the transition handler
+        if (link.hasAttribute('data-transition-added')) return false;
+        return true;
+      });
+    
+    // Add click handler to internal links
+    internalLinks.forEach(link => {
+      link.setAttribute('data-transition-added', 'true');
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetUrl = this.href;
+        
+        // Start page exit animation
+        document.body.classList.add('page-exit');
+        
+        // Wait for animation to complete, then navigate
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 500); // Match this to the animation duration
+      });
     });
+  }
   
-  // Add click handler to internal links
-  internalLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetUrl = this.href;
-      
-      // Start page exit animation
-      document.body.classList.add('page-exit');
-      
-      // Wait for animation to complete, then navigate
-      setTimeout(() => {
-        window.location.href = targetUrl;
-      }, 500); // Match this to the animation duration
+  // Initial setup for links in the main content
+  addTransitionsToLinks();
+  
+  // Watch for header content being loaded
+  const headerElement = document.getElementById('header');
+  if (headerElement) {
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          // Header content has loaded, add transitions to its links
+          setTimeout(addTransitionsToLinks, 50); // Small delay to ensure all DOM is ready
+        }
+      });
     });
-  });
-});
+    
+    // Configure and start the observer
+    observer.observe(headerElement, { childList: true, subtree: true });
+  }
+}
+
+// Initialize page transitions
+document.addEventListener('DOMContentLoaded', setupPageTransitions);
 
 // On page load, show entrance animation
 window.addEventListener('pageshow', function(event) {
