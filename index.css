@@ -54,44 +54,50 @@ body {
   background-color: var(--page-color);
   /* Enhanced book shadow with realistic page edge effect */
   box-shadow: 
-    0 12px 50px rgba(0, 0, 0, 0.25),
-    2px 0 3px -2px rgba(0, 0, 0, 0.1), 
-    inset -4px 0 4px -3px rgba(0, 0, 0, 0.1);
+    0 15px 60px rgba(0, 0, 0, 0.25),
+    2px 0 5px -2px rgba(0, 0, 0, 0.15), 
+    inset -6px 0 8px -3px rgba(0, 0, 0, 0.05),
+    inset 0 -5px 10px -3px rgba(0, 0, 0, 0.05);
   position: relative;
-  border-radius: 3px;
+  border-radius: 5px;
   
-  /* Page texture variation for authentic paper feel */
+  /* Page texture variation for authentic paper feel - ENHANCED */
   background-image: 
     url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTlBRTQ0NjA3RDQwMTFFQkE3NTVBRTFBQkRDODA1NDciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTlBRTQ0NjE3RDQwMTFFQkE3NTVBRTFBQkRDODA1NDciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxOUFFNDQ1RTdENDAxMUVCQTc1NUFFMUFCREM4MDU0NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxOUFFNDQ1RjdENDAxMUVCQTc1NUFFMUFCREM4MDU0NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pmfkae0AAABgUExURZmZmejo6KOjo42NjaCgoJGRkZubm6Wlpaenp5SUlJKSkpCQkJeXl6GhoaioqJqamqmpqaysrI+Pj4uLi7Kysq+vr4mJiYqKirGxsba2toiIiLW1tYaGhrOzs7e3t////3IUAGgAAADlSURBVHja7NTLDoIwEIXhIkWLCOKF+7z/c5qQkBg7mcxC4sLzb07S9M9s0ILuDWWVp0hZYlQiZGKUNMoHJT3lN8qssrRjKd8UavlHDPDH3CiF9g4F+GgGUfJJpE/JB9JFhEaJB3JTPnW/0CA3WpQIJZdUPiKREiH8lBCHMpEQBZJJoTzPlOshVUVEDSkSSbSUZ0SxNvSUeUU4EK+LiCIrQ4Ti1RBTFC/FhxKtFMbIKKXmI0Ip8Upzz4yUHKE0HUyKKn1E9W9pn1JmRAVSBSKWClSYoIw67Rw1ptBiUdLOISJfAgwAw1xn3Y7JH5wAAAAASUVORK5CYII="),
+    radial-gradient(ellipse at bottom left, rgba(0,0,0,0.03) 0%, transparent 40%),
+    radial-gradient(ellipse at top right, rgba(0,0,0,0.03) 0%, transparent 40%),
     linear-gradient(to bottom, 
-      rgba(0,0,0,0.01) 0%, 
+      rgba(0,0,0,0.02) 0%, 
       rgba(0,0,0,0) 20%, 
-      rgba(0,0,0,0.005) 50%, 
-      rgba(0,0,0,0.01) 100%);
+      rgba(0,0,0,0.01) 50%, 
+      rgba(0,0,0,0.02) 100%);
   background-blend-mode: multiply;
+  border: 1px solid rgba(0,0,0,0.05);
   
   /* Book binding effect */
   overflow: visible;
 }
 
-/* Book binding effect */
+/* Book binding effect - ENHANCED */
 .book-container:before {
   content: "";
   position: absolute;
   top: 0;
-  left: -16px;
-  width: 16px;
+  left: -20px;
+  width: 20px;
   height: 100%;
   background: linear-gradient(to right, 
-    #6c4930, 
-    #8b5e3c 40%, 
-    #9b6b45 100%);
+    #53371f, 
+    #6c4930 40%, 
+    #8b5e3c 100%);
   box-shadow: 
-    inset 0px 4px 5px -4px rgba(0,0,0,0.7),
-    inset 0px -4px 5px -4px rgba(0,0,0,0.7),
-    inset -2px 0 5px -2px rgba(0,0,0,0.5);
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+    inset 0px 6px 10px -6px rgba(0,0,0,0.8),
+    inset 0px -6px 10px -6px rgba(0,0,0,0.8),
+    inset -3px 0 7px -2px rgba(0,0,0,0.6),
+    0 0 10px rgba(0,0,0,0.3);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-right: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Book pages effect */
@@ -103,10 +109,25 @@ body {
   width: 4px;
   height: 100%;
   background: linear-gradient(to left, 
-    rgba(0,0,0,0.1), 
-    rgba(0,0,0,0.05) 40%, 
+    rgba(0,0,0,0.15), 
+    rgba(0,0,0,0.08) 40%, 
     transparent 100%);
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 5px 5px 0;
+}
+
+/* Page corner fold effect */
+.book-container .corner-fold {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.05) 80%);
+  box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 8px;
+  z-index: 5;
+  pointer-events: none;
 }
 
 /* Typography */
@@ -118,8 +139,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--large-spacing);
   margin-bottom: var(--medium-spacing);
   letter-spacing: -0.01em;
-  /* Subtle text shadow for headings */
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+  /* Enhanced text shadow for headings */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -156,8 +179,10 @@ p {
   margin-bottom: var(--paragraph-spacing);
   text-align: justify;
   hyphens: auto;
-  /* Subtle text shadow for depth */
-  text-shadow: 0 0 1px rgba(0,0,0,0.02);
+  /* Enhanced text shadow for depth */
+  text-shadow: 0 0 2px rgba(0,0,0,0.04);
+  position: relative;
+  z-index: 1;
 }
 
 /* First paragraph special styling - drop cap */
@@ -273,17 +298,18 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* Blockquotes */
+/* Blockquotes - ENHANCED */
 blockquote {
   margin: var(--medium-spacing) 2rem;
   padding: var(--small-spacing) var(--medium-spacing);
-  border-left: 3px solid var(--accent-color);
+  border-left: 4px solid var(--accent-color);
   font-style: italic;
-  /* Enhanced background with gradient */
-  background: linear-gradient(to right, rgba(216, 201, 167, 0.15), rgba(216, 201, 167, 0.05));
+  /* Enhanced background with stronger gradient */
+  background: linear-gradient(to right, rgba(216, 201, 167, 0.25), rgba(216, 201, 167, 0.05));
   position: relative;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transform: translateZ(0);
 }
 
 blockquote:before {
@@ -469,18 +495,19 @@ body {
   perspective: 1000px;
 }
 
-/* Reading progress indicator */
+/* Reading progress indicator - ENHANCED */
 body:after {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(to right, var(--accent-color), #b08d6a);
   width: var(--scroll-width, 0%);
   z-index: 1000;
   transition: width 0.2s ease;
-  opacity: 0.8;
+  opacity: 0.9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 body.page-ready {
