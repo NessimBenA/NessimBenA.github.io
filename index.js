@@ -204,3 +204,16 @@ window.addEventListener('pageshow', function(event) {
     }, 10);
   }
 });
+
+// Reading progress indicator
+function updateReadingProgress() {
+  const scrollPosition = window.scrollY;
+  const totalScrollable = document.body.scrollHeight - window.innerHeight;
+  const scrollPercentage = scrollPosition / totalScrollable * 100;
+  document.body.style.setProperty('--scroll-width', scrollPercentage + '%');
+}
+
+// Add scroll event listener for reading progress
+window.addEventListener('scroll', updateReadingProgress);
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', updateReadingProgress);
