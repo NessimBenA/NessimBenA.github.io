@@ -129,32 +129,43 @@ function setupPageTransitions() {
   // Function to add transitions to links
   function addTransitionsToLinks() {
     // Get all links that point to other pages in the site
-    const internalLinks = Array.from(document.querySelectorAll('a'))
-      .filter(link => {
-        // Only internal links (same origin or relative)
-        if (link.href.startsWith('http') && !link.href.startsWith(window.location.origin)) return false;
-        // Exclude anchor links on the same page
-        if (link.href.includes('#') && link.href.split('#')[0] === window.location.href.split('#')[0]) return false;
-        // Exclude the current page
-        if (link.href === window.location.href) return false;
-        // Skip links that already have the transition handler
-        if (link.hasAttribute('data-transition-added')) return false;
-        return true;
-      });
+    const allLinks = document.querySelectorAll('a');
     
-    // Add click handler to internal links
-    internalLinks.forEach(link => {
+    allLinks.forEach(link => {
+      // Skip if already processed
+      if (link.hasAttribute('data-transition-added')) return;
+      
+      // Process navigation links specifically
+      const href = link.getAttribute('href');
+      if (!href) return;
+      
+      // Only handle internal links - ones that are relative or match our domain
+      const isExternal = href.startsWith('http') && !href.startsWith(window.location.origin);
+      if (isExternal) return;
+      
+      // Skip anchor links on the same page
+      if (href.startsWith('#')) return;
+      
+      // Skip links to current page
+      const currentPath = window.location.pathname;
+      const linkPath = href.startsWith('/') ? href : '/' + href;
+      const normalizedCurrentPath = currentPath.endsWith('/') ? currentPath + 'index.html' : currentPath;
+      const normalizedLinkPath = linkPath.endsWith('/') ? linkPath + 'index.html' : linkPath;
+      
+      if (normalizedCurrentPath === normalizedLinkPath) return;
+      
+      // Mark as processed and add event listener
       link.setAttribute('data-transition-added', 'true');
+      
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetUrl = this.href;
         
         // Start page exit animation
         document.body.classList.add('page-exit');
         
         // Wait for animation to complete, then navigate
         setTimeout(() => {
-          window.location.href = targetUrl;
+          window.location.href = this.href;
         }, 500); // Match this to the animation duration
       });
     });

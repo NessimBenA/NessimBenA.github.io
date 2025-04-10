@@ -442,6 +442,8 @@ body {
   opacity: 0;
   transform: scale(0.98);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+  perspective: 1000px;
 }
 
 body.page-ready {
@@ -455,6 +457,9 @@ body.page-exit {
   transition: 
     opacity 0.5s ease, 
     transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    
+  /* Ensure consistent animation for all links */
+  transform-origin: left center;
 }
 
 /* Responsive adjustments */
