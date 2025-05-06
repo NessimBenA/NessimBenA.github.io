@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmarking LLMs Through Knowledge Graph Analysis | Nessim Ben Abbes</title>
+    <link rel="stylesheet" href="../index.css" />
+</head>
+<body>
+    <div class="book-container">
+        <div class="corner-fold"></div>
+        <div id="header"></div>
+        
+        <article>
+            <h1>Benchmarking LLMs Through Knowledge Graph Analysis</h1>
+            <p class="post-date">May 2025</p>
+            
+            <p>LLM, AI, Agents – all the buzzwords we hear today fill our social media feeds, and even the news talks about incredible promises: advancing sciences, bringing forward a golden age. While all of this is nice and great to hear, those who are <em>actually</em> working on deep learning know the truth. We <em>have</em> made a lot of progress with data-driven approaches, and these approaches have been validated by great open-source benchmarks that helped develop better, more efficient algorithms (like MNIST, CIFAR, ImageNet).</p>
+
+            <p>Initially, these datasets were a one-stop shop to both train and evaluate a model. But then, the emergence of larger, more complex neural networks – coined "foundation models" – showed a transition. First, it shifted to fine-tuning on smaller datasets to show better performance. Then, with the GPT series models, we went to few-shot and eventually zero-shot evaluation (no gradient updates needed). This was a very important <strong>paradigm shift</strong>. We now have a separate way to evaluate models using data that, in theory, should be completely different from the training sets (generalization then became a discussed topic).</p>
+
+            <p>Now, fast forward to today (mid-2025, let's say), and we have multiple benchmarks, with newer ones popping up constantly, that evaluate these models. These benchmarks have been seeing saturation at an insanely rapid pace, even the seemingly tough LLM and adversarial ones (like ARC, AGIEval).</p>
+
+            <p>While a lot of benchmarks can be really useful to evaluate certain things, they sadly generally fall into three main categories:</p>
+
+            <ol>
+                <li><strong>LLM-as-a-judge based:</strong> Things like Chatbot Arena and others use an LLM as the judge. This is great for scale, but will always be limited by the bias and performance limits of the judge LLM itself.</li>
+                <li><strong>Human-as-a-judge based:</strong> These are the most popular and shared benchmarks right now, thanks to the LMSys Arena. It has been pretty consistent in its ranking and how this reflects real-world performance. Of course, these come with caveats: they can be gamed towards human preference in writing style (which LMSys needed to fix), and they have high computational demands and human input costs.</li>
+                <li><strong>Static dataset based benchmarks:</strong> This is the traditional way. Evaluation is done on a fixed dataset, but this is something that has been saturating at neck-breaking speed. However, these are crucial for providing domain-specific evaluation.</li>
+            </ol>
+
+            <p>Because of these limitations, I've been thinking more and more recently about a method that would let us have a peek into a model's performance on a certain domain <em>without</em> needing a static dataset, <em>without</em> an LLM as a judge, and <em>without</em> a human in the loop.</p>
+
+            <p>The promise is very simple:
+            We ask the LLM to generate a comprehensive knowledge graph on a certain subject. We can then study certain elementary properties of the graph. Particularly, we look into the <strong>connectedness</strong> of the graph through different metrics.</p>
+
+            <p>The underlying hypothesis is: if the model has great comprehensive ability regarding the subject, it will be able to actually connect the different underlying concepts to each other. To measure this, we'll look at the <strong>average node degree per concept</strong>, which is a really nice, verbosity-invariant metric.</p>
+
+            <p>A byproduct of this is we get some really nice graphs to look at (see here: <a href="../projects/llm-knowledge-graphs.html">Knowledge Graph Visualizations</a>).</p>
+
+            <p>Note that this method isn't perfect at all, but it could be a good proxy for model 'comprehension'. I've evaluated this method on the following models:</p>
+
+            <ul>
+                <li>Openai O4 Mini High</li>
+                <li>Openai 4.1</li>
+                <li>Openai 4.1 nano</li>
+                <li>Gemini 2.5 Pro Exp</li>
+                <li>Deepseek v3</li>
+                <li>Claude Sonnet 3.7 (Non thinking)</li>
+            </ul>
+
+            <p>And we evaluate it on these different subjects (which are a very broad proxy on general knowledge):</p>
+
+            <ul>
+                <li>Engineering and applied sciences</li>
+                <li>Life Sciences</li>
+                <li>Mathematics and Computer Science</li>
+                <li>Physical Sciences</li>
+                <li>Social and behavioral sciences</li>
+            </ul>
+
+            <p>The prompt for each model is the following:</p>
+            <blockquote>
+                <p>Generate the most comprehensive knowledge graph possible for the concept "{concept}". Include as many relevant nodes (representing concepts, entities, attributes, etc.) and directed edges (representing relationships) as possible to capture the structure of knowledge about this concept.</p>
+            </blockquote>
+
+            <p>We also provide each model with Json schema for the output format (which some models do better than others).
+            The outputted json file is then sanitized and standardized before getting evaluated and eventually transformed into images.</p>
+
+            <p>Before going into the results, i want to make it clear that we don't check for the ground truth of what the model is outputting and that's a limitation that should be taken into account, i truly believe however that this is not something that would hurt the benchmark unless the models are properly trained to game it.</p>
+
+            <p>And these are the results: <a href="../projects/llm-knowledge-graphs.html#final-ranking">Image of the final models ranking</a>.</p>
+
+            <p>The results correlate strongly with LMSys Arena and other metrics.</p>
+
+            <p><a href="../projects/llm-knowledge-graphs.html#lmsys-comparison">Image of lmsys arena</a></p>
+
+            <p>The evaluation system ranks models based on several graph metrics:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Description</th>
+                        <th>Weight in Ranking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Average Node Degree</td>
+                        <td>Average number of connections per node</td>
+                        <td>2.0 (Primary)</td>
+                    </tr>
+                    <tr>
+                        <td>Node Count</td>
+                        <td>Total number of concepts/entities</td>
+                        <td>1.0</td>
+                    </tr>
+                    <tr>
+                        <td>Edge Count</td>
+                        <td>Total number of relationships</td>
+                        <td>1.0</td>
+                    </tr>
+                    <tr>
+                        <td>Graph Density</td>
+                        <td>Ratio of actual connections to possible connections</td>
+                        <td>0.8</td>
+                    </tr>
+                    <tr>
+                        <td>Connected Components</td>
+                        <td>Number of disconnected subgraphs (lower is better)</td>
+                        <td>1.0</td>
+                    </tr>
+                    <tr>
+                        <td>Largest Component Ratio</td>
+                        <td>Size of largest component relative to total graph</td>
+                        <td>0.8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Ranking Methodology</h3>
+
+            <p>The overall ranking is calculated using a weighted average of normalized metrics. The evaluation gives double weight to average node degree, as this metric best captures the knowledge graph's interconnectedness and usefulness.</p>
+
+            <p>For each subject and model combination:</p>
+
+            <ol>
+                <li>Each metric is normalized to a [0,1] scale.</li>
+                <li>Metrics are weighted according to importance.</li>
+                <li>A composite score is calculated.</li>
+                <li>Models are ranked by their average scores across all subjects.</li>
+            </ol>
+
+            <p>A really important thing to notice is that in this case we can test these models on a particular subject (a programming language, a type of cuisine, etc..) In my case i've evaluated it on Pure mathematics and the results were interesting.</p>
+
+            <p>Now, let's look at some of the most beautiful graphs that our study generated...</p>
+
+            <p><a href="../projects/llm-knowledge-graphs.html#graph-gallery">Images of different graphs generated by the llms</a></p>
+
+            <p>All of this work is opensource and i hope that you will enjoy testing it on your favorite models.</p>
+            
+            <div class="page-number">1</div>
+        </article>
+        
+        <footer class="book-footer">
+            <p>&copy; 2025 Nessim Ben Abbes · All rights reserved</p>
+        </footer>
+    </div>
+    <script>
+        fetch('../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+    <script src="../index.js"></script>
+</body>
+</html>
