@@ -10,9 +10,51 @@
       max-width: 100%;
       margin: 1.5rem 0;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .image-gallery img:hover {
+      opacity: 0.9;
     }
     .image-section {
       margin-bottom: 3rem;
+    }
+    
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    .close-lightbox {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -27,7 +69,7 @@
       
       <div class="image-section" id="graph-gallery">
         <h2>Knowledge Graph Visualizations</h2>
-        <p>A selection of the most interesting knowledge graphs generated during our study:</p>
+        <p>A selection of the most interesting knowledge graphs generated during our study. <em>Click on any image to view it in full size.</em></p>
         
         <h3>Engineering & Applied Sciences Knowledge Graphs</h3>
         <div class="image-gallery">
@@ -57,5 +99,56 @@
       });
   </script>
   <script src="../index.js"></script>
+  <!-- Lightbox container -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <span class="close-lightbox">&times;</span>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="Expanded image">
+    </div>
+  </div>
+
+  <script>
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      const closeBtn = document.querySelector('.close-lightbox');
+      
+      // Get all gallery images
+      const galleryImages = document.querySelectorAll('.image-gallery img');
+      
+      // Add click event to each gallery image
+      galleryImages.forEach(image => {
+        image.addEventListener('click', function() {
+          lightboxImg.src = this.src;
+          lightboxImg.alt = this.alt;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+      });
+      
+      // Close lightbox when clicking the close button
+      closeBtn.addEventListener('click', closeLightbox);
+      
+      // Close lightbox when clicking outside the image
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      
+      // Close lightbox when pressing Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+      
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Re-enable scrolling
+      }
+    });
+  </script>
 </body>
 </html>
