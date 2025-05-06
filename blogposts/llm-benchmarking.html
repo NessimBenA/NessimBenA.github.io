@@ -19,9 +19,9 @@
 
             <p>Initially, these datasets were a one-stop shop to both train and evaluate a model. But then, the emergence of larger, more complex neural networks – coined "foundation models" – showed a transition. First, it shifted to fine-tuning on smaller datasets to show better performance. Then, with the GPT series models, we went to few-shot and eventually zero-shot evaluation (no gradient updates needed). This was a very important <strong>paradigm shift</strong>. We now have a separate way to evaluate models using data that, in theory, should be completely different from the training sets (generalization then became a discussed topic).</p>
 
-            <p>Now, fast forward to today (mid-2025, let's say), and we have multiple benchmarks, with newer ones popping up constantly, that evaluate these models. These benchmarks have been seeing saturation at an insanely rapid pace, even the seemingly tough LLM and adversarial ones (like ARC, AGIEval).</p>
+            <p>Now, fast forward to today (mid-2025), and we have multiple benchmarks, with newer ones popping up constantly, that evaluate these models. These benchmarks have been seeing saturation at an insanely rapid pace, even the seemingly tough LLM and adversarial ones (like ARC, AGIEval).</p>
 
-            <p>While a lot of benchmarks can be really useful to evaluate certain things, they sadly generally fall into three main categories:</p>
+            <p>While a lot of benchmarks can be really useful to evaluate certain things, they generally fall into three main categories:</p>
 
             <ol>
                 <li><strong>LLM-as-a-judge based:</strong> Things like Chatbot Arena and others use an LLM as the judge. This is great for scale, but will always be limited by the bias and performance limits of the judge LLM itself.</li>
@@ -69,11 +69,11 @@
 
             <p>Before going into the results, i want to make it clear that we don't check for the ground truth of what the model is outputting and that's a limitation that should be taken into account, i truly believe however that this is not something that would hurt the benchmark unless the models are properly trained to game it.</p>
 
-            <p>And these are the results: <a href="../projects/llm-knowledge-graphs.html#final-ranking">Image of the final models ranking</a>.</p>
+            <p>And these are the results: <a href="../projects/llm-benchmarking-results.html#final-ranking">Image of the final models ranking</a>.</p>
 
             <p>The results correlate strongly with LMSys Arena and other metrics.</p>
 
-            <p><a href="../projects/llm-knowledge-graphs.html#lmsys-comparison">Image of lmsys arena</a></p>
+            <p><a href="../projects/llm-benchmarking-results.html#lmsys-comparison">Image of lmsys arena</a></p>
 
             <p>The evaluation system ranks models based on several graph metrics:</p>
 

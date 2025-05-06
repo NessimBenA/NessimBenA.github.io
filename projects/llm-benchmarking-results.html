@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>LLM Benchmarking Results | Nessim Ben Abbes</title>
+  <link rel="stylesheet" href="../index.css" />
+  <style>
+    .image-gallery img {
+      max-width: 100%;
+      margin: 1.5rem 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .image-section {
+      margin-bottom: 3rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <div class="book-container">
+    <div class="corner-fold"></div>
+    <div id="header"></div>
+    
+    <article>
+      <h1>LLM Benchmarking Results</h1>
+      <p>Detailed results from our knowledge graph analysis benchmark of various LLM models. These results are part of a research project on benchmarking LLM comprehension capabilities through graph connectedness analysis. View the <a href="llm-knowledge-graphs.html">knowledge graph visualizations</a> or <a href="../blogposts/llm-benchmarking.html">read the full blog post</a> for complete methodology and analysis.</p>
+      
+      <div class="image-section" id="final-ranking">
+        <h2>Final Model Rankings</h2>
+        <p>Comparative performance of various LLM models based on knowledge graph metrics:</p>
+        <div class="image-gallery">
+          <img src="../images/overall_model_performance_ranking.png" alt="Final ranking of LLM models based on knowledge graph metrics" />
+        </div>
+      </div>
+      
+      <div class="image-section" id="lmsys-comparison">
+        <h2>Correlation with LMSys Arena</h2>
+        <p>Comparing our knowledge graph analysis results with LMSys Arena rankings:</p>
+        <div class="image-gallery">
+          <img src="../images/lmsys_arena.png" alt="Comparison with LMSys Arena rankings" />
+        </div>
+      </div>
+      
+      <div class="image-section">
+        <h2>Ranking Methodology</h2>
+        <p>The evaluation system ranks models based on several graph metrics:</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Description</th>
+              <th>Weight in Ranking</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Average Node Degree</td>
+              <td>Average number of connections per node</td>
+              <td>2.0 (Primary)</td>
+            </tr>
+            <tr>
+              <td>Node Count</td>
+              <td>Total number of concepts/entities</td>
+              <td>1.0</td>
+            </tr>
+            <tr>
+              <td>Edge Count</td>
+              <td>Total number of relationships</td>
+              <td>1.0</td>
+            </tr>
+            <tr>
+              <td>Graph Density</td>
+              <td>Ratio of actual connections to possible connections</td>
+              <td>0.8</td>
+            </tr>
+            <tr>
+              <td>Connected Components</td>
+              <td>Number of disconnected subgraphs (lower is better)</td>
+              <td>1.0</td>
+            </tr>
+            <tr>
+              <td>Largest Component Ratio</td>
+              <td>Size of largest component relative to total graph</td>
+              <td>0.8</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p>The overall ranking is calculated using a weighted average of normalized metrics. The evaluation gives double weight to average node degree, as this metric best captures the knowledge graph's interconnectedness and usefulness.</p>
+        
+        <p>For each subject and model combination:</p>
+        <ol>
+          <li>Each metric is normalized to a [0,1] scale.</li>
+          <li>Metrics are weighted according to importance.</li>
+          <li>A composite score is calculated.</li>
+          <li>Models are ranked by their average scores across all subjects.</li>
+        </ol>
+      </div>
+      
+      <div class="page-number">1</div>
+    </article>
+    
+    <footer class="book-footer">
+      <p>&copy; 2025 Nessim Ben Abbes · All rights reserved</p>
+    </footer>
+  </div>
+
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+  <script src="../index.js"></script>
+</body>
+</html>
