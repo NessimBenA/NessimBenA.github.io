@@ -91,14 +91,6 @@
     </footer>
   </div>
 
-  <script>
-    fetch('../header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
-  </script>
-  <script src="../index.js"></script>
   <!-- Lightbox container -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-content">
@@ -108,8 +100,17 @@
   </div>
 
   <script>
-    // Lightbox functionality
-    document.addEventListener('DOMContentLoaded', function() {
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+  <script src="../index.js"></script>
+  
+  <script>
+    // Ensure the DOM is fully loaded before attaching events
+    window.onload = function() {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-image');
       const closeBtn = document.querySelector('.close-lightbox');
@@ -118,24 +119,26 @@
       const galleryImages = document.querySelectorAll('.image-gallery img');
       
       // Add click event to each gallery image
-      galleryImages.forEach(image => {
-        image.addEventListener('click', function() {
+      galleryImages.forEach(function(image) {
+        image.onclick = function() {
           lightboxImg.src = this.src;
           lightboxImg.alt = this.alt;
           lightbox.classList.add('active');
           document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
+        };
       });
       
       // Close lightbox when clicking the close button
-      closeBtn.addEventListener('click', closeLightbox);
+      closeBtn.onclick = function() {
+        closeLightbox();
+      };
       
       // Close lightbox when clicking outside the image
-      lightbox.addEventListener('click', function(e) {
+      lightbox.onclick = function(e) {
         if (e.target === lightbox) {
           closeLightbox();
         }
-      });
+      };
       
       // Close lightbox when pressing Escape key
       document.addEventListener('keydown', function(e) {
@@ -148,7 +151,7 @@
         lightbox.classList.remove('active');
         document.body.style.overflow = ''; // Re-enable scrolling
       }
-    });
+    };
   </script>
 </body>
 </html>
