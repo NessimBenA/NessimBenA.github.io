@@ -57,7 +57,6 @@ body {
   margin: 0;
   padding: var(--content-padding);
   background-color: var(--page-color);
-  /* Refined book shadow with elegant page edge effect */
   box-shadow: 
     0 15px 40px rgba(0, 0, 0, 0.12),
     2px 0 4px -2px rgba(0, 0, 0, 0.08), 
@@ -65,8 +64,6 @@ body {
     inset 0 -5px 10px -3px rgba(0, 0, 0, 0.02);
   position: relative;
   border-radius: 3px;
-  
-  /* Subtle paper texture with refined tonality */
   background-image: 
     url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTlBRTQ0NjA3RDQwMTFFQkE3NTVBRTFBQkRDODA1NDciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTlBRTQ0NjE3RDQwMTFFQkE3NTVBRTFBQkRDODA1NDciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxOUFFNDQ1RTdENDAxMUVCQTc1NUFFMUFCREM4MDU0NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxOUFFNDQ1RjdENDAxMUVCQTc1NUFFMUFCREM4MDU0NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pmfkae0AAABgUExURZmZmejo6KOjo42NjaCgoJGRkZubm6Wlpaenp5SUlJKSkpCQkJeXl6GhoaioqJqamqmpqaysrI+Pj4uLi7Kysq+vr4mJiYqKirGxsba2toiIiLW1tYaGhrOzs7e3t////3IUAGgAAADlSURBVHja7NTLDoIwEIXhIkWLCOKF+7z/c5qQkBg7mcxC4sLzb07S9M9s0ILuDWWVp0hZYlQiZGKUNMoHJT3lN8qssrRjKd8UavlHDPDH3CiF9g4F+GgGUfJJpE/JB9JFhEaJB3JTPnW/0CA3WpQIJZdUPiKREiH8lBCHMpEQBZJJoTzPlOshVUVEDSkSSbSUZ0SxNvSUeUU4EK+LiCIrQ4Ti1RBTFC/FhxKtFMbIKKXmI0Ip8Upzz4yUHKE0HUyKKn1E9W9pn1JmRAVSBSKWClSYoIw67Rw1ptBiUdLOISJfAgwAw1xn3Y7JH5wAAAAASUVORK5CYII="),
     radial-gradient(ellipse at bottom left, rgba(0,0,0,0.015) 0%, transparent 50%),
@@ -78,12 +75,10 @@ body {
       rgba(0,0,0,0.01) 100%);
   background-blend-mode: overlay;
   border: 1px solid rgba(0,0,0,0.03);
-  
-  /* Book binding effect */
   overflow: visible;
 }
 
-/* Book binding effect - REFINED */
+/* Book binding effect */
 .book-container:before {
   content: "";
   position: absolute;
@@ -144,7 +139,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--large-spacing);
   margin-bottom: var(--medium-spacing);
   letter-spacing: 0.01em;
-  /* Enhanced shadow and stroke for better visibility */
   text-shadow: 0 1px 1px rgba(0,0,0,0.08);
   -webkit-text-stroke: 0.15px rgba(0,0,0,0.2);
   position: relative;
@@ -187,7 +181,6 @@ p {
   margin-bottom: var(--paragraph-spacing);
   text-align: justify;
   hyphens: auto;
-  /* Enhanced text rendering for better thickness */
   text-shadow: 0 0 1px rgba(0,0,0,0.05);
   position: relative;
   z-index: 1;
@@ -195,19 +188,19 @@ p {
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-stroke: 0.1px; /* Creates a subtle stroke to thicken text */
+  -webkit-text-stroke: 0.1px;
 }
 
-/* First paragraph special styling - drop cap */
+/* First letter styling - drop cap effect removed */
 article p:first-of-type::first-letter {
-  font-size: 3.7rem;
-  font-family: var(--header-font);
-  float: left;
-  line-height: 0.8;
-  margin: 0.08em 0.1em 0 0;
-  padding: 0.1em 0.1em 0 0;
-  color: var(--accent-color);
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  font-size: inherit;
+  font-family: inherit;
+  float: none;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  text-shadow: inherit;
 }
 
 /* Links */
@@ -311,13 +304,12 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* Blockquotes - REFINED */
+/* Blockquotes */
 blockquote {
   margin: var(--medium-spacing) 2rem;
   padding: var(--small-spacing) var(--medium-spacing);
   border-left: 3px solid var(--accent-color);
   font-style: italic;
-  /* Refined background with subtle gradient */
   background: linear-gradient(to right, rgba(205, 197, 187, 0.15), rgba(205, 197, 187, 0.03));
   position: relative;
   border-radius: 2px;
@@ -414,8 +406,6 @@ tr:nth-child(even) {
   position: relative;
 }
 
-/* Removed stars */
-
 /* Blog post list */
 .post-list {
   list-style-type: none;
@@ -477,7 +467,7 @@ tr:nth-child(even) {
   color: #b9a48b;
 }
 
-/* Add an ornamental divider for horizontal rules */
+/* Horizontal rules */
 hr {
   border: none;
   border-top: 1px solid var(--border-color);
@@ -508,7 +498,7 @@ body {
   perspective: 1000px;
 }
 
-/* Reading progress indicator - REFINED */
+/* Reading progress indicator */
 body:after {
   content: "";
   position: fixed;
@@ -523,63 +513,14 @@ body:after {
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
+/* Page ready state */
 body.page-ready {
   opacity: 1;
   transform: scale(1);
 }
 
+/* Page exit state */
 body.page-exit {
   opacity: 0;
   transform: translateX(-5%) rotateY(10deg);
-  transition: 
-    opacity 0.5s ease, 
-    transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    
-  /* Ensure consistent animation for all links */
-  transform-origin: left center;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  :root {
-    --content-padding: 1.5rem;
-  }
-  
-  body {
-    padding: 1rem 0.5rem;
-  }
-
-  .book-container {
-    padding: var(--content-padding);
-  }
-
-  .book-container:before {
-    width: 12px;
-    left: -12px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .book-header h1 {
-    font-size: 2.2rem;
-  }
-
-  .book-nav a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-  
-  blockquote {
-    margin: var(--medium-spacing) 1rem;
-  }
-  
-  hr:after {
-    font-size: 0.9rem;
-  }
 }
