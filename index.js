@@ -34,27 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Boot sequence animation
 function bootSequence() {
+  const systemInfo = getRealSystemInfo();
   const bootMessages = [
-    '[  0.000000] Linux version 6.9.420-zen (nessim@arch-btw)',
-    '[  0.000001] Command line: BOOT_IMAGE=/vmlinuz-linux-zen root=/dev/nvme0n1p2 rw quiet splash',
+    `[  0.000000] ${systemInfo.os} kernel loading...`,
+    `[  0.000001] Command line: BOOT_IMAGE=/browser/${systemInfo.browser.toLowerCase().replace(' ', '-')}`,
     '[  0.000002] KERNEL supported cpus:',
-    '[  0.000003]   AMD AuthenticAMD',
+    `[  0.000003]   ${navigator.userAgent.includes('ARM') ? 'ARM processors' : 'x86_64 processors'}`,
     '[  0.000004] x86/fpu: Supporting XSAVE feature 0x001: x87 floating point registers',
     '[  0.000005] BIOS-provided physical RAM map:',
     '[  0.000006] BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff] usable',
     '[  0.000007] NX (Execute Disable) protection: active',
-    '[  0.000008] DMI: ASUS ROG MAXIMUS Z790 EXTREME/ASUS ROG MAXIMUS Z790 EXTREME, BIOS 9999 04/20/2069',
+    `[  0.000008] DMI: ${systemInfo.os} ${systemInfo.browser} Platform`,
     '[  0.000009] tsc: Fast TSC calibration using PIT',
-    '[  0.000010] CPU: AMD Threadripper 9950X (64) @ 6.900GHz',
-    '[  0.000011] GPU: NVIDIA GeForce RTX 6090 Ti Super',
-    '[  0.000012] Memory: 420GB DDR6 @ 9600MHz',
-    '[  0.000013] [drm] Initialized nvidia-drm 0.0.0 20160202 for 0000:01:00.0 on minor 0',
+    `[  0.000010] CPU: ${systemInfo.cpu}`,
+    `[  0.000011] GPU: ${systemInfo.gpu}`,
+    `[  0.000012] Memory: ${systemInfo.memory}`,
+    `[  0.000013] Resolution: ${systemInfo.resolution}`,
     '[  0.000014] systemd[1]: Reached target Graphical Interface.',
-    '[  0.000015] systemd[1]: Starting Hyprland Wayland Compositor...',
-    '[  0.000016] hyprland[420]: Compositor started successfully',
-    '[  0.000017] hyprland[420]: Loading rice configuration from ~/.config/hypr/ultimate-rice.conf',
-    '[  0.000018] hyprland[420]: RGB lighting synchronized',
-    '[  0.000019] Welcome to the rice fields, motherfucker!'
+    `[  0.000015] systemd[1]: Starting ${systemInfo.browser} Renderer...`,
+    '[  0.000016] renderer[420]: Compositor started successfully',
+    '[  0.000017] renderer[420]: Loading rice configuration from ~/.config/rice/ultimate.conf',
+    '[  0.000018] renderer[420]: RGB lighting synchronized',
+    '[  0.000019] Welcome to the rice fields!'
   ];
 
   const bootContainer = document.createElement('div');
@@ -153,6 +154,9 @@ function addNeofetch() {
   const article = document.querySelector('article');
   if (!article) return;
 
+  // Get real system info
+  const systemInfo = getRealSystemInfo();
+
   const neofetch = document.createElement('div');
   neofetch.className = 'neofetch-box';
   neofetch.innerHTML = `
@@ -166,29 +170,29 @@ function addNeofetch() {
     </div>
     <div class="neofetch-content">
       <span class="neofetch-label">OS:</span>
-      <span class="neofetch-value">Arch Linux x86_64</span>
-      <span class="neofetch-label">Host:</span>
-      <span class="neofetch-value">${config.hostname}</span>
+      <span class="neofetch-value">${systemInfo.os}</span>
+      <span class="neofetch-label">Browser:</span>
+      <span class="neofetch-value">${systemInfo.browser}</span>
       <span class="neofetch-label">Kernel:</span>
-      <span class="neofetch-value">${config.kernel}</span>
+      <span class="neofetch-value">${systemInfo.kernel}</span>
       <span class="neofetch-label">Uptime:</span>
-      <span class="neofetch-value">${config.uptime}</span>
-      <span class="neofetch-label">Packages:</span>
-      <span class="neofetch-value">${config.packages} (pacman)</span>
+      <span class="neofetch-value">${systemInfo.uptime}</span>
+      <span class="neofetch-label">Language:</span>
+      <span class="neofetch-value">${systemInfo.language}</span>
       <span class="neofetch-label">Shell:</span>
-      <span class="neofetch-value">${config.shell}</span>
+      <span class="neofetch-value">${systemInfo.shell}</span>
       <span class="neofetch-label">Resolution:</span>
-      <span class="neofetch-value">${window.screen.width}x${window.screen.height}</span>
-      <span class="neofetch-label">WM:</span>
-      <span class="neofetch-value">${config.wm}</span>
+      <span class="neofetch-value">${systemInfo.resolution}</span>
+      <span class="neofetch-label">DE/WM:</span>
+      <span class="neofetch-value">${systemInfo.wm}</span>
       <span class="neofetch-label">Terminal:</span>
-      <span class="neofetch-value">${config.terminal}</span>
+      <span class="neofetch-value">${systemInfo.terminal}</span>
       <span class="neofetch-label">CPU:</span>
-      <span class="neofetch-value">${config.cpu}</span>
+      <span class="neofetch-value">${systemInfo.cpu}</span>
       <span class="neofetch-label">GPU:</span>
-      <span class="neofetch-value">${config.gpu}</span>
+      <span class="neofetch-value">${systemInfo.gpu}</span>
       <span class="neofetch-label">Memory:</span>
-      <span class="neofetch-value">${config.ram}</span>
+      <span class="neofetch-value">${systemInfo.memory}</span>
     </div>
   `;
   
@@ -199,6 +203,70 @@ function addNeofetch() {
   } else {
     article.appendChild(neofetch);
   }
+}
+
+// Get real system information
+function getRealSystemInfo() {
+  const ua = navigator.userAgent;
+  const platform = navigator.platform;
+  
+  // Detect OS
+  let os = 'Unknown OS';
+  if (ua.includes('Windows NT 10.0')) os = 'Windows 10';
+  else if (ua.includes('Windows NT 11.0')) os = 'Windows 11';
+  else if (ua.includes('Mac OS X')) {
+    const version = ua.match(/Mac OS X (\d+[._]\d+)/);
+    os = version ? `macOS ${version[1].replace('_', '.')}` : 'macOS';
+  }
+  else if (ua.includes('Linux')) {
+    if (ua.includes('Ubuntu')) os = 'Ubuntu Linux';
+    else if (ua.includes('Fedora')) os = 'Fedora Linux';
+    else if (ua.includes('Arch')) os = 'Arch Linux';
+    else os = 'Linux';
+  }
+  else if (ua.includes('Android')) os = `Android ${ua.match(/Android (\d+\.?\d*)/)?.[1] || ''}`;
+  else if (ua.includes('iOS')) os = 'iOS';
+  
+  // Detect browser
+  let browser = 'Unknown Browser';
+  if (ua.includes('Firefox/')) browser = `Firefox ${ua.match(/Firefox\/(\d+)/)?.[1] || ''}`;
+  else if (ua.includes('Edg/')) browser = `Edge ${ua.match(/Edg\/(\d+)/)?.[1] || ''}`;
+  else if (ua.includes('Chrome/')) browser = `Chrome ${ua.match(/Chrome\/(\d+)/)?.[1] || ''}`;
+  else if (ua.includes('Safari/') && !ua.includes('Chrome')) browser = `Safari ${ua.match(/Version\/(\d+)/)?.[1] || ''}`;
+  
+  // Get hardware info (limited by browser APIs)
+  const cores = navigator.hardwareConcurrency || 'Unknown';
+  const memory = navigator.deviceMemory ? `${navigator.deviceMemory}GB` : 'Unknown';
+  
+  // Get GPU info if available
+  let gpu = 'Unknown GPU';
+  const canvas = document.createElement('canvas');
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (gl) {
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    if (debugInfo) {
+      gpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+    }
+  }
+  
+  // Calculate fake but realistic uptime
+  const uptimeHours = Math.floor(Math.random() * 72) + 1;
+  const uptimeMins = Math.floor(Math.random() * 60);
+  
+  return {
+    os: os,
+    browser: browser,
+    kernel: platform,
+    uptime: `${uptimeHours}h ${uptimeMins}m`,
+    language: navigator.language || 'en-US',
+    shell: browser.includes('Chrome') ? 'chrome://dino' : 'about:blank',
+    resolution: `${window.screen.width}x${window.screen.height} @ ${window.devicePixelRatio}x`,
+    wm: window.screen.width > 768 ? 'Desktop Environment' : 'Mobile Environment',
+    terminal: `${browser} DevTools`,
+    cpu: `${cores} cores @ ${navigator.userAgent.includes('ARM') ? 'ARM' : 'x86_64'}`,
+    gpu: gpu,
+    memory: memory !== 'Unknown' ? memory : '??? GB'
+  };
 }
 
 // Matrix rain effect
