@@ -14,6 +14,10 @@ class P2PIRC {
     
     // PeerJS config - using public servers for STUN/TURN
     this.peerConfig = {
+      host: 'peerjs.com',
+      port: 443,
+      path: '/',
+      secure: true,
       config: {
         iceServers: [
           { urls: 'stun:stun.l.google.com:19302' },
@@ -56,23 +60,62 @@ class P2PIRC {
     // Create IRC UI
     this.createUI();
     
-    // Initialize PeerJS
-    this.peer = new Peer(this.userId, this.peerConfig);
+    try {
+      // Initialize PeerJS with fallback
+      this.peer = new Peer(this.userId, this.peerConfig);
+      
+      this.peer.on('open', (id) => {
+        console.log('%c[P2P IRC] Connected with ID: ' + id, 'color: #00ffff');
+        this.addSystemMessage(`Connected to P2P network as ${this.username}`);
+        this.connectToNetwork();
+      });
+      
+      this.peer.on('connection', (conn) => {
+        this.handleNewConnection(conn);
+      });
+      
+      this.peer.on('error', (err) => {
+        console.error('[P2P IRC] Error:', err);
+        
+        if (err.type === 'peer-unavailable') {
+          // Expected error when peer doesn't exist yet
+          return;
+        }
+        
+        if (err.type === 'unavailable-id' || err.type === 'invalid-id') {
+          // Try with a random ID
+          this.userId = 'user-' + Math.random().toString(36).substr(2, 9);
+          this.peer = new Peer(this.userId, this.peerConfig);
+          return;
+        }
+        
+        if (err.type === 'network' || err.type === 'server-error') {
+          // Fallback to simple mode without PeerJS server
+          this.addSystemMessage('Running in local mode (cross-tab chat only)');
+          this.runLocalMode();
+          return;
+        }
+        
+        this.addSystemMessage(`Error: ${err.type}`);
+      });
+    } catch (e) {
+      console.error('[P2P IRC] Failed to initialize:', e);
+      this.addSystemMessage('Running in local mode (cross-tab chat only)');
+      this.runLocalMode();
+    }
+  }
+  
+  runLocalMode() {
+    // Fallback mode using only BroadcastChannel and localStorage
+    this.localMode = true;
+    this.addSystemMessage('Chat is limited to tabs on the same device');
     
-    this.peer.on('open', (id) => {
-      console.log('%c[P2P IRC] Connected with ID: ' + id, 'color: #00ffff');
-      this.addSystemMessage(`Connected to P2P network as ${this.username}`);
-      this.connectToNetwork();
-    });
+    // Still announce via local methods
+    this.announceViaLocalStorage();
+    this.announceViaBroadcastChannel();
     
-    this.peer.on('connection', (conn) => {
-      this.handleNewConnection(conn);
-    });
-    
-    this.peer.on('error', (err) => {
-      console.error('[P2P IRC] Error:', err);
-      this.addSystemMessage(`Error: ${err.type}`);
-    });
+    // Simulate connection for UI
+    this.updateUserCount();
   }
   
   createUI() {
@@ -504,10 +547,17 @@ class P2PIRC {
         channel: this.channel
       });
       
-      // Listen for other peers
+      // Listen for other peers and messages
       this.broadcast.onmessage = (e) => {
         if (e.data.type === 'announce' && e.data.channel === this.channel && e.data.peerId !== this.userId) {
-          this.connectToPeer(e.data.peerId);
+          if (!this.localMode) {
+            this.connectToPeer(e.data.peerId);
+          }
+        } else if (e.data.type === 'message' && e.data.channel === this.channel) {
+          // Handle messages in local mode
+          if (this.localMode && e.data.data.userId !== this.userId) {
+            this.handleMessage(e.data.data, { peer: 'broadcast' });
+          }
         }
       };
     }
@@ -622,11 +672,24 @@ class P2PIRC {
     
     // Send to all peers
     data.messageId = `${Date.now()}-${Math.random()}`;
-    this.connections.forEach(conn => {
-      if (conn.open) {
-        conn.send(data);
+    
+    if (this.localMode) {
+      // In local mode, use BroadcastChannel
+      if (this.broadcast) {
+        this.broadcast.postMessage({
+          type: 'message',
+          data: data,
+          channel: this.channel
+        });
       }
-    });
+    } else {
+      // Normal P2P mode
+      this.connections.forEach(conn => {
+        if (conn.open) {
+          conn.send(data);
+        }
+      });
+    }
   }
   
   addMessage(username, text, timestamp) {
