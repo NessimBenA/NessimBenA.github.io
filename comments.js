@@ -1,16 +1,19 @@
 // IRC-STYLE COMMENT SYSTEM - PERSISTENT COMMENTS WITH TERMINAL AESTHETIC
-// Stores comments in localStorage with option for GitHub Issues backend
+// SNEAKY: Uses GitHub Issues as backend via utterances-like approach!
 
 class IRCComments {
   constructor() {
     this.username = this.loadUsername() || this.generateUsername();
     this.pageId = this.getPageId();
-    this.comments = this.loadComments();
+    this.pageTitle = this.getPageTitle();
+    this.comments = [];
     this.isMinimized = false;
     
-    // GitHub repo info for issues backend (optional)
-    this.githubRepo = 'NessimBenA/NessimBenA.github.io';
-    this.useGitHub = false; // Set to true to use GitHub Issues as backend
+    // GitHub repo info - WHERE THE MAGIC HAPPENS
+    this.owner = 'NessimBenA';
+    this.repo = 'NessimBenA.github.io';
+    this.label = 'comments';
+    this.issueNumber = null;
     
     this.init();
   }
@@ -43,35 +46,49 @@ class IRCComments {
     return document.title || 'Untitled Page';
   }
   
-  loadComments() {
-    // Load from localStorage
-    const stored = localStorage.getItem(`comments-${this.pageId}`);
-    if (stored) {
-      return JSON.parse(stored);
+  async loadComments() {
+    try {
+      // Search for existing issue for this page
+      const searchQuery = `repo:${this.owner}/${this.repo} is:issue label:${this.label} "${this.pageId}" in:title`;
+      const searchResponse = await fetch(`https://api.github.com/search/issues?q=${encodeURIComponent(searchQuery)}`);
+      const searchData = await searchResponse.json();
+      
+      if (searchData.items && searchData.items.length > 0) {
+        const issue = searchData.items[0];
+        this.issueNumber = issue.number;
+        
+        // Load comments from the issue
+        const commentsResponse = await fetch(`https://api.github.com/repos/${this.owner}/${this.repo}/issues/${issue.number}/comments`);
+        const comments = await commentsResponse.json();
+        
+        return comments;
+      }
+    } catch (error) {
+      console.error('Failed to load GitHub comments:', error);
     }
     
-    // If using GitHub, we'd fetch from issues API here
     return [];
   }
   
-  saveComments() {
-    localStorage.setItem(`comments-${this.pageId}`, JSON.stringify(this.comments));
-  }
-  
-  init() {
+  async init() {
     this.createUI();
     this.bindEvents();
-    this.displayComments();
     
-    // Load GitHub comments if enabled
-    if (this.useGitHub) {
-      this.loadGitHubComments();
-    }
+    // Show loading message
+    this.addSystemMessage('Loading comments from GitHub...');
+    
+    // Load comments from GitHub
+    this.comments = await this.loadComments();
+    this.displayComments();
     
     // Show welcome message
     this.addSystemMessage(`Welcome to comments for "${this.getPageTitle()}"`);
-    this.addSystemMessage(`You are commenting as ${this.username}`);
-    this.addSystemMessage('Type /help for commands');
+    if (this.issueNumber) {
+      this.addSystemMessage(`💬 Powered by GitHub Issue #${this.issueNumber}`);
+    } else {
+      this.addSystemMessage('📝 Comments will create a new GitHub issue');
+    }
+    this.addSystemMessage('🔗 Sign in with GitHub to comment');
   }
   
   createUI() {
@@ -316,6 +333,24 @@ class IRCComments {
         color: var(--bg-primary);
       }
       
+      .irc-avatar {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid var(--neon-cyan);
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+      
+      .irc-comment-author a {
+        color: var(--neon-cyan);
+        text-decoration: none;
+      }
+      
+      .irc-comment-author a:hover {
+        text-decoration: underline;
+      }
+      
       @media (max-width: 768px) {
         .irc-comments {
           width: calc(100% - 40px);
@@ -423,19 +458,16 @@ class IRCComments {
         this.showHelp();
         break;
         
-      case 'clear':
-        if (confirm('Clear all comments on this page? This cannot be undone!')) {
-          this.clearComments();
-        }
-        break;
-        
-      case 'export':
-        this.exportComments();
+      case 'refresh':
+        location.reload();
         break;
         
       case 'github':
-        this.addSystemMessage('GitHub Issues integration: ' + (this.useGitHub ? 'Enabled' : 'Disabled'));
-        this.addSystemMessage(`Repository: ${this.githubRepo}`);
+        if (this.issueNumber) {
+          window.open(`https://github.com/${this.owner}/${this.repo}/issues/${this.issueNumber}`, '_blank');
+        } else {
+          this.addSystemMessage('No GitHub issue created yet for this page');
+        }
         break;
         
       default:
@@ -445,11 +477,10 @@ class IRCComments {
   
   showHelp() {
     const commands = [
-      '/nick <name> - Change your username',
+      '/nick <name> - Change your display name',
       '/help - Show this help',
-      '/clear - Clear all comments (requires confirmation)',
-      '/export - Export comments as JSON',
-      '/github - Show GitHub integration status'
+      '/refresh - Refresh comments from GitHub',
+      '/github - Open this page\'s GitHub issue'
     ];
     
     this.addSystemMessage('Available commands:');
@@ -457,29 +488,38 @@ class IRCComments {
   }
   
   addComment(text) {
-    const comment = {
-      id: Date.now().toString(),
-      author: this.username,
-      text: text,
-      timestamp: Date.now(),
-      pageId: this.pageId,
-      pageTitle: this.getPageTitle()
-    };
+    // For GitHub comments, we need to redirect to GitHub
+    const issueTitle = `Comments: ${this.pageTitle} [${this.pageId}]`;
+    const issueBody = this.issueNumber ? 
+      text : // If issue exists, just use the comment text
+      `Page: ${window.location.href}\n\n---\n\n${text}`; // For new issue, include page info
     
-    this.comments.push(comment);
-    this.saveComments();
-    this.displayComment(comment);
-    this.updateCommentCount();
-    
-    // Play sound effect if available
-    if (window.playSound) {
-      window.playSound('beep');
+    // Create GitHub issue URL
+    let githubUrl;
+    if (this.issueNumber) {
+      // Comment on existing issue
+      githubUrl = `https://github.com/${this.owner}/${this.repo}/issues/${this.issueNumber}#issuecomment-new`;
+    } else {
+      // Create new issue
+      const params = new URLSearchParams({
+        title: issueTitle,
+        body: issueBody,
+        labels: this.label
+      });
+      githubUrl = `https://github.com/${this.owner}/${this.repo}/issues/new?${params}`;
     }
     
-    // If GitHub integration is enabled, post to issues
-    if (this.useGitHub) {
-      this.postToGitHub(comment);
-    }
+    // Show message
+    this.addSystemMessage('🚀 Redirecting to GitHub to post comment...');
+    this.addSystemMessage('Sign in with GitHub if needed');
+    
+    // Open GitHub in new tab
+    window.open(githubUrl, '_blank');
+    
+    // Remind to refresh
+    setTimeout(() => {
+      this.addSystemMessage('💡 Refresh the page to see your comment!');
+    }, 3000);
   }
   
   displayComments() {
@@ -491,6 +531,8 @@ class IRCComments {
     } else {
       this.comments.forEach(comment => this.displayComment(comment, false));
     }
+    
+    this.updateCommentCount();
   }
   
   displayComment(comment, animate = true) {
@@ -500,25 +542,31 @@ class IRCComments {
     commentEl.className = 'irc-comment';
     commentEl.dataset.id = comment.id;
     
-    const timeAgo = this.getTimeAgo(comment.timestamp);
-    const isAuthor = comment.author === this.username;
-    const isMod = comment.author === 'nessim' || comment.author.includes('admin');
+    // GitHub comment structure
+    const isGitHub = comment.user && comment.user.login;
+    const author = isGitHub ? comment.user.login : comment.author;
+    const timestamp = isGitHub ? new Date(comment.created_at) : comment.timestamp;
+    const text = isGitHub ? comment.body : comment.text;
+    const avatarUrl = isGitHub ? comment.user.avatar_url : null;
+    
+    const timeAgo = this.getTimeAgo(timestamp);
+    const isOwner = author === this.owner;
     
     commentEl.innerHTML = `
       <div class="irc-comment-header">
+        ${avatarUrl ? `<img class="irc-avatar" src="${avatarUrl}" alt="${author}">` : ''}
         <span class="irc-comment-author">
-          ${this.escapeHtml(comment.author)}
-          ${isAuthor ? '<span class="irc-badge author">YOU</span>' : ''}
-          ${isMod ? '<span class="irc-badge mod">MOD</span>' : ''}
+          ${isGitHub ? `<a href="${comment.user.html_url}" target="_blank">${author}</a>` : this.escapeHtml(author)}
+          ${isOwner ? '<span class="irc-badge mod">OWNER</span>' : ''}
         </span>
-        <span class="irc-comment-time" title="${new Date(comment.timestamp).toLocaleString()}">
+        <span class="irc-comment-time" title="${new Date(timestamp).toLocaleString()}">
           ${timeAgo}
         </span>
       </div>
-      <div class="irc-comment-text">${this.escapeHtml(comment.text)}</div>
-      ${isAuthor ? `
+      <div class="irc-comment-text">${this.escapeHtml(text)}</div>
+      ${!isGitHub ? `
         <div class="irc-comment-actions">
-          <span class="irc-comment-action" onclick="ircComments.deleteComment('${comment.id}')">delete</span>
+          <span class="irc-comment-action" onclick="window.open('https://github.com/${this.owner}/${this.repo}/issues/${this.issueNumber || 'new'}')">reply on GitHub</span>
         </div>
       ` : ''}
     `;
@@ -530,35 +578,7 @@ class IRCComments {
     }
   }
   
-  deleteComment(id) {
-    if (confirm('Delete this comment?')) {
-      this.comments = this.comments.filter(c => c.id !== id);
-      this.saveComments();
-      document.querySelector(`[data-id="${id}"]`).remove();
-      this.updateCommentCount();
-      this.addSystemMessage('Comment deleted');
-    }
-  }
-  
-  clearComments() {
-    this.comments = [];
-    this.saveComments();
-    this.displayComments();
-    this.updateCommentCount();
-    this.addSystemMessage('All comments cleared');
-  }
-  
-  exportComments() {
-    const data = JSON.stringify(this.comments, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `comments-${this.pageId}-${Date.now()}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    this.addSystemMessage('Comments exported to JSON file');
-  }
+  // Removed delete/clear/export - GitHub handles comment management!
   
   updateCommentCount() {
     document.querySelector('.irc-count').textContent = `${this.comments.length} comment${this.comments.length !== 1 ? 's' : ''}`;
@@ -590,53 +610,6 @@ class IRCComments {
     return div.innerHTML;
   }
   
-  // GitHub Issues integration (optional)
-  async loadGitHubComments() {
-    if (!this.useGitHub) return;
-    
-    try {
-      // Find issue for this page
-      const issueTitle = `Comments: ${this.getPageTitle()} [${this.pageId}]`;
-      const response = await fetch(`https://api.github.com/repos/${this.githubRepo}/issues?labels=comments&state=all`);
-      const issues = await response.json();
-      
-      const issue = issues.find(i => i.title === issueTitle);
-      if (issue) {
-        const commentsResponse = await fetch(issue.comments_url);
-        const comments = await commentsResponse.json();
-        
-        // Merge with local comments
-        comments.forEach(ghComment => {
-          const comment = {
-            id: `gh-${ghComment.id}`,
-            author: ghComment.user.login,
-            text: ghComment.body,
-            timestamp: new Date(ghComment.created_at).getTime(),
-            pageId: this.pageId,
-            pageTitle: this.getPageTitle(),
-            isGitHub: true
-          };
-          
-          if (!this.comments.find(c => c.id === comment.id)) {
-            this.comments.push(comment);
-          }
-        });
-        
-        this.comments.sort((a, b) => a.timestamp - b.timestamp);
-        this.saveComments();
-        this.displayComments();
-      }
-    } catch (error) {
-      console.error('Failed to load GitHub comments:', error);
-    }
-  }
-  
-  async postToGitHub(comment) {
-    // This would require GitHub OAuth or a backend service
-    // For now, just log the intent
-    console.log('Would post to GitHub:', comment);
-    this.addSystemMessage('GitHub posting requires authentication setup');
-  }
 }
 
 // Initialize when DOM is ready
