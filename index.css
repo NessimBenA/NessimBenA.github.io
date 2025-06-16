@@ -130,13 +130,15 @@ body::before {
   pointer-events: none;
   z-index: 2;
   color: var(--palm-dark);
-  opacity: 0.08;
-  font-size: 14px;
+  opacity: 0.3;
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
   overflow: hidden;
   height: auto;
   transform: translateY(20%);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 8px rgba(255, 179, 102, 0.2),
+              1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .palm-ascii-left {
@@ -149,8 +151,9 @@ body::before {
   pointer-events: none;
   z-index: 2;
   color: var(--palm-leaf);
-  opacity: 0.06;
-  font-size: 12px;
+  opacity: 0.2;
+  font-size: 14px;
+  font-weight: bold;
   transform: scaleX(-1);
   animation: palm-sway-left 8s ease-in-out infinite;
 }
@@ -165,8 +168,9 @@ body::before {
   pointer-events: none;
   z-index: 2;
   color: var(--palm-dark);
-  opacity: 0.05;
-  font-size: 16px;
+  opacity: 0.18;
+  font-size: 18px;
+  font-weight: bold;
   animation: palm-sway-right 10s ease-in-out infinite;
 }
 
@@ -191,9 +195,10 @@ body::before {
 /* Mobile adjustments for ASCII palms */
 @media (max-width: 768px) {
   .palm-ascii {
-    font-size: 10px;
-    opacity: 0.05;
+    font-size: 12px;
+    opacity: 0.15;
     transform: translateY(30%);
+    font-weight: bold;
   }
   
   .palm-ascii-left {
@@ -201,7 +206,8 @@ body::before {
   }
   
   .palm-ascii-right {
-    font-size: 12px;
+    font-size: 14px;
+    opacity: 0.12;
     bottom: 2%;
     right: 1%;
   }
