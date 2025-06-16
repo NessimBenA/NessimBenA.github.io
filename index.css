@@ -122,7 +122,7 @@ body::before {
   }
 }
 
-/* Beautiful ASCII Palm Tree */
+/* Beautiful ASCII Palm Trees */
 .palm-tree {
   position: fixed;
   bottom: -5%;
@@ -141,6 +141,25 @@ body::before {
   animation: gentle-sway 12s ease-in-out infinite;
 }
 
+.palm-tree-left {
+  position: fixed;
+  bottom: -3%;
+  left: 5%;
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 2;
+  color: var(--olive-soft);
+  opacity: 0.4;
+  font-size: 14px;
+  mix-blend-mode: multiply;
+  text-shadow: 2px 2px 12px rgba(255, 179, 102, 0.2),
+              1px 1px 6px rgba(255, 248, 231, 0.5);
+  animation: gentle-sway 15s ease-in-out infinite reverse;
+  transform: scaleX(-1);
+}
+
 @keyframes gentle-sway {
   0%, 100% {
     transform: rotate(0.5deg) translateX(0);
@@ -157,6 +176,10 @@ body::before {
     opacity: 0.35;
     right: 2%;
     bottom: -8%;
+  }
+  
+  .palm-tree-left {
+    display: none; /* Hide left palm on mobile to avoid clutter */
   }
 }
 
