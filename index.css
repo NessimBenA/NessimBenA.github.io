@@ -21,6 +21,10 @@
   --palm-leaf: #4A7C59;
   --palm-light: #6B9974;
   
+  --olive-light: #9CAA88;
+  --olive-soft: #B4C4A0;
+  --olive-pale: #C5D4B5;
+  
   --text-primary: #3A3A3A;
   --text-secondary: #6B7280;
   --text-light: #9CA3AF;
@@ -118,99 +122,41 @@ body::before {
   }
 }
 
-/* ASCII Palm Trees */
-.palm-ascii {
+/* Beautiful ASCII Palm Tree */
+.palm-tree {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: -5%;
+  right: 8%;
   font-family: monospace;
   white-space: pre;
   line-height: 1;
   pointer-events: none;
   z-index: 2;
-  color: var(--palm-dark);
-  opacity: 1;
-  font-size: 18px;
-  font-weight: normal;
-  text-align: center;
-  overflow: hidden;
-  height: auto;
-  transform: translateY(20%);
-  text-shadow: 3px 3px 12px rgba(255, 179, 102, 0.5),
-              2px 2px 8px rgba(0, 0, 0, 0.3),
-              0 0 20px rgba(255, 140, 66, 0.3);
-}
-
-.palm-ascii-left {
-  position: fixed;
-  bottom: 10%;
-  left: 2%;
-  font-family: monospace;
-  white-space: pre;
-  line-height: 1;
-  pointer-events: none;
-  z-index: 2;
-  color: var(--palm-leaf);
-  opacity: 0.9;
+  color: var(--olive-light);
+  opacity: 0.45;
   font-size: 16px;
-  font-weight: normal;
-  transform: scaleX(-1);
-  animation: palm-sway-left 8s ease-in-out infinite;
+  mix-blend-mode: multiply;
+  text-shadow: 2px 2px 12px rgba(255, 179, 102, 0.2),
+              1px 1px 6px rgba(255, 248, 231, 0.5);
+  animation: gentle-sway 12s ease-in-out infinite;
 }
 
-.palm-ascii-right {
-  position: fixed;
-  bottom: 5%;
-  right: 3%;
-  font-family: monospace;
-  white-space: pre;
-  line-height: 1;
-  pointer-events: none;
-  z-index: 2;
-  color: var(--palm-dark);
-  opacity: 0.85;
-  font-size: 20px;
-  font-weight: normal;
-  animation: palm-sway-right 10s ease-in-out infinite;
-}
-
-@keyframes palm-sway-left {
+@keyframes gentle-sway {
   0%, 100% {
-    transform: scaleX(-1) rotate(-1deg) translateX(0);
+    transform: rotate(0.5deg) translateX(0);
   }
   50% {
-    transform: scaleX(-1) rotate(1deg) translateX(5px);
+    transform: rotate(-0.5deg) translateX(3px);
   }
 }
 
-@keyframes palm-sway-right {
-  0%, 100% {
-    transform: rotate(1deg) translateX(0);
-  }
-  50% {
-    transform: rotate(-1deg) translateX(-5px);
-  }
-}
-
-/* Mobile adjustments for ASCII palms */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-  .palm-ascii {
-    font-size: 14px;
-    opacity: 0.8;
-    transform: translateY(30%);
-    font-weight: normal;
-  }
-  
-  .palm-ascii-left {
-    display: none;
-  }
-  
-  .palm-ascii-right {
-    font-size: 16px;
-    opacity: 0.7;
-    bottom: 2%;
-    right: 1%;
+  .palm-tree {
+    font-size: 12px;
+    opacity: 0.35;
+    right: 2%;
+    bottom: -8%;
   }
 }
 
