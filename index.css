@@ -364,7 +364,8 @@ pre {
   border-radius: 8px;
   overflow-x: auto;
   font-size: 0.9rem;
-  max-width: var(--reading-width);
+  max-width: 100%;
+  width: 100%;
 }
 
 code {
