@@ -5,32 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benchmarking LLMs Through Knowledge Graph Analysis | Nessim Ben Abbes</title>
     <link rel="stylesheet" href="../index.css" />
-    <style>
-        /* Remove first-letter drop cap effect */
-        article p:first-of-type::first-letter {
-            font-size: inherit;
-            font-family: inherit;
-            float: none;
-            line-height: inherit;
-            margin: 0;
-            padding: 0;
-            color: inherit;
-            text-shadow: none;
-        }
-    </style>
 </head>
 <body>
     <div class="book-container">
-        <div class="corner-fold"></div>
         <div id="header"></div>
-        
+
         <article>
             <h1>Benchmarking LLMs Through Knowledge Graph Analysis</h1>
             <p class="post-date">May 2025</p>
-            
-            <p>LLM, AI, Agents – all the buzzwords we hear today fill our social media feeds, and even the news talks about incredible promises: advancing sciences, bringing forward a golden age. While all of this is nice and great to hear, those who are <em>actually</em> working on deep learning know the truth. We <em>have</em> made a lot of progress with data-driven approaches, and these approaches have been validated by great open-source benchmarks that helped develop better, more efficient algorithms (like MNIST, CIFAR, ImageNet).</p>
 
-            <p>Initially, these datasets were a one-stop shop to both train and evaluate a model. But then, the emergence of larger, more complex neural networks – coined "foundation models" – showed a transition. First, it shifted to fine-tuning on smaller datasets to show better performance. Then, with the GPT series models, we went to few-shot and eventually zero-shot evaluation (no gradient updates needed). This was a very important <strong>paradigm shift</strong>. We now have a separate way to evaluate models using data that, in theory, should be completely different from the training sets (generalization then became a discussed topic).</p>
+            <p>LLM, AI, Agents -- all the buzzwords we hear today fill our social media feeds, and even the news talks about incredible promises: advancing sciences, bringing forward a golden age. While all of this is nice and great to hear, those who are <em>actually</em> working on deep learning know the truth. We <em>have</em> made a lot of progress with data-driven approaches, and these approaches have been validated by great open-source benchmarks that helped develop better, more efficient algorithms (like MNIST, CIFAR, ImageNet).</p>
+
+            <p>Initially, these datasets were a one-stop shop to both train and evaluate a model. But then, the emergence of larger, more complex neural networks -- coined "foundation models" -- showed a transition. First, it shifted to fine-tuning on smaller datasets to show better performance. Then, with the GPT series models, we went to few-shot and eventually zero-shot evaluation (no gradient updates needed). This was a very important <strong>paradigm shift</strong>. We now have a separate way to evaluate models using data that, in theory, should be completely different from the training sets (generalization then became a discussed topic).</p>
 
             <p>Now, fast forward to today (mid-2025), and we have multiple benchmarks, with newer ones popping up constantly, that evaluate these models. These benchmarks have been seeing saturation at an insanely rapid pace, even the seemingly tough LLM and adversarial ones (like ARC, AGIEval).</p>
 
@@ -87,6 +73,8 @@
             <p>The results correlate strongly with LMSys Arena and other metrics.</p>
 
             <p><a href="../projects/llm-benchmarking-results.html#lmsys-comparison">Image of lmsys arena</a></p>
+
+            <h2>Evaluation Metrics</h2>
 
             <p>The evaluation system ranks models based on several graph metrics:</p>
 
@@ -154,12 +142,10 @@
             <p>All of this work is opensource and i hope that you will enjoy testing it on your favorite models.</p>
 
              <p>The GitHub link for this project: <a href="https://github.com/NessimBenA/LLMEvaluationWithGraphs/tree/main" target="_blank" rel="noopener noreferrer">NessimBenA/LLMEvaluationWithGraphs</a>.</p>
-            
-            <div class="page-number">1</div>
         </article>
-        
+
         <footer class="book-footer">
-            <p>&copy; 2025 Nessim Ben Abbes · All rights reserved</p>
+            <p>&copy; 2025 Nessim Ben Abbes</p>
         </footer>
     </div>
     <script>
@@ -169,5 +155,6 @@
                 document.getElementById('header').innerHTML = data;
             });
     </script>
+    <script src="../zarzis.js"></script>
 </body>
 </html>

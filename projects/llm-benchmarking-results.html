@@ -6,18 +6,6 @@
   <title>LLM Benchmarking Results | Nessim Ben Abbes</title>
   <link rel="stylesheet" href="../index.css" />
   <style>
-    /* Remove first-letter drop cap effect */
-    article p:first-of-type::first-letter {
-      font-size: inherit;
-      font-family: inherit;
-      float: none;
-      line-height: inherit;
-      margin: 0;
-      padding: 0;
-      color: inherit;
-      text-shadow: none;
-    }
-    
     .image-gallery img {
       max-width: 100%;
       margin: 1.5rem 0;
@@ -31,21 +19,7 @@
     .image-section {
       margin-bottom: 3rem;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
-    th, td {
-      padding: 0.75rem;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-    th {
-      background-color: #f5f5f5;
-    }
-    
-    /* Improved responsive lightbox styles */
+
     .lightbox {
       display: none;
       position: fixed;
@@ -78,8 +52,7 @@
       display: block;
       margin: 0 auto;
     }
-    
-    /* Make lightbox more responsive for different screen sizes */
+
     @media screen and (max-width: 768px) {
       .lightbox-content {
         max-width: 95%;
@@ -105,13 +78,12 @@
 </head>
 <body>
   <div class="book-container">
-    <div class="corner-fold"></div>
     <div id="header"></div>
-    
+
     <article>
       <h1>LLM Benchmarking Results</h1>
       <p>Detailed results from our knowledge graph analysis benchmark of various LLM models. These results are part of a research project on benchmarking LLM comprehension capabilities through graph connectedness analysis. View the <a href="llm-knowledge-graphs.html">knowledge graph visualizations</a> or <a href="../blogposts/llm-benchmarking.html">read the full blog post</a> for complete methodology and analysis.</p>
-      
+
       <div class="image-section" id="final-ranking">
         <h2>Final Model Rankings</h2>
         <p>Comparative performance of various LLM models based on knowledge graph metrics. <em>Click on any image to view it in full size.</em></p>
@@ -119,7 +91,7 @@
           <img src="../images/overall_model_performance_ranking.png" alt="Final ranking of LLM models based on knowledge graph metrics" />
         </div>
       </div>
-      
+
       <div class="image-section" id="lmsys-comparison">
         <h2>Correlation with LMSys Arena</h2>
         <p>Comparing our knowledge graph analysis results with LMSys Arena rankings:</p>
@@ -127,11 +99,11 @@
           <img src="../images/lmsys_arena.png" alt="Comparison with LMSys Arena rankings" />
         </div>
       </div>
-      
+
       <div class="image-section">
         <h2>Ranking Methodology</h2>
         <p>The evaluation system ranks models based on several graph metrics:</p>
-        
+
         <table>
           <thead>
             <tr>
@@ -173,9 +145,9 @@
             </tr>
           </tbody>
         </table>
-        
+
         <p>The overall ranking is calculated using a weighted average of normalized metrics. The evaluation gives double weight to average node degree, as this metric best captures the knowledge graph's interconnectedness and usefulness.</p>
-        
+
         <p>For each subject and model combination:</p>
         <ol>
           <li>Each metric is normalized to a [0,1] scale.</li>
@@ -184,16 +156,13 @@
           <li>Models are ranked by their average scores across all subjects.</li>
         </ol>
       </div>
-      
-      <div class="page-number">1</div>
     </article>
-    
+
     <footer class="book-footer">
-      <p>&copy; 2025 Nessim Ben Abbes · All rights reserved</p>
+      <p>&copy; 2025 Nessim Ben Abbes</p>
     </footer>
   </div>
 
-  <!-- Lightbox container -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-content">
       <span class="close-lightbox">&times;</span>
@@ -208,49 +177,43 @@
         document.getElementById('header').innerHTML = data;
       });
   </script>
-  
+  <script src="../zarzis.js"></script>
   <script>
-    // Ensure the DOM is fully loaded before attaching events
     window.onload = function() {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-image');
       const closeBtn = document.querySelector('.close-lightbox');
-      
-      // Get all gallery images
+
       const galleryImages = document.querySelectorAll('.image-gallery img');
-      
-      // Add click event to each gallery image
+
       galleryImages.forEach(function(image) {
         image.onclick = function() {
           lightboxImg.src = this.src;
           lightboxImg.alt = this.alt;
           lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden'; // Prevent scrolling
+          document.body.style.overflow = 'hidden';
         };
       });
-      
-      // Close lightbox when clicking the close button
+
       closeBtn.onclick = function() {
         closeLightbox();
       };
-      
-      // Close lightbox when clicking outside the image
+
       lightbox.onclick = function(e) {
         if (e.target === lightbox) {
           closeLightbox();
         }
       };
-      
-      // Close lightbox when pressing Escape key
+
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) {
           closeLightbox();
         }
       });
-      
+
       function closeLightbox() {
         lightbox.classList.remove('active');
-        document.body.style.overflow = ''; // Re-enable scrolling
+        document.body.style.overflow = '';
       }
     };
   </script>
