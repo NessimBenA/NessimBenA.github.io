@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="book-container">
-        <div class="corner-fold"></div>
         <div id="header"></div>
 
         <article>
@@ -24,12 +23,12 @@
                 <li>writing comments on code that don't describe what the code really does</li>
             </ul>
 
-            <p>These issues are annoying to correct each time you are reviewing code and even worse when you are not reviewing code. The following <code>CLAUDE.md</code> file is specifically made as an ad‑hoc add‑on for Claude Code that would let you mitigate most of these issues and also fits my workflow.</p>
+            <p>These issues are annoying to correct each time you are reviewing code and even worse when you are not reviewing code. The following <code>CLAUDE.md</code> file is specifically made as an ad-hoc add-on for Claude Code that would let you mitigate most of these issues and also fits my workflow.</p>
 
             <p>There are several important ideas in this <code>CLAUDE.md</code>:</p>
 
             <ul>
-                <li>Interdiction of using error‑catching methods</li>
+                <li>Interdiction of using error-catching methods</li>
                 <li>Interdiction of using any form of mock data</li>
                 <li>Interdiction of commenting code</li>
                 <li>Interdiction of modifying code without a git commit</li>
@@ -38,9 +37,9 @@
                 <li>Always request help if there is a conflict with these constraints</li>
             </ul>
 
-            <p>There is also other stuff but it is more for aesthetics (like don't use emojis) and other items that are project‑specific. One thing that I will expand on in future blog posts is that a lot of ideas from functional programming would help a lot with the tractability of these systems.</p>
+            <p>There is also other stuff but it is more for aesthetics (like don't use emojis) and other items that are project-specific. One thing that I will expand on in future blog posts is that a lot of ideas from functional programming would help a lot with the tractability of these systems.</p>
 
-            <p>I also quickly AI‑generated, with this repo, a Go‑based app that observes the repository in real time and shows the git commit messages. It's very minimal and meant for people who are less comfortable with the terminal (and its core idea could also be useful for building observability in agentic systems built on the Claude Code SDK). To try it: <a href="https://github.com/NessimBenA/ULTRATHINK-GO/">https://github.com/NessimBenA/ULTRATHINK-GO/</a></p>
+            <p>I also quickly AI-generated, with this repo, a Go-based app that observes the repository in real time and shows the git commit messages. It's very minimal and meant for people who are less comfortable with the terminal (and its core idea could also be useful for building observability in agentic systems built on the Claude Code SDK). To try it: <a href="https://github.com/NessimBenA/ULTRATHINK-GO/">https://github.com/NessimBenA/ULTRATHINK-GO/</a></p>
 
             <h2>The CLAUDE.md Configuration</h2>
 
@@ -78,7 +77,7 @@
   - If Git user.name/user.email are not configured, ask for real values and set them locally via CLI before committing.
 
 - Python-specific rules:
-  - Always activate the project's virtual environment before any Python work. Show the exact activation command (e.g., `source .venv/bin/activate` or `.\\.venv\\Scripts\\activate`).
+  - Always activate the project's virtual environment before any Python work. Show the exact activation command (e.g., `source .venv/bin/activate` or `.\.venv\Scripts\activate`).
   - Use the strictest possible typing everywhere:
     - Provide complete type hints; avoid `Any`.
     - Prefer `TypedDict`, `dataclass`, `Literal`, `Final`, `Protocol`, and total types where applicable.
@@ -96,12 +95,10 @@
 - Conflict resolution:
   - If a user request conflicts with these constraints, ask for clarification and default to these rules.
 </code></pre>
-
-            <div class="page-number">3</div>
         </article>
 
         <footer class="book-footer">
-            <p>&copy; 2025 Nessim Ben Abbes · All rights reserved</p>
+            <p>&copy; 2025 Nessim Ben Abbes</p>
         </footer>
     </div>
     <script>
@@ -111,5 +108,6 @@
                 document.getElementById('header').innerHTML = data;
             });
     </script>
+    <script src="../zarzis.js"></script>
 </body>
 </html>
