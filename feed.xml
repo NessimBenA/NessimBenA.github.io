@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Nessim Ben Abbes</title>
+  <subtitle>Mathematician, AI Researcher, and Connectionist</subtitle>
+  <link href="https://nessimbena.github.io/" />
+  <link href="https://nessimbena.github.io/feed.xml" rel="self" />
+  <id>https://nessimbena.github.io/</id>
+  <updated>2025-12-21T00:00:00Z</updated>
+  <author>
+    <name>Nessim Ben Abbes</name>
+  </author>
+
+  <entry>
+    <title>LLMs, AI, and the Sunk Cost Fallacy of Knowledge Acquisition in 2025</title>
+    <link href="https://nessimbena.github.io/blogposts/sunk-cost-fallacy-knowledge-acquisition.html" />
+    <id>https://nessimbena.github.io/blogposts/sunk-cost-fallacy-knowledge-acquisition.html</id>
+    <updated>2025-12-21T00:00:00Z</updated>
+    <summary>A continuation of thoughts on AI and software engineering, exploring how abstractions have always defined human progress and why cognitive prowess is the next skill to be abstracted.</summary>
+    <category term="opinion" />
+  </entry>
+
+  <entry>
+    <title>Mitigating Claude Code Reward Hacking issues</title>
+    <link href="https://nessimbena.github.io/blogposts/mitigating-claude-code-reward-hacking.html" />
+    <id>https://nessimbena.github.io/blogposts/mitigating-claude-code-reward-hacking.html</id>
+    <updated>2025-09-01T00:00:00Z</updated>
+    <summary>A practical guide to addressing Claude Code's tendencies for reward hacking, including mock data usage and silent error handling, with a comprehensive CLAUDE.md configuration.</summary>
+    <category term="opinion" />
+  </entry>
+
+  <entry>
+    <title>Benchmarking LLMs Through Knowledge Graph Analysis</title>
+    <link href="https://nessimbena.github.io/blogposts/llm-benchmarking.html" />
+    <id>https://nessimbena.github.io/blogposts/llm-benchmarking.html</id>
+    <updated>2025-05-01T00:00:00Z</updated>
+    <summary>A novel approach to evaluating LLM comprehension through knowledge graph connectedness metrics, with visualizations and comparative analysis of leading models.</summary>
+    <category term="research" />
+  </entry>
+
+  <entry>
+    <title>AI, LLMs and Software Engineers</title>
+    <link href="https://nessimbena.github.io/blogposts/aisoftwareengineers.html" />
+    <id>https://nessimbena.github.io/blogposts/aisoftwareengineers.html</id>
+    <updated>2024-12-01T00:00:00Z</updated>
+    <summary>An exploration of how AI and Large Language Models are reshaping the landscape of software engineering, and what this means for the future of the profession.</summary>
+    <category term="opinion" />
+  </entry>
+</feed>
