@@ -1,50 +1,52 @@
 # Site Quality Upgrade TODO
 
 ## Step 1: Image Compression
-- [ ] Convert 3 large PNGs to WebP using ImageMagick
-- [ ] Update .gitignore if needed
+- [x] Convert 3 large PNGs to WebP using ImageMagick
 
 ## Step 2: Rewrite index.css
-- [ ] Add Source Serif 4 font import
-- [ ] Increase base font to 18px desktop
-- [ ] Refine heading hierarchy with serif font
-- [ ] Widen line-height to 1.8
-- [ ] Add category tag pill styles
-- [ ] Add blog filter tab styles
-- [ ] Add filter transition animations
-- [ ] Add triple-dot hr divider
-- [ ] Add reading-time and back-link styles
-- [ ] Add page-top gradient border
-- [ ] Refine selection colors, scrollbar, pre/code blocks
-- [ ] Smoother transitions (0.3s ease)
-- [ ] More generous section spacing
-- [ ] Active nav indicator styles
-- [ ] Latest posts section styles for homepage
+- [x] Add Source Serif 4 font import
+- [x] Increase base font to 18px desktop
+- [x] Refine heading hierarchy with serif font
+- [x] Widen line-height to 1.8
+- [x] Add category tag pill styles
+- [x] Add blog filter tab styles
+- [x] Add filter transition animations
+- [x] Add triple-dot hr divider
+- [x] Add reading-time and back-link styles
+- [x] Add page-top gradient border
+- [x] Refine selection colors, scrollbar, pre/code blocks
+- [x] Smoother transitions (0.3s ease)
+- [x] More generous section spacing
+- [x] Active nav indicator styles
+- [x] Latest posts section styles for homepage
 
 ## Step 3: Rewrite zarzis.js
-- [ ] Remove setInterval polling for theme toggle
-- [ ] Remove duplicate initTheme() at line 267
-- [ ] Add initBlogFilters() function with URL hash support
-- [ ] Simplify init() function
+- [x] Remove setInterval polling for theme toggle
+- [x] Remove duplicate initTheme() at line 267
+- [x] Add initBlogFilters() function with URL hash support
+- [x] Add setActiveNav() function
+- [x] Simplify init() function
 
 ## Step 4: Update header.html
-- [ ] Add target="_blank" rel="noopener" to external links
-- [ ] Add active page indicator support via data attribute
+- [x] Add target="_blank" rel="noopener" to external links
 
 ## Step 5: Update HTML pages (inline header, og:image, copyright)
-- [ ] index.html
-- [ ] blog.html
-- [ ] projects.html
-- [ ] blogposts/sunk-cost-fallacy-knowledge-acquisition.html
-- [ ] blogposts/mitigating-claude-code-reward-hacking.html
-- [ ] blogposts/llm-benchmarking.html
-- [ ] blogposts/aisoftwareengineers.html
-- [ ] projects/llm-knowledge-graphs.html
-- [ ] projects/llm-benchmarking-results.html
-- [ ] projects/project1.html
+- [x] index.html (+ typo fixes, latest posts section, RSS link)
+- [x] blog.html (+ category filter tabs, data attributes)
+- [x] projects.html
+- [x] blogposts/sunk-cost-fallacy-knowledge-acquisition.html
+- [x] blogposts/mitigating-claude-code-reward-hacking.html
+- [x] blogposts/llm-benchmarking.html
+- [x] blogposts/aisoftwareengineers.html
+- [x] projects/llm-knowledge-graphs.html (+ picture elements)
+- [x] projects/llm-benchmarking-results.html
+- [x] projects/project1.html
 
 ## Step 6: Create feed.xml
+- [x] Atom feed with all 4 blog posts
 
 ## Step 7: Create 404.html
+- [x] Custom not-found page matching site theme
 
 ## Step 8: Update sitemap.xml
+- [x] All pages with lastmod dates
