@@ -2,20 +2,20 @@
   'use strict';
 
   function initTheme() {
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = stored || (prefersDark ? 'dark' : 'light');
+    var stored = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = stored || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
     updateThemeToggle(theme);
   }
 
   function updateThemeToggle(theme) {
-    const toggle = document.getElementById('theme-toggle');
+    var toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
 
-    const sunIcon = toggle.querySelector('.sun-icon');
-    const moonIcon = toggle.querySelector('.moon-icon');
-    const label = toggle.querySelector('.theme-label');
+    var sunIcon = toggle.querySelector('.sun-icon');
+    var moonIcon = toggle.querySelector('.moon-icon');
+    var label = toggle.querySelector('.theme-label');
 
     if (theme === 'dark') {
       sunIcon.style.display = 'none';
@@ -29,16 +29,16 @@
   }
 
   function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     updateThemeToggle(next);
   }
 
   function updateGreeting() {
-    const hour = new Date().getHours();
-    const subtitle = document.querySelector('.site-subtitle');
+    var hour = new Date().getHours();
+    var subtitle = document.querySelector('.site-subtitle');
 
     if (subtitle) {
       if (hour >= 5 && hour < 12) {
@@ -53,31 +53,89 @@
     }
   }
 
+  function setActiveNav() {
+    var path = window.location.pathname;
+    var links = document.querySelectorAll('.site-nav a');
+    links.forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (path === href || path.endsWith(href)) {
+        link.classList.add('nav-active');
+      } else if (href === '/index.html' && (path === '/' || path === '/index.html')) {
+        link.classList.add('nav-active');
+      }
+    });
+  }
+
+  function initBlogFilters() {
+    var tabs = document.querySelectorAll('.filter-tab');
+    if (tabs.length === 0) return;
+
+    var items = document.querySelectorAll('.post-list li[data-category]');
+
+    function filterPosts(category) {
+      items.forEach(function(item) {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.classList.remove('filter-hidden');
+          item.classList.add('filter-visible');
+        } else {
+          item.classList.remove('filter-visible');
+          item.classList.add('filter-hidden');
+        }
+      });
+
+      tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+        if (tab.getAttribute('data-filter') === category) {
+          tab.classList.add('active');
+        }
+      });
+    }
+
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var filter = this.getAttribute('data-filter');
+        filterPosts(filter);
+        if (filter === 'all') {
+          history.replaceState(null, '', window.location.pathname);
+        } else {
+          history.replaceState(null, '', '#' + filter);
+        }
+      });
+    });
+
+    var hash = window.location.hash.replace('#', '');
+    if (hash === 'research' || hash === 'opinion') {
+      filterPosts(hash);
+    } else {
+      filterPosts('all');
+    }
+  }
+
   function generateTOC() {
-    const article = document.querySelector('article');
+    var article = document.querySelector('article');
     if (!article) return;
 
-    const headings = article.querySelectorAll('h2, h3');
+    var headings = article.querySelectorAll('h2, h3');
     if (headings.length < 2) return;
 
-    const tocDesktop = document.createElement('nav');
+    var tocDesktop = document.createElement('nav');
     tocDesktop.className = 'toc';
     tocDesktop.setAttribute('aria-label', 'Table of contents');
 
-    const tocTitle = document.createElement('div');
+    var tocTitle = document.createElement('div');
     tocTitle.className = 'toc-title';
     tocTitle.textContent = 'Contents';
     tocDesktop.appendChild(tocTitle);
 
-    const tocList = document.createElement('ul');
+    var tocList = document.createElement('ul');
 
-    headings.forEach((heading, index) => {
-      const id = heading.id || `section-${index}`;
+    headings.forEach(function(heading, index) {
+      var id = heading.id || 'section-' + index;
       heading.id = id;
 
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = `#${id}`;
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + id;
       a.textContent = heading.textContent;
       a.setAttribute('data-target', id);
 
@@ -92,18 +150,12 @@
     tocDesktop.appendChild(tocList);
     document.body.appendChild(tocDesktop);
 
-    const mobileToggle = document.createElement('button');
+    var mobileToggle = document.createElement('button');
     mobileToggle.className = 'toc-mobile-toggle';
     mobileToggle.setAttribute('aria-label', 'Toggle table of contents');
-    mobileToggle.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    `;
+    mobileToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
 
-    const tocMobile = document.createElement('nav');
+    var tocMobile = document.createElement('nav');
     tocMobile.className = 'toc-mobile';
     tocMobile.setAttribute('aria-label', 'Table of contents');
     tocMobile.innerHTML = tocDesktop.innerHTML;
@@ -111,18 +163,18 @@
     document.body.appendChild(mobileToggle);
     document.body.appendChild(tocMobile);
 
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', function() {
       tocMobile.classList.toggle('open');
     });
 
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', function(e) {
       if (!tocMobile.contains(e.target) && !mobileToggle.contains(e.target)) {
         tocMobile.classList.remove('open');
       }
     });
 
-    tocMobile.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    tocMobile.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
         tocMobile.classList.remove('open');
       });
     });
@@ -131,97 +183,105 @@
   }
 
   function initScrollSpy(headings) {
-    const observerOptions = {
+    var observerOptions = {
       rootMargin: '-20% 0px -70% 0px',
       threshold: 0
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const tocLinks = document.querySelectorAll(`.toc a[data-target="${id}"], .toc-mobile a[data-target="${id}"]`);
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var id = entry.target.id;
+        var tocLinks = document.querySelectorAll('.toc a[data-target="' + id + '"], .toc-mobile a[data-target="' + id + '"]');
 
-        tocLinks.forEach(link => {
+        tocLinks.forEach(function(link) {
           if (entry.isIntersecting) {
-            document.querySelectorAll('.toc a, .toc-mobile a').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.toc a, .toc-mobile a').forEach(function(l) { l.classList.remove('active'); });
             link.classList.add('active');
           }
         });
       });
     }, observerOptions);
 
-    headings.forEach(heading => observer.observe(heading));
+    headings.forEach(function(heading) { observer.observe(heading); });
   }
 
   function initPopups() {
-    const article = document.querySelector('article');
+    var article = document.querySelector('article');
     if (!article) return;
 
-    const internalLinks = article.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"]');
+    var internalLinks = article.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"]');
     if (internalLinks.length === 0) return;
 
-    const popup = document.createElement('div');
+    var popup = document.createElement('div');
     popup.className = 'popup';
     document.body.appendChild(popup);
 
-    const cache = new Map();
+    var cache = new Map();
 
-    internalLinks.forEach(link => {
-      let showTimeout;
-      let hideTimeout;
+    internalLinks.forEach(function(link) {
+      var showTimeout;
+      var hideTimeout;
 
-      link.addEventListener('mouseenter', async (e) => {
+      link.addEventListener('mouseenter', function() {
         clearTimeout(hideTimeout);
 
-        showTimeout = setTimeout(async () => {
-          const href = link.getAttribute('href');
-          let content = cache.get(href);
-
-          if (!content) {
-            content = await fetchPreview(href);
-            cache.set(href, content);
-          }
+        showTimeout = setTimeout(function() {
+          var href = link.getAttribute('href');
+          var content = cache.get(href);
 
           if (content) {
             popup.innerHTML = content;
             positionPopup(popup, link);
             popup.classList.add('visible');
+          } else {
+            fetchPreview(href).then(function(result) {
+              if (result) {
+                cache.set(href, result);
+                popup.innerHTML = result;
+                positionPopup(popup, link);
+                popup.classList.add('visible');
+              }
+            });
           }
         }, 300);
       });
 
-      link.addEventListener('mouseleave', () => {
+      link.addEventListener('mouseleave', function() {
         clearTimeout(showTimeout);
-        hideTimeout = setTimeout(() => {
+        hideTimeout = setTimeout(function() {
           popup.classList.remove('visible');
         }, 100);
       });
     });
   }
 
-  async function fetchPreview(href) {
-    const response = await fetch(href);
-    if (!response.ok) return null;
+  function fetchPreview(href) {
+    return fetch(href).then(function(response) {
+      if (!response.ok) return null;
+      return response.text();
+    }).then(function(html) {
+      if (!html) return null;
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, 'text/html');
 
-    const html = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+      var titleEl = doc.querySelector('h1') || doc.querySelector('title');
+      var title = titleEl ? titleEl.textContent : 'Preview';
+      var firstP = doc.querySelector('article p');
+      var preview = firstP ? firstP.textContent : '';
+      if (preview.length > 150) preview = preview.substring(0, 150) + '...';
 
-    const title = doc.querySelector('h1')?.textContent || doc.querySelector('title')?.textContent || 'Preview';
-    const firstP = doc.querySelector('article p')?.textContent || '';
-    const preview = firstP.length > 150 ? firstP.substring(0, 150) + '...' : firstP;
+      if (!preview) return null;
 
-    if (!preview) return null;
-
-    return `<div class="popup-title">${title}</div><p>${preview}</p>`;
+      return '<div class="popup-title">' + title + '</div><p>' + preview + '</p>';
+    });
   }
 
   function positionPopup(popup, target) {
-    const rect = target.getBoundingClientRect();
-    const popupRect = popup.getBoundingClientRect();
+    var rect = target.getBoundingClientRect();
+    var popupRect = popup.getBoundingClientRect();
 
-    let top = rect.bottom + window.scrollY + 8;
-    let left = rect.left + window.scrollX;
+    var top = rect.bottom + window.scrollY + 8;
+    var left = rect.left + window.scrollX;
 
     if (left + 300 > window.innerWidth) {
       left = window.innerWidth - 320;
@@ -231,31 +291,23 @@
       top = rect.top + window.scrollY - popupRect.height - 8;
     }
 
-    popup.style.top = `${top}px`;
-    popup.style.left = `${left}px`;
+    popup.style.top = top + 'px';
+    popup.style.left = left + 'px';
   }
 
   function init() {
     initTheme();
     updateGreeting();
+    setActiveNav();
 
-    const headerEl = document.getElementById('header');
-    if (headerEl) {
-      const checkToggle = setInterval(() => {
-        const toggle = document.getElementById('theme-toggle');
-        if (toggle) {
-          clearInterval(checkToggle);
-          const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-          updateThemeToggle(currentTheme);
-          toggle.addEventListener('click', toggleTheme);
-        }
-      }, 100);
-
-      setTimeout(() => clearInterval(checkToggle), 5000);
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', toggleTheme);
     }
 
     generateTOC();
     initPopups();
+    initBlogFilters();
   }
 
   if (document.readyState === 'loading') {
@@ -263,6 +315,4 @@
   } else {
     init();
   }
-
-  initTheme();
 })();
