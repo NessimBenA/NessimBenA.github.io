@@ -929,6 +929,30 @@ tr:hover {
   background: var(--bg-card);
 }
 
+.sub-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: var(--spacing-xs);
+  font-size: var(--text-sm);
+}
+
+.sub-links a {
+  color: var(--text-muted);
+  border-bottom: none;
+  transition: color var(--transition);
+}
+
+.sub-links a:hover {
+  color: var(--accent-primary);
+}
+
+.sub-links .sep {
+  color: var(--border-color);
+  margin: 0 0.6rem;
+  user-select: none;
+}
+
 .page-number {
   display: none;
 }
