@@ -13,11 +13,13 @@
     <meta property="og:description" content="A continuation of thoughts on AI and software engineering, exploring how abstractions have always defined human progress." />
     <meta property="og:url" content="https://nessimbena.github.io/blogposts/sunk-cost-fallacy-knowledge-acquisition.html" />
     <meta property="og:site_name" content="Nessim Ben Abbes" />
+    <meta property="og:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
     <meta property="article:author" content="Nessim Ben Abbes" />
     <meta property="article:published_time" content="2025-12-21" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="LLMs, AI, and the Sunk Cost Fallacy of Knowledge Acquisition in 2025" />
     <meta name="twitter:description" content="A continuation of thoughts on AI and software engineering, exploring how abstractions have always defined human progress." />
+    <meta name="twitter:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,11 +35,52 @@
 </head>
 <body>
     <div class="book-container">
-        <div id="header"></div>
+        <header class="site-header">
+            <div class="header-top">
+                <div>
+                    <h1 class="site-title">Nessim Ben Abbes</h1>
+                    <p class="site-subtitle">Wir müssen wissen – wir werden wissen</p>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span class="theme-label">Light</span>
+                </button>
+            </div>
+
+            <nav class="site-nav">
+                <a href="/index.html">Home</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+
+            <div class="social-links">
+                <a href="https://github.com/NessimBenA" target="_blank" rel="noopener">Github</a>
+                <a href="https://www.linkedin.com/in/nessim-ben-abbes-768a98217/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://bsky.app/profile/nessim.bsky.social" target="_blank" rel="noopener">BlueSky</a>
+                <a href="../cv.pdf">CV</a>
+            </div>
+        </header>
 
         <article>
             <h1>LLMs, AI, and the Sunk Cost Fallacy of Knowledge Acquisition in 2025</h1>
-            <p class="post-date">December 2025</p>
+            <div class="article-meta">
+                <span class="post-date">December 2025</span>
+                <span class="category-tag opinion">Opinion</span>
+                <span class="reading-time">5 min read</span>
+            </div>
 
             <p>This will be a continuation, about one year later, of my previous blog post "LLMs, AI and Software Engineering." In a quick summary, in that blog post I argued that LLMs will eventually write most of the code, and engineers will still be the main people driving them, under a new, unspecified at that time, programming language.</p>
 
@@ -112,19 +155,14 @@
                 <p id="ref5"><strong>[5]</strong> <a href="https://openai.com/blog/webgpt/">WebGPT: Browser-assisted question-answering - OpenAI</a></p>
                 <p id="ref6"><strong>[6]</strong> <a href="https://www.sciencedirect.com/science/article/pii/0749597885900494">The psychology of sunk cost - ScienceDirect</a></p>
             </footer>
+
+            <a href="/blog.html#opinion" class="back-to-blog">&larr; Back to blog</a>
         </article>
 
         <footer class="book-footer">
-            <p>&copy; 2024 Nessim Ben Abbes</p>
+            <p>&copy; 2025 Nessim Ben Abbes</p>
         </footer>
     </div>
-    <script>
-        fetch('../header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-            });
-    </script>
     <script src="../zarzis.js"></script>
 </body>
 </html>
