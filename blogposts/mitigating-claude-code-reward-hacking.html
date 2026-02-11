@@ -13,11 +13,13 @@
     <meta property="og:description" content="A practical guide to addressing Claude Code's tendencies for reward hacking." />
     <meta property="og:url" content="https://nessimbena.github.io/blogposts/mitigating-claude-code-reward-hacking.html" />
     <meta property="og:site_name" content="Nessim Ben Abbes" />
+    <meta property="og:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
     <meta property="article:author" content="Nessim Ben Abbes" />
     <meta property="article:published_time" content="2025-09-01" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mitigating Claude Code Reward Hacking Issues" />
     <meta name="twitter:description" content="A practical guide to addressing Claude Code's tendencies for reward hacking." />
+    <meta name="twitter:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,11 +35,52 @@
 </head>
 <body>
     <div class="book-container">
-        <div id="header"></div>
+        <header class="site-header">
+            <div class="header-top">
+                <div>
+                    <h1 class="site-title">Nessim Ben Abbes</h1>
+                    <p class="site-subtitle">Wir müssen wissen – wir werden wissen</p>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span class="theme-label">Light</span>
+                </button>
+            </div>
+
+            <nav class="site-nav">
+                <a href="/index.html">Home</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+
+            <div class="social-links">
+                <a href="https://github.com/NessimBenA" target="_blank" rel="noopener">Github</a>
+                <a href="https://www.linkedin.com/in/nessim-ben-abbes-768a98217/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://bsky.app/profile/nessim.bsky.social" target="_blank" rel="noopener">BlueSky</a>
+                <a href="../cv.pdf">CV</a>
+            </div>
+        </header>
 
         <article>
             <h1>Mitigating Claude Code Reward Hacking issues</h1>
-            <p class="post-date">September 2025</p>
+            <div class="article-meta">
+                <span class="post-date">September 2025</span>
+                <span class="category-tag opinion">Opinion</span>
+                <span class="reading-time">4 min read</span>
+            </div>
 
             <p>If you have used Claude Code you would know that it has some tendencies that could be dangerous if not spotted and if the code isn't reviewed properly. As far as my understanding goes, this is an artifact of RL reward hacking. These issues include, but are not limited to:</p>
 
@@ -64,7 +107,7 @@
 
             <p>There is also other stuff but it is more for aesthetics (like don't use emojis) and other items that are project-specific. One thing that I will expand on in future blog posts is that a lot of ideas from functional programming would help a lot with the tractability of these systems.</p>
 
-            <p>I also quickly AI-generated, with this repo, a Go-based app that observes the repository in real time and shows the git commit messages. It's very minimal and meant for people who are less comfortable with the terminal (and its core idea could also be useful for building observability in agentic systems built on the Claude Code SDK). To try it: <a href="https://github.com/NessimBenA/ULTRATHINK-GO/">https://github.com/NessimBenA/ULTRATHINK-GO/</a></p>
+            <p>I also quickly AI-generated, with this repo, a Go-based app that observes the repository in real time and shows the git commit messages. It's very minimal and meant for people who are less comfortable with the terminal (and its core idea could also be useful for building observability in agentic systems built on the Claude Code SDK). To try it: <a href="https://github.com/NessimBenA/ULTRATHINK-GO/" target="_blank" rel="noopener">https://github.com/NessimBenA/ULTRATHINK-GO/</a></p>
 
             <h2>The CLAUDE.md Configuration</h2>
 
@@ -120,19 +163,14 @@
 - Conflict resolution:
   - If a user request conflicts with these constraints, ask for clarification and default to these rules.
 </code></pre>
+
+            <a href="/blog.html#opinion" class="back-to-blog">&larr; Back to blog</a>
         </article>
 
         <footer class="book-footer">
             <p>&copy; 2025 Nessim Ben Abbes</p>
         </footer>
     </div>
-    <script>
-        fetch('../header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-            });
-    </script>
     <script src="../zarzis.js"></script>
 </body>
 </html>
