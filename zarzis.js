@@ -56,59 +56,33 @@
   function setActiveNav() {
     var path = window.location.pathname;
     var links = document.querySelectorAll('.site-nav a');
+
+    var researchPages = [
+      '/research.html',
+      '/projects/llm-knowledge-graphs.html',
+      '/projects/llm-benchmarking-results.html',
+      '/blogposts/llm-benchmarking.html',
+      '/blogposts/mitigating-claude-code-reward-hacking.html'
+    ];
+
+    var opinionPages = [
+      '/opinion.html',
+      '/blogposts/sunk-cost-fallacy-knowledge-acquisition.html',
+      '/blogposts/aisoftwareengineers.html'
+    ];
+
     links.forEach(function(link) {
       var href = link.getAttribute('href');
-      if (path === href || path.endsWith(href)) {
+      if (href === '/index.html' && (path === '/' || path === '/index.html')) {
         link.classList.add('nav-active');
-      } else if (href === '/index.html' && (path === '/' || path === '/index.html')) {
+      } else if (href === '/research.html' && researchPages.indexOf(path) !== -1) {
+        link.classList.add('nav-active');
+      } else if (href === '/opinion.html' && opinionPages.indexOf(path) !== -1) {
+        link.classList.add('nav-active');
+      } else if (path === href || path.endsWith(href)) {
         link.classList.add('nav-active');
       }
     });
-  }
-
-  function initBlogFilters() {
-    var tabs = document.querySelectorAll('.filter-tab');
-    if (tabs.length === 0) return;
-
-    var items = document.querySelectorAll('.post-list li[data-category]');
-
-    function filterPosts(category) {
-      items.forEach(function(item) {
-        if (category === 'all' || item.getAttribute('data-category') === category) {
-          item.classList.remove('filter-hidden');
-          item.classList.add('filter-visible');
-        } else {
-          item.classList.remove('filter-visible');
-          item.classList.add('filter-hidden');
-        }
-      });
-
-      tabs.forEach(function(tab) {
-        tab.classList.remove('active');
-        if (tab.getAttribute('data-filter') === category) {
-          tab.classList.add('active');
-        }
-      });
-    }
-
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        var filter = this.getAttribute('data-filter');
-        filterPosts(filter);
-        if (filter === 'all') {
-          history.replaceState(null, '', window.location.pathname);
-        } else {
-          history.replaceState(null, '', '#' + filter);
-        }
-      });
-    });
-
-    var hash = window.location.hash.replace('#', '');
-    if (hash === 'research' || hash === 'opinion') {
-      filterPosts(hash);
-    } else {
-      filterPosts('all');
-    }
   }
 
   function generateTOC() {
@@ -307,7 +281,6 @@
 
     generateTOC();
     initPopups();
-    initBlogFilters();
   }
 
   if (document.readyState === 'loading') {
