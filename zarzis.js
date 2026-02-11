@@ -36,23 +36,6 @@
     updateThemeToggle(next);
   }
 
-  function updateGreeting() {
-    var hour = new Date().getHours();
-    var subtitle = document.querySelector('.site-subtitle');
-
-    if (subtitle) {
-      if (hour >= 5 && hour < 12) {
-        subtitle.textContent = 'Where dawn meets the horizon';
-      } else if (hour >= 12 && hour < 17) {
-        subtitle.textContent = 'Where sun kisses the sea';
-      } else if (hour >= 17 && hour < 20) {
-        subtitle.textContent = 'Where thoughts meet the horizon';
-      } else {
-        subtitle.textContent = 'Where stars dance on waves';
-      }
-    }
-  }
-
   function setActiveNav() {
     var path = window.location.pathname;
     var links = document.querySelectorAll('.site-nav a');
@@ -271,7 +254,6 @@
 
   function init() {
     initTheme();
-    updateGreeting();
     setActiveNav();
 
     var toggle = document.getElementById('theme-toggle');
