@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nessimbena.github.io/</loc>
+    <lastmod>2025-12-21</lastmod>
   </url>
-
+  <url>
+    <loc>https://nessimbena.github.io/blog.html</loc>
+    <lastmod>2025-12-21</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/projects.html</loc>
+    <lastmod>2025-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/blogposts/sunk-cost-fallacy-knowledge-acquisition.html</loc>
+    <lastmod>2025-12-21</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/blogposts/mitigating-claude-code-reward-hacking.html</loc>
+    <lastmod>2025-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/blogposts/llm-benchmarking.html</loc>
+    <lastmod>2025-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/blogposts/aisoftwareengineers.html</loc>
+    <lastmod>2024-12-01</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/projects/llm-knowledge-graphs.html</loc>
+    <lastmod>2025-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/projects/llm-benchmarking-results.html</loc>
+    <lastmod>2025-05-01</lastmod>
+  </url>
 </urlset>
