@@ -4,16 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>LLM Knowledge Graph Visualizations | Nessim Ben Abbes</title>
+  <meta property="og:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
   <link rel="stylesheet" href="../index.css" />
   <style>
-    .image-gallery img {
+    .image-gallery img,
+    .image-gallery picture img {
       max-width: 100%;
       margin: 1.5rem 0;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
       cursor: pointer;
       transition: opacity 0.3s;
     }
-    .image-gallery img:hover {
+    .image-gallery img:hover,
+    .image-gallery picture img:hover {
       opacity: 0.9;
     }
     .image-section {
@@ -78,7 +83,44 @@
 </head>
 <body>
   <div class="book-container">
-    <div id="header"></div>
+    <header class="site-header">
+      <div class="header-top">
+        <div>
+          <h1 class="site-title">Nessim Ben Abbes</h1>
+          <p class="site-subtitle">Wir müssen wissen – wir werden wissen</p>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label">Light</span>
+        </button>
+      </div>
+
+      <nav class="site-nav">
+        <a href="/index.html">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/blog.html">Blog</a>
+      </nav>
+
+      <div class="social-links">
+        <a href="https://github.com/NessimBenA" target="_blank" rel="noopener">Github</a>
+        <a href="https://www.linkedin.com/in/nessim-ben-abbes-768a98217/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://bsky.app/profile/nessim.bsky.social" target="_blank" rel="noopener">BlueSky</a>
+        <a href="../cv.pdf">CV</a>
+      </div>
+    </header>
 
     <article>
       <h1>LLM Knowledge Graph Visualizations</h1>
@@ -90,13 +132,22 @@
 
         <h3>Engineering & Applied Sciences Knowledge Graphs</h3>
         <div class="image-gallery">
-          <img src="../images/Engineering_&_Applied_Sciences_openaigpt-4.1_retry_4.png" alt="Engineering & Applied Sciences Knowledge Graph - GPT 4.1" />
+          <picture>
+            <source srcset="../images/Engineering_&_Applied_Sciences_openaigpt-4.1_retry_4.webp" type="image/webp" />
+            <img src="../images/Engineering_&_Applied_Sciences_openaigpt-4.1_retry_4.png" alt="Engineering & Applied Sciences Knowledge Graph - GPT 4.1" />
+          </picture>
         </div>
 
         <h3>Physical Sciences Knowledge Graphs</h3>
         <div class="image-gallery">
-          <img src="../images/image.png" alt="Physical Sciences Knowledge Graph - Gemini 2.5 Pro Exp preview 03-25" />
-          <img src="../images/Physical_Sciences_openaio4-mini-high_retry_5.png" alt="Physical Sciences Knowledge Graph - O4 Mini High" />
+          <picture>
+            <source srcset="../images/image.webp" type="image/webp" />
+            <img src="../images/image.png" alt="Physical Sciences Knowledge Graph - Gemini 2.5 Pro Exp preview 03-25" />
+          </picture>
+          <picture>
+            <source srcset="../images/Physical_Sciences_openaio4-mini-high_retry_5.webp" type="image/webp" />
+            <img src="../images/Physical_Sciences_openaio4-mini-high_retry_5.png" alt="Physical Sciences Knowledge Graph - O4 Mini High" />
+          </picture>
         </div>
       </div>
     </article>
@@ -113,21 +164,14 @@
     </div>
   </div>
 
-  <script>
-    fetch('../header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
-  </script>
   <script src="../zarzis.js"></script>
   <script>
     window.onload = function() {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-image');
-      const closeBtn = document.querySelector('.close-lightbox');
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-image');
+      var closeBtn = document.querySelector('.close-lightbox');
 
-      const galleryImages = document.querySelectorAll('.image-gallery img');
+      var galleryImages = document.querySelectorAll('.image-gallery img');
 
       galleryImages.forEach(function(image) {
         image.onclick = function() {
