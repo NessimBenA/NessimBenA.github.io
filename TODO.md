@@ -1,52 +1,43 @@
-# Site Quality Upgrade TODO
+# Navigation Redesign: Home / Research / Opinion
 
-## Step 1: Image Compression
-- [x] Convert 3 large PNGs to WebP using ImageMagick
+## Step 1: Add .sub-links styles to index.css
+- [ ] Add .sub-links row styles for research page
 
-## Step 2: Rewrite index.css
-- [x] Add Source Serif 4 font import
-- [x] Increase base font to 18px desktop
-- [x] Refine heading hierarchy with serif font
-- [x] Widen line-height to 1.8
-- [x] Add category tag pill styles
-- [x] Add blog filter tab styles
-- [x] Add filter transition animations
-- [x] Add triple-dot hr divider
-- [x] Add reading-time and back-link styles
-- [x] Add page-top gradient border
-- [x] Refine selection colors, scrollbar, pre/code blocks
-- [x] Smoother transitions (0.3s ease)
-- [x] More generous section spacing
-- [x] Active nav indicator styles
-- [x] Latest posts section styles for homepage
+## Step 2: Update zarzis.js
+- [ ] Remove initBlogFilters() function
+- [ ] Remove initBlogFilters() call from init()
+- [ ] Update setActiveNav() for new paths
 
-## Step 3: Rewrite zarzis.js
-- [x] Remove setInterval polling for theme toggle
-- [x] Remove duplicate initTheme() at line 267
-- [x] Add initBlogFilters() function with URL hash support
-- [x] Add setActiveNav() function
-- [x] Simplify init() function
+## Step 3: Create research.html
+- [ ] Page with 2 research entries, sub-links for LLM Benchmarking
 
-## Step 4: Update header.html
-- [x] Add target="_blank" rel="noopener" to external links
+## Step 4: Create opinion.html
+- [ ] Page with 2 opinion posts
 
-## Step 5: Update HTML pages (inline header, og:image, copyright)
-- [x] index.html (+ typo fixes, latest posts section, RSS link)
-- [x] blog.html (+ category filter tabs, data attributes)
-- [x] projects.html
-- [x] blogposts/sunk-cost-fallacy-knowledge-acquisition.html
-- [x] blogposts/mitigating-claude-code-reward-hacking.html
-- [x] blogposts/llm-benchmarking.html
-- [x] blogposts/aisoftwareengineers.html
-- [x] projects/llm-knowledge-graphs.html (+ picture elements)
-- [x] projects/llm-benchmarking-results.html
-- [x] projects/project1.html
+## Step 5: Convert blog.html to redirect
+- [ ] Meta refresh redirect to /opinion.html
 
-## Step 6: Create feed.xml
-- [x] Atom feed with all 4 blog posts
+## Step 6: Convert projects.html to redirect
+- [ ] Meta refresh redirect to /research.html
 
-## Step 7: Create 404.html
-- [x] Custom not-found page matching site theme
+## Step 7: Update index.html
+- [ ] Nav links to /research.html and /opinion.html
+- [ ] Change Claude Code post tag from Opinion to Research
 
-## Step 8: Update sitemap.xml
-- [x] All pages with lastmod dates
+## Step 8: Update blog post nav links (4 files)
+- [ ] sunk-cost-fallacy-knowledge-acquisition.html
+- [ ] mitigating-claude-code-reward-hacking.html
+- [ ] llm-benchmarking.html
+- [ ] aisoftwareengineers.html
+
+## Step 9: Update project sub-page nav links (2 files)
+- [ ] llm-knowledge-graphs.html
+- [ ] llm-benchmarking-results.html
+
+## Step 10: Update 404.html nav
+
+## Step 11: Delete projects/project1.html
+
+## Step 12: Update sitemap.xml
+- [ ] Add research.html and opinion.html
+- [ ] Remove blog.html and projects.html entries
