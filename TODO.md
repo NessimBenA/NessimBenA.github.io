@@ -55,3 +55,18 @@ LingDong-/shan-shui-inf (MIT), journeying through Gafsa, Kebili and Zarzis.
 - [x] Re-check the setting every frame so toggling it applies without a reload
 - [x] Verified over DevTools protocol: 40 px/s normal, 10 px/s reduced, 0 exceptions
 - [x] Push to main
+
+# Revision: site aesthetics matched to the ink landscape
+
+## Step 11: Update index.css
+- [ ] Replace the sunset/sea palette with rice paper, three ink tones and one seal-vermilion accent (light and dark)
+- [ ] Remove the coral-to-blue gradient bar at the top
+- [ ] Brush-stroke rules for the header divider, h2 underline, footer divider and hr (CSS masks, theme-aware)
+- [ ] Post cards: semi-opaque paper, vertical brush stroke on the left, no orange glow
+- [ ] Serif body text; sans kept for nav, dates, tags, TOC and footer; dates as tracked small caps instead of monospace
+- [ ] Monochrome category tags, ink links with wash underlines, neutral shadows, ink selection colour
+- [ ] Paper halo behind TOC text for legibility over the landscape
+
+## Step 12: Verify and deploy
+- [ ] Screenshots: home, article and opinion pages in light and dark, plus mobile
+- [ ] Push to main
