@@ -6,16 +6,12 @@
   var CHUNK = 400;
   var LEAD = 900;
   var REACH = 420;
-  var REGION_LEN = 4200;
+  var REGION_LEN = 2000;
   var CENTER = 520;
-  var DRIFT = 12;
+  var DRIFT = 24;
   var STORE = 'landscape-journey';
 
-  var REGIONS = [
-    { key: 'gafsa', latin: 'Gafsa', arabic: 'قفصة' },
-    { key: 'kebili', latin: 'Kebili', arabic: 'قبلي' },
-    { key: 'zarzis', latin: 'Zarzis', arabic: 'جرجيس' }
-  ];
+  var REGIONS = ['gafsa', 'kebili', 'zarzis'];
 
   var LAYERS = [
     { f: 0.5, shift: 1, base: [400, 426, 402], amp: [10, 5, 0] },
@@ -222,13 +218,13 @@
     var p = J / REGION_LEN;
     p = ((p % 3) + 3) % 3;
     var k = Math.floor(p) % 3, f = p - Math.floor(p);
-    var t = f < 0.72 ? 0 : smooth((f - 0.72) / 0.28);
+    var t = f < 0.6 ? 0 : smooth((f - 0.6) / 0.4);
     return { k: k, n: (k + 1) % 3, t: t };
   }
 
   function pickRegion(L, x) {
     var g = regionAt(journey(L, x));
-    return rnd() < g.t ? g.n : g.k;
+    return rnd() < g.t ? { r: g.n, w: g.t } : { r: g.k, w: 1 - g.t };
   }
 
   function groundY(L, x) {
@@ -667,13 +663,13 @@
 
   function spawnFar(items, x0, x1) {
     for (var x = x0; x < x1; x += 50) {
-      var reg = pickRegion(0, x), xx = x + rand(0, 50), gy = groundY(0, xx);
+      var pr = pickRegion(0, x), reg = pr.r, g = 0.35 + 0.65 * pr.w, xx = x + rand(0, 50), gy = groundY(0, xx);
       if (reg === 0 && rnd() < 0.22) {
         var w = rand(260, 720), deep = rnd() < 0.5;
-        put(items, deep ? 0 : 1, jebel, [xx, gy + (deep ? -6 : 4), w, rand(70, 200) * Math.sqrt(w / 600), deep ? 1 : 0]);
+        put(items, deep ? 0 : 1, jebel, [xx, gy + (deep ? -6 : 4), w, rand(70, 200) * Math.sqrt(w / 600) * g, deep ? 1 : 0]);
       }
       if (reg === 1) {
-        if (rnd() < 0.035) put(items, 0, jebel, [xx, gy - 2, rand(500, 900), rand(22, 48), 1]);
+        if (rnd() < 0.035) put(items, 0, jebel, [xx, gy - 2, rand(500, 900), rand(22, 48) * g, 1]);
         if (rnd() < 0.16) put(items, 3, grove, [xx, gy, 3 + Math.floor(rnd() * 6), 9, 16, 22]);
       }
       if (reg === 2) {
@@ -687,9 +683,9 @@
 
   function spawnMid(items, x0, x1) {
     for (var x = x0; x < x1; x += 50) {
-      var reg = pickRegion(1, x), xx = x + rand(0, 50), gy = groundY(1, xx), k;
+      var pr = pickRegion(1, x), reg = pr.r, g = 0.35 + 0.65 * pr.w, xx = x + rand(0, 50), gy = groundY(1, xx), k;
       if (reg === 0) {
-        if (rnd() < 0.11) put(items, gy - 100, mesa, [xx, gy + 3, rand(140, 340), rand(60, 150)]);
+        if (rnd() < 0.11) put(items, gy - 100, mesa, [xx, gy + 3, rand(140, 340) * (0.6 + 0.4 * g), rand(60, 150) * g]);
         if (rnd() < 0.15) put(items, gy + 4, rock, [xx, gy + rand(2, 8), rand(8, 22), rand(5, 13)]);
         if (rnd() < 0.08) put(items, gy + 2, grove, [xx, gy + 2, 3 + Math.floor(rnd() * 5), 40, 75, 30]);
         if (rnd() < 0.3) put(items, gy + 6, tuft, [xx, gy + rand(2, 12), rand(5, 9)]);
@@ -700,7 +696,7 @@
           var cy = gy + rand(3, 115);
           put(items, -10000, wave, [xx + rand(-20, 20), cy, rand(15, 140) * (0.5 + (cy - gy) / 110), rnd() < 0.3 ? 4 : 5, rand(0.3, 0.8)]);
         }
-        if (rnd() < 0.07) put(items, gy - 50, dune, [xx, gy + 2, rand(220, 480), rand(25, 70)]);
+        if (rnd() < 0.07) put(items, gy - 50, dune, [xx, gy + 2, rand(220, 480), rand(25, 70) * g]);
         if (rnd() < 0.05) put(items, gy - 60, mirage, [xx, gy]);
         if (rnd() < 0.08) put(items, gy + 2, grove, [xx, gy + 2, 3 + Math.floor(rnd() * 6), 35, 70, 35]);
         if (rnd() < 0.025) {
@@ -730,25 +726,25 @@
 
   function spawnNear(items, x0, x1) {
     for (var x = x0; x < x1; x += 50) {
-      var reg = pickRegion(2, x), xx = x + rand(0, 50), gy = groundY(2, xx), b;
+      var pr = pickRegion(2, x), reg = pr.r, g = 0.35 + 0.65 * pr.w, xx = x + rand(0, 50), gy = groundY(2, xx), b;
       if (rnd() < 0.3) put(items, -10000, wave, [xx, gy + rand(4, 34), rand(6, 20), 4, 0.5]);
       if (reg === 0) {
         if (rnd() < 0.55) { b = gy + rand(0, 22); put(items, b, tuft, [xx, b, rand(9, 18)]); }
         if (rnd() < 0.12) { b = gy + rand(0, 18); var rw = rand(16, 46); put(items, b, rock, [xx, b, rw, rw * rand(0.5, 0.8)]); }
-        if (rnd() < 0.045) { b = gy + rand(0, 10); put(items, b, palm, [xx, b, rand(170, 250), rand(-0.12, 0.12), true]); }
+        if (rnd() < 0.045) { b = gy + rand(0, 10); put(items, b, palm, [xx, b, rand(170, 250) * g, rand(-0.12, 0.12), true]); }
         if (rnd() < 0.03) { b = gy + rand(2, 16); put(items, b, opuntia, [xx, b, rand(40, 60)]); }
         if (rnd() < 0.012) { b = gy + rand(2, 8); put(items, b, koubba, [xx, b, rand(40, 60)]); }
       }
       if (reg === 1) {
-        if (rnd() < 0.38) { b = gy + rand(-4, 16); put(items, b, palm, [xx, b, rand(130, 290), rand(-0.12, 0.12), true]); }
+        if (rnd() < 0.38) { b = gy + rand(-4, 16); put(items, b, palm, [xx, b, rand(130, 290) * g, rand(-0.12, 0.12), true]); }
         if (rnd() < 0.12) { b = gy + rand(0, 20); put(items, b, palm, [xx, b, rand(22, 42), rand(-0.3, 0.3), true]); }
         if (rnd() < 0.025) { b = gy + rand(0, 6); put(items, b - 0.5, ksar, [xx, b, rand(120, 260), rand(30, 50)]); }
         if (rnd() < 0.015) { b = gy + rand(8, 24); put(items, b, camel, [xx, b, rand(70, 90), rnd() < 0.5 ? 1 : -1, rnd() < 0.7]); }
         if (rnd() < 0.15) { b = gy + rand(0, 22); put(items, b, tuft, [xx, b, rand(8, 14)]); }
       }
       if (reg === 2) {
-        if (rnd() < 0.35) { b = gy + rand(-3, 18); put(items, b, olive, [xx, b, rand(65, 125)]); }
-        if (rnd() < 0.045) { b = gy + rand(0, 10); put(items, b, palm, [xx, b, rand(180, 250), rand(-0.1, 0.1), true]); }
+        if (rnd() < 0.35) { b = gy + rand(-3, 18); put(items, b, olive, [xx, b, rand(65, 125) * (0.5 + 0.5 * g)]); }
+        if (rnd() < 0.045) { b = gy + rand(0, 10); put(items, b, palm, [xx, b, rand(180, 250) * g, rand(-0.1, 0.1), true]); }
         if (rnd() < 0.03) { b = gy + rand(0, 6); put(items, b - 0.5, house, [xx, b, rand(40, 70)]); }
         if (rnd() < 0.03) { b = gy + rand(2, 16); put(items, b, opuntia, [xx, b, rand(40, 60)]); }
         if (rnd() < 0.15) put(items, -9000, wave, [xx, gy + rand(3, 24), rand(40, 140), 4, 0.5]);
@@ -775,7 +771,7 @@
     return sh;
   }
 
-  var state = { s: 0, scale: 1, top: 0, W: 0, layers: [], seal: null, region: -1, last: 0, sealAt: 0 };
+  var state = { s: 0, scale: 1, top: 0, W: 0, layers: [], last: 0 };
 
   function place(svg, i) {
     var sc = state.scale;
@@ -841,27 +837,10 @@
     });
   }
 
-  function updateSeal() {
-    var g = regionAt(state.s + state.W / state.scale / 2), k = g.t < 0.5 ? g.k : g.n, seal = state.seal;
-    if (k === state.region) return;
-    var first = state.region < 0;
-    state.region = k;
-    seal.classList.remove('visible');
-    setTimeout(function() {
-      seal.firstChild.textContent = REGIONS[k].arabic;
-      seal.lastChild.textContent = REGIONS[k].latin;
-      seal.classList.add('visible');
-    }, first ? 0 : 700);
-  }
-
   function loop(now) {
     if (state.last) state.s += DRIFT * Math.min(0.1, (now - state.last) / 1000);
     state.last = now;
     update(1);
-    if (now - state.sealAt > 500) {
-      state.sealAt = now;
-      updateSeal();
-    }
     requestAnimationFrame(loop);
   }
 
@@ -876,13 +855,7 @@
       root.appendChild(el);
       state.layers.push({ el: el, chunks: {} });
     }
-    var seal = document.createElement('div');
-    seal.className = 'landscape-seal';
-    seal.setAttribute('aria-hidden', 'true');
-    seal.innerHTML = '<span lang="ar" dir="rtl"></span><span></span>';
-    state.seal = seal;
     document.body.insertBefore(root, document.body.firstChild);
-    document.body.appendChild(seal);
   }
 
   function init() {
@@ -891,11 +864,10 @@
     N = makeNoise(mulberry(seed));
     build();
     measure();
-    var start = REGIONS.map(function(r) { return r.key; }).indexOf(new URLSearchParams(window.location.search).get('landscape'));
-    if (start >= 0) state.s = start * REGION_LEN + REGION_LEN * 0.3 - state.W / state.scale / 2;
+    var start = REGIONS.indexOf(new URLSearchParams(window.location.search).get('landscape'));
+    if (start >= 0) state.s = (start + 3) * REGION_LEN - REGION_LEN * 0.2 - state.W / state.scale / 2;
     else state.s = saved ? saved.s : Math.random() * REGION_LEN * 3;
     update(0);
-    updateSeal();
     window.addEventListener('resize', function() {
       measure();
       update(0);
