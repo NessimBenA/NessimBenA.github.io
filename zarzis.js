@@ -252,6 +252,14 @@
     popup.style.left = left + 'px';
   }
 
+  function loadLandscape() {
+    var self = document.querySelector('script[src$="zarzis.js"]');
+    if (!self) return;
+    var script = document.createElement('script');
+    script.src = self.src.replace(/zarzis\.js$/, 'landscape.js');
+    document.body.appendChild(script);
+  }
+
   function init() {
     initTheme();
     setActiveNav();
@@ -263,6 +271,7 @@
 
     generateTOC();
     initPopups();
+    loadLandscape();
   }
 
   if (document.readyState === 'loading') {
