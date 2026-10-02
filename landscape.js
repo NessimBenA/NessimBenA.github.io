@@ -9,6 +9,7 @@
   var REGION_LEN = 2000;
   var CENTER = 520;
   var DRIFT = 24;
+  var GENTLE = 0.25;
   var STORE = 'landscape-journey';
 
   var REGIONS = ['gafsa', 'kebili', 'zarzis'];
@@ -771,7 +772,7 @@
     return sh;
   }
 
-  var state = { s: 0, scale: 1, top: 0, W: 0, layers: [], last: 0 };
+  var state = { s: 0, scale: 1, top: 0, W: 0, layers: [], last: 0, calm: null };
 
   function place(svg, i) {
     var sc = state.scale;
@@ -838,7 +839,7 @@
   }
 
   function loop(now) {
-    if (state.last) state.s += DRIFT * Math.min(0.1, (now - state.last) / 1000);
+    if (state.last) state.s += DRIFT * (state.calm.matches ? GENTLE : 1) * Math.min(0.1, (now - state.last) / 1000);
     state.last = now;
     update(1);
     requestAnimationFrame(loop);
@@ -875,7 +876,8 @@
     window.addEventListener('pagehide', function() {
       sessionStorage.setItem(STORE, JSON.stringify({ seed: seed, s: state.s }));
     });
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(loop);
+    state.calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    requestAnimationFrame(loop);
   }
 
   if (document.readyState === 'loading') {
