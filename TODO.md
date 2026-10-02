@@ -47,3 +47,11 @@ LingDong-/shan-shui-inf (MIT), journeying through Gafsa, Kebili and Zarzis.
 ## Step 9: Verify and deploy
 - [x] Headless Chrome screenshots of all three transitions
 - [x] Push to main
+
+# Revision: reduced-motion visitors
+
+## Step 10: Update landscape.js
+- [x] Drift at a quarter speed (about 10 px/s) instead of stopping when the system asks for reduced motion
+- [x] Re-check the setting every frame so toggling it applies without a reload
+- [x] Verified over DevTools protocol: 40 px/s normal, 10 px/s reduced, 0 exceptions
+- [x] Push to main
