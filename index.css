@@ -62,7 +62,6 @@
 
   --ls-ink: #2B2620;
   --ls-opacity: 0.6;
-  --ls-seal: #B23A2B;
 }
 
 [data-theme="dark"] {
@@ -86,7 +85,6 @@
 
   --ls-ink: #EADFCD;
   --ls-opacity: 0.38;
-  --ls-seal: #D0614F;
 }
 
 * {
@@ -190,50 +188,11 @@ body::before {
 .landscape .i4 { fill: currentColor; fill-opacity: 0.25; }
 .landscape .i5 { fill: currentColor; fill-opacity: 0.12; }
 
-.landscape-seal {
-  position: fixed;
-  left: var(--spacing-md);
-  bottom: var(--spacing-md);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 6px 7px 5px;
-  border: 1.5px solid var(--ls-seal);
-  border-radius: 3px;
-  color: var(--ls-seal);
-  font-family: var(--font-serif);
-  line-height: 1.1;
-  pointer-events: none;
-  opacity: 0;
-  transform: rotate(-3deg);
-  transition: opacity 0.7s ease;
-}
-
-.landscape-seal.visible {
-  opacity: 0.78;
-}
-
-.landscape-seal span:first-child {
-  font-size: var(--text-lg);
-}
-
-.landscape-seal span:last-child {
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 @media (max-width: 1100px) {
   .landscape {
     opacity: calc(var(--ls-opacity) * 0.5);
     -webkit-mask-image: none;
     mask-image: none;
-  }
-
-  .landscape-seal {
-    display: none;
   }
 }
 
@@ -949,8 +908,7 @@ img {
     color: black;
   }
 
-  .landscape,
-  .landscape-seal {
+  .landscape {
     display: none;
   }
 
