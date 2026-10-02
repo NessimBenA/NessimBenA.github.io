@@ -15,6 +15,7 @@ This repository hosts my personal GitHub Pages site, which includes the followin
 - `projects/`: Directory to store individual project HTML files.
 - `index.css`: Stylesheet for the website.
 - `index.js`: JavaScript file for additional functionality.
+- `landscape.js`: Procedural ink-wash landscape drifting behind every page, journeying through Gafsa, Kebili and Zarzis. Loaded by `zarzis.js`. Add `?landscape=gafsa`, `?landscape=kebili` or `?landscape=zarzis` to any URL to start in a given region.
 
 ## How to Add Content
 
@@ -24,6 +25,10 @@ This repository hosts my personal GitHub Pages site, which includes the followin
 ## License
 
 This project is licensed under the MIT License.
+
+## Credits
+
+The landscape background is inspired by [shan-shui-inf](https://github.com/LingDong-/shan-shui-inf) by Lingdong Huang (MIT License), adapted to the scenery of southern Tunisia.
 
 ## Author
 
