@@ -29,3 +29,21 @@ LingDong-/shan-shui-inf (MIT), journeying through Gafsa, Kebili and Zarzis.
 - [x] Headless Chrome screenshots: each region in light mode, Gafsa in dark mode, Kebili on mobile
 - [x] Check text readability and DOM size per region (live drift smoothness not measured)
 - [x] Push to main
+
+# Revision: continuous journey without place names
+
+## Step 6: Update landscape.js
+- [x] Remove the seal caption and its place names
+- [x] Shorten regions (4200 -> 2000 units) and double the drift speed, so each region passes in about 80 seconds
+- [x] Widen transition zones (28% -> 40% of a region) and scale landforms by region weight so one place morphs into the next
+- [x] `?landscape=` now starts the journey as it arrives in the named region
+
+## Step 7: Update index.css
+- [x] Remove seal styles and tokens
+
+## Step 8: Update README.md
+- [x] Describe the new `?landscape=` behaviour
+
+## Step 9: Verify and deploy
+- [x] Headless Chrome screenshots of all three transitions
+- [x] Push to main
