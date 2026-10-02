@@ -1,45 +1,31 @@
-# Navigation Redesign: Home / Research / Opinion
+# Southern Tunisia Ink Landscape Background
 
-## Step 1: Add .sub-links styles to index.css
-- [x] Add .sub-links row styles for research page
+Procedural ink-wash landscape drifting behind every page, in the spirit of
+LingDong-/shan-shui-inf (MIT), journeying through Gafsa, Kebili and Zarzis.
 
-## Step 2: Update zarzis.js
-- [x] Remove initBlogFilters() function
-- [x] Remove initBlogFilters() call from init()
-- [x] Update setActiveNav() for new paths
+## Step 1: Create landscape.js
+- [ ] Seeded PRNG and Perlin noise
+- [ ] Brush primitives: tapered strokes, dry-brush breaks, washes, consistent winding for merged paths
+- [ ] Three parallax layers (far / mid / near) built from deterministic chunks, created and recycled while drifting
+- [ ] Region weights along the journey with blended transitions: Gafsa -> Kebili -> Zarzis -> Gafsa
+- [ ] Gafsa: layered jebel ridges with strata and gullies, Tamerza-style canyon mesas, alfa grass, boulders, oasis palms, koubba
+- [ ] Kebili: Chott el Djerid salt flat with mirage reflections, dunes, Jebel Tebaga, dense palm groves, ksar walls, camel caravans
+- [ ] Zarzis: sea horizon, waves, flouka boats, olive groves, shore palms, white domed houses
+- [ ] Birds, seal-style place caption (Latin and Arabic)
+- [ ] Slow auto-drift, paused under prefers-reduced-motion, journey position kept across pages for the session
 
-## Step 3: Create research.html
-- [x] Page with 2 research entries, sub-links for LLM Benchmarking
+## Step 2: Update index.css
+- [ ] Landscape layer, ink and paper tokens for light and dark themes
+- [ ] Fade behind the text column, mobile treatment, hidden in print
+- [ ] Seal caption styles
 
-## Step 4: Create opinion.html
-- [x] Page with 2 opinion posts
+## Step 3: Update zarzis.js
+- [ ] Load landscape.js on every page that already loads zarzis.js
 
-## Step 5: Convert blog.html to redirect
-- [x] Meta refresh redirect to /opinion.html
+## Step 4: Credit
+- [ ] Credit shan-shui-inf (MIT) in README.md
 
-## Step 6: Convert projects.html to redirect
-- [x] Meta refresh redirect to /research.html
-
-## Step 7: Update index.html
-- [x] Nav links to /research.html and /opinion.html
-- [x] Change Claude Code post tag from Opinion to Research
-
-## Step 8: Update blog post nav links (4 files)
-- [x] sunk-cost-fallacy-knowledge-acquisition.html
-- [x] mitigating-claude-code-reward-hacking.html
-- [x] llm-benchmarking.html
-- [x] aisoftwareengineers.html
-
-## Step 9: Update project sub-page nav links (2 files)
-- [x] llm-knowledge-graphs.html
-- [x] llm-benchmarking-results.html
-
-## Step 10: Update 404.html nav
-- [x] Nav links to Research/Opinion
-
-## Step 11: Delete projects/project1.html
-- [x] Removed dead stub
-
-## Step 12: Update sitemap.xml
-- [x] Add research.html and opinion.html
-- [x] Remove blog.html and projects.html entries
+## Step 5: Verify and deploy
+- [ ] Headless Chrome screenshots: each region, light and dark, desktop and mobile
+- [ ] Check text readability and drift performance
+- [ ] Push to main
