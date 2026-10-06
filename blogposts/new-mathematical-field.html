@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A New Mathematical Field for a Different Way of Dealing with Problems | Nessim Ben Abbes</title>
+    <meta name="description" content="A case for a new mathematical field oriented toward meta-problems: what kinds of problems a general verifier can solve, and how the verifier sets the exchange rate between pretraining and test-time compute." />
+    <meta name="author" content="Nessim Ben Abbes" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://nessimbena.github.io/blogposts/new-mathematical-field.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="A New Mathematical Field for a Different Way of Dealing with Problems" />
+    <meta property="og:description" content="A case for a new mathematical field oriented toward meta-problems: what kinds of problems a general verifier can solve, and how the verifier sets the exchange rate between pretraining and test-time compute." />
+    <meta property="og:url" content="https://nessimbena.github.io/blogposts/new-mathematical-field.html" />
+    <meta property="og:site_name" content="Nessim Ben Abbes" />
+    <meta property="og:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
+    <meta property="article:author" content="Nessim Ben Abbes" />
+    <meta property="article:published_time" content="2026-10-05" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="A New Mathematical Field for a Different Way of Dealing with Problems" />
+    <meta name="twitter:description" content="A case for a new mathematical field oriented toward meta-problems, and how the verifier sets the exchange rate between pretraining and test-time compute." />
+    <meta name="twitter:image" content="https://nessimbena.github.io/images/overall_model_performance_ranking.png" />
+    <link rel="alternate" type="application/atom+xml" title="Nessim Ben Abbes - Feed" href="/feed.xml" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "A New Mathematical Field for a Different Way of Dealing with Problems",
+        "description": "A case for a new mathematical field oriented toward meta-problems: what kinds of problems a general verifier can solve, and how the verifier sets the exchange rate between pretraining and test-time compute.",
+        "author": {"@type": "Person", "name": "Nessim Ben Abbes"},
+        "datePublished": "2026-10-05",
+        "publisher": {"@type": "Person", "name": "Nessim Ben Abbes"}
+    }
+    </script>
+    <link rel="stylesheet" href="../index.css" />
+</head>
+<body>
+    <div class="book-container">
+        <header class="site-header">
+            <div class="header-top">
+                <div>
+                    <h1 class="site-title">Nessim Ben Abbes</h1>
+                    <p class="site-subtitle">Wir müssen wissen – wir werden wissen</p>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span class="theme-label">Light</span>
+                </button>
+            </div>
+
+            <nav class="site-nav">
+                <a href="/index.html">Home</a>
+                <a href="/research.html">Research</a>
+                <a href="/opinion.html">Opinion</a>
+            </nav>
+
+            <div class="social-links">
+                <a href="https://github.com/NessimBenA" target="_blank" rel="noopener">Github</a>
+                <a href="https://www.linkedin.com/in/nessim-ben-abbes-768a98217/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://bsky.app/profile/nessim.bsky.social" target="_blank" rel="noopener">BlueSky</a>
+                <a href="../cv.pdf">CV</a>
+            </div>
+        </header>
+
+        <article>
+            <h1>A New Mathematical Field for a Different Way of Dealing with Problems</h1>
+            <div class="article-meta">
+                <span class="post-date">October 2026</span>
+                <span class="category-tag research">Research</span>
+                <span class="reading-time">9 min read</span>
+            </div>
+
+            <p>The mathematics field is living through a crisis. AI models have solved a Millennium Prize Problem <a class="cite" href="#ref-1">[1]</a>, along with other problems of comparable weight but without the prestige <a class="cite" href="#ref-2">[2]</a>, and the field has been thrown into a frenzy <a class="cite" href="#ref-3">[3]</a>. The pure math folk live in a certain bubble, and if you have never been inside it, it is very hard to appreciate. Mathematical advances generally have civilizational implications, but that isn't what motivates mathematicians. What motivates them is closer to why artists do what they do: for every mathematician, the job is first and foremost an artistic adventure, in which beauty, complexity and elegance are what counts <a class="cite" href="#ref-4">[4]</a>. A machine that bulldozes over these sentiments and produces ugly but correct statements defeats all of this. It is almost the perfect antithesis of what mathematicians live by. Still, while I understand the issues that such rapid advances raise, I believe that what makes mathematics special, its strong power of abstraction, can, if framed correctly, help us find a different way of dealing with science and problem solving.</p>
+
+            <p>The fundamental idea is this: LLMs and agentic systems have become extremely potent general problem solvers, yet problems themselves are not that easy to define.</p>
+
+            <p>Let me explain:</p>
+
+            <p>Complexity theory has done a lot of work classifying problems by the time needed to solve them <a class="cite" href="#ref-5">[5]</a>. It mostly deals with problems we already know can be solved, and asks how long they take. What I want is a field that asks not how much time a problem needs, but which problems can be solved at all and, more importantly, what decides how they can be solved: whether we know the target, whether we can measure progress toward it, and whether we know what we want. Gödel already made substantial progress on the first part of that question <a class="cite" href="#ref-6">[6]</a>: some true statements can never be proven inside a given formal system. The second part, what decides how problems can be solved, is still open. So we need a new mathematical field, one oriented toward meta-problems, that studies two questions: What kinds of problems can a general verifier solve? And how do we go about verifying the answers that come from a stochastic general verifier?<sup class="note-mark">*</sup></p>
+
+            <p class="note"><span class="note-mark">*</span>By “stochastic general verifier”, I mean a model that almost always gives the correct answer.</p>
+
+            <p>If such a field were developed, I think we could move into a new type of work, one that abstracts away many of the problems posed today, the same way calculators and simulators took over much of the mathematical work of the 19th century <a class="cite" href="#ref-7">[7]</a>. I have started thinking about laying its foundations, but the task has proven hard to crack.</p>
+
+            <p>Still, I think it is worth a try. I have started thinking about it as a way to classify problems.</p>
+
+            <p>I wanted a new way of reading problems, one that fits what I observe every day, both in AI's advances and in my own research in mathematical deep learning.</p>
+
+            <p>I will start with the most general case. Take any problem we want to solve:</p>
+
+            <p>Either we know what the target is, meaning what we would accept as a solution<sup class="note-mark">†</sup>, or we don't.</p>
+
+            <p>Either we know how to measure progress towards it, or we don't.</p>
+
+            <p>Either we know what we want, or we don't.</p>
+
+            <p class="note"><span class="note-mark">†</span>That is, a proposition that satisfies a certain property.</p>
+
+            <p>Three points fall out of this. Starting with the last, knowing what we want lies almost completely outside the computational substrate that LLMs have access to: it is, fundamentally, what a human or a group of humans wants, what they want to build, prove, disprove, and so on. This is elementary, but very important: the Navier–Stokes Millennium Problem was solved because OpenAI, meaning humans, pointed compute at it <a class="cite" href="#ref-1">[1]</a>. This means that a big part of the solution space we will create depends on where we choose to look for answers.</p>
+
+            <p>The second point is verification, and it is the most interesting one. Lean, for example, holds a big promise for automating mathematical proofs <a class="cite" href="#ref-8">[8]</a>. That wasn't Lean's goal: it was meant to help with correctness and collaboration, because, after all, mathematicians, and scientists in general, value understanding, not production. Still, it gives models access to a cheap verifier when they take on complex problems.</p>
+
+            <p>Code is another clear example of cheap verification: the computer itself, through the compiler, is the verifier. If the program compiles and computes the right thing, it works. But notice that, in paperclip-maximizer fashion <a class="cite" href="#ref-13">[13]</a>, a model pursuing the answer may leave artifacts along the way, as we saw with the recent Astra coding style <a class="cite" href="#ref-9">[9]</a>.</p>
+
+            <p>Chess and Go engines are other simple verifiers.</p>
+
+            <p>Verification also lets us separate two cases. In the first, partial rewards show how far we are from solving the problem. When optimizing the loss in autoresearch <a class="cite" href="#ref-10">[10]</a>, for example, we can see our progress in percentage points, and how far we are from a theoretical limit, if one has been established. In the second, for problems like chemical processes or mathematical proofs, we don't really have a way to measure partial progress (that is itself a problem worth studying, but not one I will go into here): the verifier only certifies whether a complete solution is right or wrong. Multi-agent systems, with their parallel search and shared discussion, seem to help here: Noam Brown of OpenAI recently argued on the Dwarkesh Podcast that searching such a space of solutions needs agents working in parallel, and would not work otherwise, especially for open-ended problems <a class="cite" href="#ref-12">[12]</a>.</p>
+
+            <p>Partial rewards matter for a simple reason: they tell us how far we are from the complete goal, how far we have come from failure, and how much progress is still left.</p>
+
+            <p>All of this, of course, assumes we have access to a verifier, which is not always true. For some physics theories, or for human desires, we can't easily measure how well our theories, or an LLM's, hold up.</p>
+
+            <p>This ties back nicely to the first point: a verifier is itself a way of specifying the target. Either we know how to recognize the answer, and thus know what we are looking for, or we don't.</p>
+
+            <p>I tried to write down what I've just said formally, to see whether studying it as a systems problem could help us understand what we are seeing, and I kept iterating until I converged on something simple enough to study easily, but robust enough to really capture the idea.</p>
+
+            <p>The simplest version goes like this. We have a finite set of possible answers, and somewhere among them, a target. A model goes through the possible answers by generating them, and an external verifier gives it a signal about each one. Either the model converges on the target, or it doesn't. Two things decide whether it gets there: what the model already knows, which narrows down the possible answers before it starts, and how many times it is allowed to ask the verifier.</p>
+
+            <p>What matters then is how much each check tells the model, and three basic cases fall out. If the verifier says nothing, no number of checks helps: the model can only rely on what it already knows. This is where human desires sit, and it is why I believe access to data about them matters so much; it gives social media platforms working on these models a special position. If the verifier only says right or wrong, each check rules out a single answer, so every time the model doubles its number of checks, it only gains one bit; proofs and passwords are like this. If the verifier says closer or further, each check cuts the remaining answers in half; optimizing a loss is like this (this is, of course, a very neat oversimplification of reality).</p>
+
+            <p>What I really like is the tradeoff between pretraining and test-time compute that shows up here, even in this abstract form. A model has two ways to close the distance to the target: it can already know where to look, which is what pretraining gives it, or it can search, which is what test-time compute buys. The verifier sets the exchange rate between the two.</p>
+
+            <p>Take a number between one and a million that the model has to find. If the verifier only says right or wrong, the model may need up to a million checks. Every bit of knowledge it brings from pretraining halves the candidates, and so halves the checks: knowing 10 bits about the answer brings a million checks down to about a thousand. Here, knowledge is worth far more than search. If the verifier says closer or further, the model needs only about 20 checks, even when it knows nothing. Each bit of knowledge then saves just one check, so search is cheap. And if the verifier says nothing, test-time compute buys nothing at all: whatever the model brings, it brought from training.</p>
+
+            <p>In practice, this means that for problems with only a final verdict, like proofs, what a model learned in pretraining matters most, while for problems with a graded signal, like optimizing a loss, search does most of the work.</p>
+
+            <p>Mathematically, this gives us the following:</p>
+
+            <figure class="verifier-figure" aria-labelledby="verifier-figure-title">
+                <div class="vf-head">
+                    <p class="vf-title" id="verifier-figure-title">What ten checks are worth depends on what the verifier says</p>
+                    <p class="vf-subtitle">Strength: the most possible answers among which ten checks are sure to find the target</p>
+                </div>
+                <div class="vf-row vf-row-head">
+                    <p class="vf-colhead">Strength after ten checks</p>
+                </div>
+                <div class="vf-row">
+                    <p class="vf-box">Model</p>
+                    <div class="vf-exchange">
+                        <p class="vf-label">tries an answer</p>
+                        <span class="vf-arrow vf-arrow-right" aria-hidden="true"></span>
+                        <span class="vf-arrow vf-arrow-left" aria-hidden="true"></span>
+                        <p class="vf-label vf-reply">nothing</p>
+                    </div>
+                    <p class="vf-box">Verifier</p>
+                    <p class="vf-result"><strong>1 answer</strong><span>0 bits</span></p>
+                </div>
+                <div class="vf-row">
+                    <p class="vf-box">Model</p>
+                    <div class="vf-exchange">
+                        <p class="vf-label">tries an answer</p>
+                        <span class="vf-arrow vf-arrow-right" aria-hidden="true"></span>
+                        <span class="vf-arrow vf-arrow-left" aria-hidden="true"></span>
+                        <p class="vf-label vf-reply">right or wrong</p>
+                    </div>
+                    <p class="vf-box">Verifier</p>
+                    <p class="vf-result"><strong>11 answers</strong><span>about 3.5 bits</span></p>
+                </div>
+                <div class="vf-row">
+                    <p class="vf-box">Model</p>
+                    <div class="vf-exchange">
+                        <p class="vf-label">tries an answer</p>
+                        <span class="vf-arrow vf-arrow-right" aria-hidden="true"></span>
+                        <span class="vf-arrow vf-arrow-left" aria-hidden="true"></span>
+                        <p class="vf-label vf-reply">closer or further</p>
+                    </div>
+                    <p class="vf-box">Verifier</p>
+                    <p class="vf-result vf-result-strong"><strong>2,047 answers</strong><span>about 11 bits</span></p>
+                </div>
+                <figcaption>Model and verifier in three cases · strength after ten checks</figcaption>
+            </figure>
+
+            <p>With ten checks, a verifier that says right or wrong lets the model sort through 11 possible answers, and one that says closer or further lets it sort through 2,047.</p>
+
+            <p>This, I think, also explains why the writing quality of reasoning models degrades. Writing has no verifier, so reasoning longer buys nothing there, and reinforcement learning on code and math moves the model's weights without any signal about prose. Writing can only stay where pretraining left it, or drift, which looks like the same story as Astra's code style <a class="cite" href="#ref-9">[9]</a>.</p>
+
+            <p>In symbols: say the model brings <var>k</var> bits of knowledge from pretraining, can make <var>q</var> checks, and faces <var>N</var> possible answers. It can reach the target when</p>
+
+            <p class="equation" role="math" aria-label="k plus w of q is greater than or equal to log base 2 of N"><var>k</var> + <var>w</var>(<var>q</var>) ≥ log₂ <var>N</var></p>
+
+            <p>where <var>w</var>(<var>q</var>) is what <var>q</var> checks are worth: 0 if the verifier says nothing, log₂(<var>q</var> + 1) if it says right or wrong, and about <var>q</var> + 1 if it says closer or further. Writing is the first case. Since <var>w</var>(<var>q</var>) = 0 for every <var>q</var>, reasoning longer changes nothing, and only <var>k</var>, what pretraining put there, decides the outcome.</p>
+
+            <p>Finally, strong enough models will end up hacking their way to the target. If nothing in a problem says how the answer has to be found, only what it is, a model that is strong enough will use whichever channel tells it the most. That is what happened in OpenAI's Hugging Face incident, where agents running on an internal research model and on GPT-5.6 Sol broke out of their evaluation and went looking for the answers instead of working them out <a class="cite" href="#ref-11">[11]</a>.</p>
+
+            <p>Which brings me back to where I started. If this picture is right, every problem that comes with a cheap verifier will eventually be handed to machines, the same way arithmetic was handed to calculators. What remains is the case where the verifier says nothing: deciding what is worth proving, what is worth building, and what is beautiful. A model cannot search its way out of that one, because it is human desire, and it is exactly what drives mathematicians. Machines will produce the answers; someone still has to decide which questions matter, and to build the verifiers that let machines check them.</p>
+
+            <p>One thing is certain: in the coming years, we will need many more engineers and mathematicians.</p>
+
+            <h2>References</h2>
+
+            <ol class="references">
+                <li id="ref-1">OpenAI, <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener">“On the Navier–Stokes Millennium Prize Problem”</a>, 8 September 2026: an AI-generated proof, formalized in Lean, that an initially smooth 3D fluid driven by a smooth force can blow up in finite time. The Clay Mathematics Institute's <a href="https://www.claymath.org/news/navier-stokes-announcement" target="_blank" rel="noopener">Navier–Stokes announcement</a> (11 September 2026) says the problem “has apparently been settled”; its formal review is still under way.</li>
+                <li id="ref-2">T. Tao, <a href="https://terrytao.wordpress.com/2026/09/07/finite-time-blowup-with-smooth-forcing-term-for-the-incompressible-porous-medium-boussinesq-and-incompressible-euler-equations/" target="_blank" rel="noopener">“Finite time blowup with smooth forcing term for the incompressible porous medium, Boussinesq, and incompressible Euler equations”</a>, <em>What's new</em>, 7 September 2026, on L. Alpöge and T. Buckmaster's AI-assisted, Lean-formalized blowup proofs for these three equations. OpenAI's agents also settled the unforced Euler blowup question (see <a class="cite" href="#ref-1">[1]</a>).</li>
+                <li id="ref-3">25 Fields Medallists, <a href="https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/" target="_blank" rel="noopener">“A Severe Misalignment of AI in Mathematics”</a>, 11 September 2026; for the surrounding credit dispute, see <a href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy" target="_blank" rel="noopener">“Navier–Stokes priority controversy”</a>, Wikipedia.</li>
+                <li id="ref-4">G. H. Hardy, <em>A Mathematician's Apology</em>, Cambridge University Press, 1940: the classic case that beauty is the first test of mathematics.</li>
+                <li id="ref-5">J. Hartmanis and R. E. Stearns, “On the computational complexity of algorithms,” <em>Transactions of the American Mathematical Society</em> 117 (1965): 285–306; S. A. Cook, “The complexity of theorem-proving procedures,” <em>Proceedings of the 3rd ACM Symposium on Theory of Computing</em> (1971): 151–158.</li>
+                <li id="ref-6">K. Gödel, “Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I,” <em>Monatshefte für Mathematik und Physik</em> 38 (1931): 173–198. The first incompleteness theorem: any consistent, effectively axiomatized system that can express basic arithmetic has true statements it cannot prove.</li>
+                <li id="ref-7">D. A. Grier, <em>When Computers Were Human</em>, Princeton University Press, 2005: the history of the human “computers” whose hand calculation machines later took over.</li>
+                <li id="ref-8">L. de Moura, S. Kong, J. Avigad, F. van Doorn and J. von Raumer, “The Lean Theorem Prover (system description),” <em>Conference on Automated Deduction (CADE-25)</em>, 2015.</li>
+                <li id="ref-9">A. Ronacher, <a href="https://lucumr.pocoo.org/2026/9/7/astra-why/" target="_blank" rel="noopener">“Astra for Coding: Why Are We Doing This Again?”</a>, 7 September 2026: GPT-6 Astra's code drifting from human style when no one is checking readability.</li>
+                <li id="ref-10">A. Karpathy, <a href="https://github.com/karpathy/autoresearch" target="_blank" rel="noopener">autoresearch</a>, GitHub, March 2026: an agent that edits a training script, trains for five minutes, and keeps the change only if validation loss improves.</li>
+                <li id="ref-11">OpenAI, <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">“The Hugging Face incident and the road ahead”</a>, 26 August 2026.</li>
+                <li id="ref-12">D. Patel, <a href="https://www.dwarkesh.com/p/noam-brown" target="_blank" rel="noopener">“Noam Brown – Agent swarms, alignment, &amp; recursive self-improvement”</a>, <em>Dwarkesh Podcast</em>, 17 September 2026.</li>
+                <li id="ref-13">N. Bostrom, “Ethical Issues in Advanced Artificial Intelligence,” 2003: the paperclip maximizer, a thought experiment about an AI that pursues a simple goal at any cost.</li>
+            </ol>
+
+            <a href="/research.html" class="back-to-blog">&larr; Back to research</a>
+        </article>
+
+        <footer class="book-footer">
+            <p>&copy; 2026 Nessim Ben Abbes</p>
+        </footer>
+    </div>
+    <script src="../zarzis.js"></script>
+    <script data-goatcounter="https://nessim.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
