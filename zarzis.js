@@ -45,7 +45,8 @@
       '/projects/llm-knowledge-graphs.html',
       '/projects/llm-benchmarking-results.html',
       '/blogposts/llm-benchmarking.html',
-      '/blogposts/mitigating-claude-code-reward-hacking.html'
+      '/blogposts/mitigating-claude-code-reward-hacking.html',
+      '/blogposts/new-mathematical-field.html'
     ];
 
     var opinionPages = [
