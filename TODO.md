@@ -70,3 +70,27 @@ LingDong-/shan-shui-inf (MIT), journeying through Gafsa, Kebili and Zarzis.
 ## Step 12: Verify and deploy
 - [x] Screenshots: home, research, long article (light), opinion (dark), narrow viewport
 - [x] Push to main
+
+# New research article: A New Mathematical Field for a Different Way of Dealing with Problems
+
+Source: the author's Claude Doc "A New Kind of Mathematics" (text as pasted, figure node 3a42a03d-74b1).
+
+## Step 13: Create blogposts/new-mathematical-field.html
+- [ ] Full text as written, italics from the doc kept in references, citations linked to the reference list
+- [ ] Footnote notes (* and †) as small notes under their paragraphs
+- [ ] Equation k + w(q) >= log2 N typeset in the serif with italic variables
+- [ ] Figure redrawn from the doc's widget (same words and numbers) in ink tones with one vermilion accent, theme-aware, responsive
+- [ ] Meta, Open Graph and BlogPosting data dated 2026-10-05
+
+## Step 14: Update index.css
+- [ ] Figure, footnote, citation, equation and reference-list styles
+- [ ] Figure line tokens validated with the dataviz validator (light #857D71, dark #6E665B against the vermilion accent)
+
+## Step 15: List the article
+- [ ] research.html, index.html latest posts, feed.xml, sitemap.xml
+- [ ] zarzis.js: Research nav active on the new page
+
+## Step 16: Verify and publish
+- [ ] Screenshots of the article and figure in light, dark and narrow widths
+- [ ] Check reference links respond
+- [ ] Push to main and confirm the deploy
