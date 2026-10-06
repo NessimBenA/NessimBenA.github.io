@@ -76,21 +76,21 @@ LingDong-/shan-shui-inf (MIT), journeying through Gafsa, Kebili and Zarzis.
 Source: the author's Claude Doc "A New Kind of Mathematics" (text as pasted, figure node 3a42a03d-74b1).
 
 ## Step 13: Create blogposts/new-mathematical-field.html
-- [ ] Full text as written, italics from the doc kept in references, citations linked to the reference list
-- [ ] Footnote notes (* and †) as small notes under their paragraphs
-- [ ] Equation k + w(q) >= log2 N typeset in the serif with italic variables
-- [ ] Figure redrawn from the doc's widget (same words and numbers) in ink tones with one vermilion accent, theme-aware, responsive
-- [ ] Meta, Open Graph and BlogPosting data dated 2026-10-05
+- [x] Full text as written, italics from the doc kept in references, citations linked to the reference list
+- [x] Footnote notes (* and †) as small notes under their paragraphs
+- [x] Equation k + w(q) >= log2 N typeset in the serif with italic variables
+- [x] Figure redrawn from the doc's widget (same words and numbers) in ink tones with one vermilion accent, theme-aware, responsive
+- [x] Meta, Open Graph and BlogPosting data dated 2026-10-05
 
 ## Step 14: Update index.css
-- [ ] Figure, footnote, citation, equation and reference-list styles
-- [ ] Figure line tokens validated with the dataviz validator (light #857D71, dark #6E665B against the vermilion accent)
+- [x] Figure, footnote, citation, equation and reference-list styles
+- [x] Figure line tokens validated with the dataviz validator (light #857D71, dark #6E665B against the vermilion accent)
 
 ## Step 15: List the article
-- [ ] research.html, index.html latest posts, feed.xml, sitemap.xml
-- [ ] zarzis.js: Research nav active on the new page
+- [x] research.html, index.html latest posts, feed.xml, sitemap.xml
+- [x] zarzis.js: Research nav active on the new page
 
 ## Step 16: Verify and publish
-- [ ] Screenshots of the article and figure in light, dark and narrow widths
-- [ ] Check reference links respond
-- [ ] Push to main and confirm the deploy
+- [x] Screenshots of the article and figure in light, dark, 390px and 320px; text diffed against the doc export (identical apart from the byline, the figure labels and the typeset equation)
+- [x] Check reference links respond: 7 of 9 return 200; the two openai.com links sit behind a bot challenge and could not be checked automatically
+- [x] Push to main and confirm the deploy
