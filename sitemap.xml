@@ -2,15 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nessimbena.github.io/</loc>
-    <lastmod>2025-12-21</lastmod>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://nessimbena.github.io/research.html</loc>
-    <lastmod>2025-09-01</lastmod>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://nessimbena.github.io/opinion.html</loc>
     <lastmod>2025-12-21</lastmod>
+  </url>
+  <url>
+    <loc>https://nessimbena.github.io/blogposts/new-mathematical-field.html</loc>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://nessimbena.github.io/blogposts/sunk-cost-fallacy-knowledge-acquisition.html</loc>
