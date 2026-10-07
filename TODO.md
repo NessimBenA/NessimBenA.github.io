@@ -104,15 +104,15 @@ Source: the author's Claude Doc "A New Kind of Mathematics" (text as pasted, fig
 # Revision: social preview image for the meta-problems article
 
 ## Step 18: Create images/new-mathematical-field-card.png
-- [ ] 1200x630 card on rice paper: kicker, article title in the serif, brush-stroke rule, ink landscape from landscape.js fading up into mist
-- [ ] Render candidates for each region with headless Chrome, pick the clearest at thumbnail size
+- [x] 1200x630 card on rice paper: kicker, article title in the serif, brush-stroke rule, ink landscape from landscape.js fading up into mist
+- [x] Render candidates for each region with headless Chrome, pick the clearest at thumbnail size
 
 ## Step 19: Update blogposts/new-mathematical-field.html
-- [ ] og:image and twitter:image point to the card, with width, height and alt text; BlogPosting image
+- [x] og:image and twitter:image point to the card, with width, height and alt text; BlogPosting image
 
 ## Step 19b: Author corrections
-- [ ] Move the pretraining note next to the tradeoff paragraph, in the author's tighter wording
-- [ ] Publication date 2026-10-06, not 2026-10-05 (article meta, BlogPosting, feed.xml, sitemap.xml)
+- [x] Move the pretraining note next to the tradeoff paragraph, in the author's tighter wording
+- [x] Publication date 2026-10-06, not 2026-10-05 (article meta, BlogPosting, feed.xml, sitemap.xml)
 
 ## Step 20: Publish
-- [ ] Push to main, confirm the image and tags are served
+- [x] Push to main, confirm the image and tags are served
