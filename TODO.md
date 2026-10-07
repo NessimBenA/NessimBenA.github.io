@@ -116,3 +116,22 @@ Source: the author's Claude Doc "A New Kind of Mathematics" (text as pasted, fig
 
 ## Step 20: Publish
 - [x] Push to main, confirm the image and tags are served
+
+# Revision: matching social cards for the rest of the site
+
+Same template as the meta-problems card. Research pages use Gafsa, opinion pages use Kebili, the home page uses Zarzis; each card has its own seed.
+The LLM benchmarking post and its two project pages keep overall_model_performance_ranking.png, which is their own chart.
+
+## Step 21: Create the cards (one commit per image)
+- [ ] images/home-card.png: "Nessim Ben Abbes", Hilbert quote, Zarzis
+- [ ] images/research-card.png: "Research", Gafsa
+- [ ] images/opinion-card.png: "Opinion", Kebili
+- [ ] images/mitigating-claude-code-reward-hacking-card.png: Research, Gafsa
+- [ ] images/sunk-cost-fallacy-knowledge-acquisition-card.png: Opinion, Kebili
+- [ ] images/aisoftwareengineers-card.png: Opinion, Kebili
+
+## Step 22: Point each page at its card (one commit per page)
+- [ ] index.html, research.html, opinion.html, the three posts: og:image, twitter:image, size, alt text; BlogPosting image on posts
+
+## Step 23: Publish
+- [ ] Push to main, confirm every card is served and every page references it
