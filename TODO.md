@@ -94,3 +94,9 @@ Source: the author's Claude Doc "A New Kind of Mathematics" (text as pasted, fig
 - [x] Screenshots of the article and figure in light, dark, 390px and 320px; text diffed against the doc export (identical apart from the byline, the figure labels and the typeset equation)
 - [x] Check reference links respond: 7 of 9 return 200; the two openai.com links sit behind a bot challenge and could not be checked automatically
 - [x] Push to main and confirm the deploy
+
+# Revision: note on what pretraining and test-time mean
+
+## Step 17: Update blogposts/new-mathematical-field.html
+- [ ] Add the author's sentence after the opening paragraph: pretraining means the model's training as a whole (RL environments also instill new information), test-time means zero-shot inference compute
+- [ ] Push to main and confirm the deploy
