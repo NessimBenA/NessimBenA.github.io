@@ -98,5 +98,5 @@ Source: the author's Claude Doc "A New Kind of Mathematics" (text as pasted, fig
 # Revision: note on what pretraining and test-time mean
 
 ## Step 17: Update blogposts/new-mathematical-field.html
-- [ ] Add the author's sentence after the opening paragraph: pretraining means the model's training as a whole (RL environments also instill new information), test-time means zero-shot inference compute
-- [ ] Push to main and confirm the deploy
+- [x] Add the author's sentence after the opening paragraph: pretraining means the model's training as a whole (RL environments also instill new information), test-time means zero-shot inference compute
+- [x] Push to main and confirm the deploy
