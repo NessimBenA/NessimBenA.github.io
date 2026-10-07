@@ -100,3 +100,15 @@ Source: the author's Claude Doc "A New Kind of Mathematics" (text as pasted, fig
 ## Step 17: Update blogposts/new-mathematical-field.html
 - [x] Add the author's sentence after the opening paragraph: pretraining means the model's training as a whole (RL environments also instill new information), test-time means zero-shot inference compute
 - [x] Push to main and confirm the deploy
+
+# Revision: social preview image for the meta-problems article
+
+## Step 18: Create images/new-mathematical-field-card.png
+- [ ] 1200x630 card on rice paper: kicker, article title in the serif, brush-stroke rule, ink landscape from landscape.js fading up into mist
+- [ ] Render candidates for each region with headless Chrome, pick the clearest at thumbnail size
+
+## Step 19: Update blogposts/new-mathematical-field.html
+- [ ] og:image and twitter:image point to the card, with width, height and alt text; BlogPosting image
+
+## Step 20: Publish
+- [ ] Push to main, confirm the image and tags are served
